@@ -6,20 +6,26 @@ target 'BDDComicsList' do
   use_frameworks!
 
   # Pods for BDDComicsList
+  
+  abstract_target 'Tests' do
+      pod 'Quick'
+      pod 'Nimble'
+      inherit! :search_paths
 
-  target 'BDDComicsListiOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BDDComicsListMacOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BDDComicsListUITests' do
-    inherit! :search_paths
-    # Pods for testing
+      target 'BDDComicsListiOSTests' do
+          inherit! :search_paths
+          # Pods for testing
+      end
+      
+      target 'BDDComicsListMacOSTests' do
+          inherit! :search_paths
+          # Pods for testing
+      end
+      
+      target 'BDDComicsListUITests' do
+          inherit! :search_paths
+          # Pods for testing
+      end
   end
 
 end
