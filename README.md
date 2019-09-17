@@ -88,3 +88,7 @@ This target is used to write unit tests that are not related to views.
 In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `iOS UI Testing Bundle`. The `BDDComicsListUITests` name was given to this specific target.
 
 This target is used to run UI tests.
+
+## 2. Setup Cocoapods
+
+The Cocoapods is used in this project to manage dependency manager. Because .....
