@@ -1,0 +1,6 @@
+framework module Pods_BDDComicsListiOSTests {
+  umbrella header "Pods-BDDComicsListiOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

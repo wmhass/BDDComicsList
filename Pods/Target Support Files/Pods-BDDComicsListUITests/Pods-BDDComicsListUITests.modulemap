@@ -1,0 +1,6 @@
+framework module Pods_BDDComicsListUITests {
+  umbrella header "Pods-BDDComicsListUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
