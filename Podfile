@@ -17,17 +17,17 @@ abstract_target 'App' do
         pod 'Quick'
         pod 'Nimble'
         target 'BDDComicsListiOSTests' do
-            inherit! :search_paths
+            inherit! :complete
             # Pods for testing
         end
         
         target 'BDDComicsListMacOSTests' do
-            inherit! :search_paths
+            inherit! :complete
             # Pods for testing
         end
         
         target 'BDDComicsListUITests' do
-            inherit! :search_paths
+            inherit! :complete
             # Pods for testing
         end
     end
