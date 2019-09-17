@@ -77,5 +77,14 @@ When this project was created, the `Include Unit Tests` and `Include UI Tests` c
 ### `BDDComicsListiOSTests` target
 In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `iOS Unit Testing Bundle`. The `BDDComicsListiOSTests` name was given to this specific target. Note the `iOS` word within the target title: This is very important because it differentiates the iOS to the macOS test targets.
 
+This target is used to write unit tests that are related to views.
+
 ### `BDDComicsListMacOSTests` target
 In Xcode, go to `File` -> `New target`. Select `macOS` in the top bar and select `macOS Unit Testing Bundle`. The `BDDComicsListMacOSTests` name was given to this specific target. Note the `MacOS` word within the target title: This is very important because it differentiates the iOS to the macOS test targets.
+
+This target is used to write unit tests that are not related to views.
+
+### `BDDComicsListUITests` target.
+In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `iOS UI Testing Bundle`. The `BDDComicsListUITests` name was given to this specific target.
+
+This target is used to run UI tests.
