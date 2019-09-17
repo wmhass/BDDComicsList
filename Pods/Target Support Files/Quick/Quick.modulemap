@@ -1,5 +1,5 @@
 framework module Quick {
-  umbrella header "Quick-iOS-umbrella.h"
+  umbrella header "Quick-umbrella.h"
 
   export *
   module * { export * }
