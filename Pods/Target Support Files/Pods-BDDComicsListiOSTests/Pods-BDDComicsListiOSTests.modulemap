@@ -1,4 +1,4 @@
-framework module Pods_BDDComicsListiOSTests {
+module Pods_BDDComicsListiOSTests {
   umbrella header "Pods-BDDComicsListiOSTests-umbrella.h"
 
   export *
