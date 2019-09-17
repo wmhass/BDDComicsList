@@ -26,13 +26,13 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 *Scenario: Internet connection OK, response fails:*
 
     Given that I have internet connection
-    And the server response is wrong
+    And the server response is invalid
     Then present an error message informing that the content couldn't be read
 
 *Scenario: Internet connection OK, response succeed:*
 
     Given that I have internet connection
-    And the server response is correct
+    And the server response is valid
     Then present a list of Marvel Comics grouped by the first letter of the comic's title
 	And present the title of each comic
 

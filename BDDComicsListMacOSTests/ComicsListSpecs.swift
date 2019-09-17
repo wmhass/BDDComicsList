@@ -13,7 +13,35 @@ import Nimble
 class ComicsListSpecs: QuickSpec {
     
     override func spec() {
+        describe("Given that the app is fetching comics") {
+            it("Should present a UI activity indicator") {
+                
+            }
+        }
         
-    }
-    
+        describe("Given that the app finished fetching comics") {
+            it("Should hide the UI activity indicator") {
+                
+            }
+        }
+        
+        describe("Given that I don't have internet connection") {
+            it("Should present a message informing that it can not present the list of comics") {
+                
+            }
+        }
+        
+        describe("Given that I have internet connection") {
+            context("When the server response is invalid") {
+                it("Present an error message informing that the content couldn't be read") {
+                    
+                }
+            }
+            context("When the server response is valid") {
+                it("Should present a list of Marvel Comics titles grouped by the first letter of the comic's title") {
+                    
+                }
+            }
+        }
+    }    
 }
