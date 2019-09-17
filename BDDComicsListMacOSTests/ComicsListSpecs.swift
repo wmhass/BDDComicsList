@@ -13,6 +13,7 @@ import Nimble
 class ComicsListSpecs: QuickSpec {
     
     override func spec() {
+
         describe("Given that the app is fetching comics") {
             it("Should present a UI activity indicator") {
                 
@@ -43,5 +44,13 @@ class ComicsListSpecs: QuickSpec {
                 }
             }
         }
-    }    
+        
+        describe("Given that the list of comics is presented") {
+            context("When I tap on a comic title") {
+                it("Should present the lst of characters of that comic") {
+                    
+                }
+            }
+        }
+    }
 }
