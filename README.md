@@ -96,3 +96,15 @@ The Cocoapods is used in this project to manage dependency manager.
 Main libraries used in this project:
 - Quick: Quick is a behavior-driven development framework for Swift and Objective-C
 - Nimble: Nimble is used to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar. 
+
+## 3. Defining app code architecture
+
+Clean architecture VIPER like
+
+## 4. Writing tests
+
+1. Start with the presenter. Create BDD tests for the presenter, and then unit tests for related classes if needed
+2. Create viewcontroller and views/snapshot tests
+
+### 5. UI Tests
+Once UI is done, do UI tests
