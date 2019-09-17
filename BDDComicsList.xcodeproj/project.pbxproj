@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D428DB22330D3D6005A9309 /* BDDComicsListiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D428DB12330D3D6005A9309 /* BDDComicsListiOSTests.swift */; };
 		3D428DB92330D453005A9309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7823306A1800E767E1 /* ViewController.swift */; };
+		3D428DC12330D4C0005A9309 /* BDDComicsListMacOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D428DC02330D4C0005A9309 /* BDDComicsListMacOSTests.swift */; };
 		3D7DDB7723306A1800E767E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7623306A1800E767E1 /* AppDelegate.swift */; };
 		3D7DDB7923306A1800E767E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7823306A1800E767E1 /* ViewController.swift */; };
 		3D7DDB7C23306A1800E767E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7A23306A1800E767E1 /* Main.storyboard */; };
@@ -30,6 +31,9 @@
 		3D428DAF2330D3D6005A9309 /* BDDComicsListiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDDComicsListiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D428DB12330D3D6005A9309 /* BDDComicsListiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDDComicsListiOSTests.swift; sourceTree = "<group>"; };
 		3D428DB32330D3D6005A9309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D428DBE2330D4C0005A9309 /* BDDComicsListMacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDDComicsListMacOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D428DC02330D4C0005A9309 /* BDDComicsListMacOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDDComicsListMacOSTests.swift; sourceTree = "<group>"; };
+		3D428DC22330D4C0005A9309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D7DDB7323306A1800E767E1 /* BDDComicsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDDComicsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7DDB7623306A1800E767E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7DDB7823306A1800E767E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		3D428DAC2330D3D6005A9309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D428DBB2330D4C0005A9309 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -66,11 +77,21 @@
 			path = BDDComicsListiOSTests;
 			sourceTree = "<group>";
 		};
+		3D428DBF2330D4C0005A9309 /* BDDComicsListMacOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D428DC02330D4C0005A9309 /* BDDComicsListMacOSTests.swift */,
+				3D428DC22330D4C0005A9309 /* Info.plist */,
+			);
+			path = BDDComicsListMacOSTests;
+			sourceTree = "<group>";
+		};
 		3D7DDB6A23306A1800E767E1 = {
 			isa = PBXGroup;
 			children = (
 				3D7DDB7523306A1800E767E1 /* BDDComicsList */,
 				3D428DB02330D3D6005A9309 /* BDDComicsListiOSTests */,
+				3D428DBF2330D4C0005A9309 /* BDDComicsListMacOSTests */,
 				3D7DDB7423306A1800E767E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +101,7 @@
 			children = (
 				3D7DDB7323306A1800E767E1 /* BDDComicsList.app */,
 				3D428DAF2330D3D6005A9309 /* BDDComicsListiOSTests.xctest */,
+				3D428DBE2330D4C0005A9309 /* BDDComicsListMacOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +140,23 @@
 			productReference = 3D428DAF2330D3D6005A9309 /* BDDComicsListiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3D428DBD2330D4C0005A9309 /* BDDComicsListMacOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D428DC32330D4C0005A9309 /* Build configuration list for PBXNativeTarget "BDDComicsListMacOSTests" */;
+			buildPhases = (
+				3D428DBA2330D4C0005A9309 /* Sources */,
+				3D428DBB2330D4C0005A9309 /* Frameworks */,
+				3D428DBC2330D4C0005A9309 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BDDComicsListMacOSTests;
+			productName = BDDComicsListMacOSTests;
+			productReference = 3D428DBE2330D4C0005A9309 /* BDDComicsListMacOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3D7DDB7223306A1800E767E1 /* BDDComicsList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D7DDB8523306A1A00E767E1 /* Build configuration list for PBXNativeTarget "BDDComicsList" */;
@@ -149,6 +188,9 @@
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 3D7DDB7223306A1800E767E1;
 					};
+					3D428DBD2330D4C0005A9309 = {
+						CreatedOnToolsVersion = 10.3;
+					};
 					3D7DDB7223306A1800E767E1 = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -169,12 +211,20 @@
 			targets = (
 				3D7DDB7223306A1800E767E1 /* BDDComicsList */,
 				3D428DAE2330D3D6005A9309 /* BDDComicsListiOSTests */,
+				3D428DBD2330D4C0005A9309 /* BDDComicsListMacOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3D428DAD2330D3D6005A9309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D428DBC2330D4C0005A9309 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -200,6 +250,14 @@
 			files = (
 				3D428DB92330D453005A9309 /* ViewController.swift in Sources */,
 				3D428DB22330D3D6005A9309 /* BDDComicsListiOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D428DBA2330D4C0005A9309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D428DC12330D4C0005A9309 /* BDDComicsListMacOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +337,48 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDDComicsList.app/BDDComicsList";
+			};
+			name = Release;
+		};
+		3D428DC42330D4C0005A9309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D79WER8U7B;
+				INFOPLIST_FILE = BDDComicsListMacOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lilohass.BDDComicsListMacOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3D428DC52330D4C0005A9309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D79WER8U7B;
+				INFOPLIST_FILE = BDDComicsListMacOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lilohass.BDDComicsListMacOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -442,6 +542,15 @@
 			buildConfigurations = (
 				3D428DB62330D3D6005A9309 /* Debug */,
 				3D428DB72330D3D6005A9309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D428DC32330D4C0005A9309 /* Build configuration list for PBXNativeTarget "BDDComicsListMacOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D428DC42330D4C0005A9309 /* Debug */,
+				3D428DC52330D4C0005A9309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

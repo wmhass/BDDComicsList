@@ -72,7 +72,10 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 When this project was created, the `Include Unit Tests` and `Include UI Tests` checkboxes weren't marked for educational purpose. We will do this manually here and will include an extra MacOS test target that will help us speed up writing tests. 
 
-The MacOS test target builds way faster because it does not rely on other frameworks such as `UIKit`, and because of that, every time we run tests it will not have to compile resources like `xib` files neither will launch the app in the simulator.
+**The MacOS test target build and run way faster because it does not rely on some frameworks such as `UIKit`, and because of that, every time tests run it will not have to compile resources like `xib` files neither will launch the app in the simulator. I found this very useful to speed up the development process because when using BDD techniques you should write tests before anything else, so if you are not writing code that is not related to views, you can run it in the macOS target.**
 
 ### `BDDComicsListiOSTests` target
-In Xcode, go to `File` -> `New target`. The `BDDComicsListiOSTests` name was given to this specific target. Note the `iOS` word within the target title: This is very important because we will include another MacOS test target
+In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `iOS Unit Testing Bundle`. The `BDDComicsListiOSTests` name was given to this specific target. Note the `iOS` word within the target title: This is very important because it differentiates the iOS to the macOS test targets.
+
+### `BDDComicsListMacOSTests` target
+In Xcode, go to `File` -> `New target`. Select `macOS` in the top bar and select `macOS Unit Testing Bundle`. The `BDDComicsListMacOSTests` name was given to this specific target. Note the `MacOS` word within the target title: This is very important because it differentiates the iOS to the macOS test targets.
