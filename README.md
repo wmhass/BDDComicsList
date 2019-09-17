@@ -91,4 +91,8 @@ This target is used to run UI tests.
 
 ## 2. Setup Cocoapods
 
-The Cocoapods is used in this project to manage dependency manager. Because .....
+The Cocoapods is used in this project to manage dependency manager. 
+
+Main libraries used in this project:
+- Quick: Quick is a behavior-driven development framework for Swift and Objective-C
+- Nimble: Nimble is used to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar. 
