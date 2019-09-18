@@ -18,19 +18,19 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario: No internet connection:*
+*Scenario - No internet connection:*
 
     Given that I don't have internet connection
     When I open the app
     Then present a message informing that there is no internet connection
 
-*Scenario: Internet connection OK and response is invalid:*
+*Scenario - Internet connection OK and response is invalid:*
 
     Given that I have internet connection
     When the server response is invalid
     Then present an error message informing that the content couldn't be read
 
-*Scenario: Internet connection OK and response is valid:*
+*Scenario - Internet connection OK and response is valid:*
 
     Given that I have internet connection
     When the server response is valid
@@ -43,14 +43,14 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario: No internet connection:*
+*Scenario - No internet connection:*
 
     Given that I don't have internet connection
     And the list of comics has one or more items
     When I tap on a comic title
     Then present a message informing that there is no internet connection
 
-*Scenario: Internet connection OK and response is invalid:*
+*Scenario - Internet connection OK and response is invalid:*
 
     Given that I have internet connection
     And the list of comics has one or more items
@@ -58,7 +58,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     And the response is invalid
     Then present a message informing that it can not present the list of characters
 
-*Scenario: Internet connection OK and response is valid:*
+*Scenario - Internet connection OK and response is valid:*
 
     Given that I have internet connection
     And the list of comics has one or more items
@@ -66,51 +66,64 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     And the response is valid
     Then present a list with the name of the characters of that comic
 
-### US03 - Loading comics UI indicator
+### US03 - Present comic name in the title of the characters view
+    As a user
+    I want to see the name of the comic as a title in the characters view
+    So I know to which comic the characters belong to
+
+#### Acceptance criteria:
+
+*Scenario - Is presenting a list of comics characters:*
+    
+    Given that a list of comics characters was successfully loaded
+    When the view with the list of comic characters is presented
+    Then show the name of the comic as the view's title
+
+### US04 - Loading comics UI indicator
     As a user
     I want to see a UI element indicating that the app is loading comics
     So I know the data will be refreshed with new information
 
 #### Acceptance criteria:
 
-*Scenario: No internet connection:*
+*Scenario - No internet connection:*
 
     Given that I don't have internet connection
     When it tries to load comics
     Then do not present a UI activity indicator
 
-*Scenario: Internet connection OK and app is loading comics:*
+*Scenario - Internet connection OK and app is loading comics:*
 
     Given that I have internet connection
     When it is loading comics
     Then present a UI activity indicator
 
-*Scenario: Internet connection OK and app finished loading comics:*
+*Scenario - Internet connection OK and app finished loading comics:*
 
     Given that I have internet connection
     When it finished loading comics
     Then hide the UI activity indicator
 
-### US04 - Loading comic characters UI indicator
+### US05 - Loading comic characters UI indicator
     As a user
     I want to see a UI element indicating that the app is loading the comic characters
     So I know the data will be refreshed with new information
 
 #### Acceptance criteria:
 
-*Scenario: No internet connection:*
+*Scenario - No internet connection:*
 
     Given that I don't have internet connection
     When it tries to load comic characters
     Then do not present a UI activity indicator
 
-*Scenario: Internet connection OK and app is loading comic characters:*
+*Scenario - Internet connection OK and app is loading comic characters:*
 
     Given that I have internet connection
     When the app is loading the comic characters
     Then present a UI activity indicator
 
-*Scenario: Internet connection OK and app finished loading comic characters:*
+*Scenario - Internet connection OK and app finished loading comic characters:*
 
     Given that I have internet connection
     When the app finished loading the comic characters
