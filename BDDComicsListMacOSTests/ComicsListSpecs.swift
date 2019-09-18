@@ -14,16 +14,7 @@ import Nimble
 //
 //*Interactor -> Conforma "BusinessLogic", e tem uma propriedade `presenter: PresentationLogic`
 //
-//*Presenter -> Conforma "PresentationLogic" e tem uma propriedade `view: DisplayLogic`
-
-protocol ComicsListBusinessLogic {
-}
-
-class ComicsListInteractor {
-}
-
-extension ComicsListInteractor: ComicsListBusinessLogic {
-}
+//*Presenter -> Conforma "PresentationLogic" e tem uma propriedade `view: DisplayLogic`s
 
 class ComicsListSpecs: QuickSpec {
     
