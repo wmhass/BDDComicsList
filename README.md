@@ -13,58 +13,77 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 ### US01 - See a list of Marvel Comics
     As a user
-    I want to see a list of Marvel Comics grouped by the first letter of the comic's title
+    I want to see a list of Marvel Comics grouped by the first letter of the comic's title when I open the app
     So I can get to know the comics they have
 
 #### Acceptance criteria:
 
 *Scenario: No internet connection:*
 
-    Given that I don't have internet connection
+    Given that I opened the app 
+    And I don't have internet connection
     Then present a message informing that it can not present the list of comics
 
 *Scenario: Internet connection OK, response fails:*
 
-    Given that I have internet connection
+    Given that I opened the app 
+    And I have internet connection
     And the server response is invalid
     Then present an error message informing that the content couldn't be read
 
 *Scenario: Internet connection OK, response succeed:*
 
-    Given that I have internet connection
+    Given that I opened the app
+    And I have internet connection
     And the server response is valid
-    Then present a list of Marvel Comics grouped by the first letter of the comic's title
-	And present the title of each comic
+    Then present a list of Marvel Comics titles grouped by the first letter of the comic's title
 
 ### US02 - See the list of characters of a given comic
-	As a user
-	I want to see the list of characters when I tap on a comic title
-	So I can have more information about the comic
+    As a user
+    I want to see the list of characters when I tap on a comic title
+    So I can have more information about the comic
 
 #### Acceptance criteria:
 
 *Scenario: List of comics is presented:*
 
-	Given that the list of comics is presented
-	And I tap on a comic
-	Then present a list with the name of the characters of that comic
+    Given that the list of comics is presented
+    And I tap on a comic
+    Then present a list with the name of the characters of that comic
 
-### US03 - Fetch data UI indicator
-	As a user
-	I want to see a UI element indicating that the app is fetching new data
-	So I know the data will be refreshed with new information
+### US03 - Loading comics UI indicator
+    As a user
+    I want to see a UI element indicating that the app is loading comics
+    So I know the data will be refreshed with new information
 
 #### Acceptance criteria:
 
-*Scenario: App is loading new data:*
+*Scenario: App is loading comics:*
 
-	Given that the app is fetching data from the Marvel server
-	Then present a UI activity indicator
+    Given that the app is loading comics
+    Then present a UI activity indicator
 
-*Scenario: App finished loading data:*
+*Scenario: App finished loading comics:*
 
-	Given that the app finished loading data
-	Then hide the UI activity indicator
+    Given that the app finished loading comics
+    Then hide the UI activity indicator
+
+### US04 - Loading comic characters UI indicator
+    As a user
+    I want to see a UI element indicating that the app is loading the comic characters
+    So I know the data will be refreshed with new information
+
+#### Acceptance criteria:
+
+*Scenario: App is loading comic characters:*
+
+    Given that the app is loading the comic characters
+    Then present a UI activity indicator
+
+*Scenario: App finished loading comic characters:*
+
+    Given that the app finished loading the comic characters
+    Then hide the UI activity indicator
 
 # Development steps
 
@@ -103,8 +122,12 @@ Clean architecture VIPER like
 
 ## 4. Writing tests
 
-1. Start with the presenter. Create BDD tests for the presenter, and then unit tests for related classes if needed
+1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
+  a) Adding test case placeholders for the comics list: 1547302bd81b38362bb57453bd563944b5687f0a
+  b) adding first test cases placeholders for the characters list: e2059324c7fb56f37782f5edc736d2f890a390aa
+  c) Create interactor class with business logic first and implement the tests
+  
 2. Create viewcontroller and views/snapshot tests
 
-### 5. UI Tests
+## 5. UI Tests
 Once UI is done, do UI tests
