@@ -169,9 +169,8 @@ Clean architecture VIPER like
 ## 5. Writing tests
 
 1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
-  a) Adding test case placeholders for the comics list: 1547302bd81b38362bb57453bd563944b5687f0a
-  b) adding first test cases placeholders for the characters list: e2059324c7fb56f37782f5edc736d2f890a390aa
-  c) Create interactor class with business logic first and implement the tests
+    a) Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
+    b) Create interactor class with business logic first and implement the tests
   
 2. Create viewcontroller and views/snapshot tests
 
