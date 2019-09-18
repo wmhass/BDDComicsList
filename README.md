@@ -101,7 +101,9 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 # Development steps
 
-## 1. Create new targets for testing
+## 1. Create Xcode Project
+
+## 2. Create new targets for testing
 
 When this project was created, the `Include Unit Tests` and `Include UI Tests` checkboxes weren't marked for educational purpose. We will do this manually here and will include an extra macOS test target that will help us speed up writing tests. 
 
@@ -122,7 +124,7 @@ In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `
 
 This target is used to run UI tests.
 
-## 2. Setup Cocoapods
+## 3. Setup Cocoapods
 
 The Cocoapods is used in this project to manage dependency manager. 
 
@@ -130,11 +132,11 @@ Main libraries used in this project:
 - Quick: Quick is a behavior-driven development framework for Swift and Objective-C
 - Nimble: Nimble is used to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar. 
 
-## 3. Defining app code architecture
+## 4. Defining app code architecture
 
 Clean architecture VIPER like
 
-## 4. Writing tests
+## 5. Writing tests
 
 1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
   a) Adding test case placeholders for the comics list: 1547302bd81b38362bb57453bd563944b5687f0a
@@ -143,5 +145,7 @@ Clean architecture VIPER like
   
 2. Create viewcontroller and views/snapshot tests
 
-## 5. UI Tests
+## 6. UI Tests
 Once UI is done, do UI tests
+
+## 7. Automate tests
