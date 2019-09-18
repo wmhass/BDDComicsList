@@ -20,22 +20,20 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 *Scenario: No internet connection:*
 
-    Given that I opened the app 
-    And I don't have internet connection
+    Given that I don't have internet connection
+    When I open the app
     Then present a message informing that it can not present the list of comics
 
 *Scenario: Internet connection OK, response fails:*
 
-    Given that I opened the app 
-    And I have internet connection
-    And the server response is invalid
+    Given that I have internet connection
+    When the server response is invalid
     Then present an error message informing that the content couldn't be read
 
 *Scenario: Internet connection OK, response succeed:*
 
-    Given that I opened the app
-    And I have internet connection
-    And the server response is valid
+    Given that I have internet connection
+    When the server response is valid
     Then present a list of Marvel Comics titles grouped by the first letter of the comic's title
 
 ### US02 - See the list of characters of a given comic
@@ -47,8 +45,8 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 *Scenario: List of comics is presented:*
 
-    Given that the list of comics is presented
-    And I tap on a comic
+    Given that the list of comics has one or more items
+    When I tap on a comic
     Then present a list with the name of the characters of that comic
 
 ### US03 - Loading comics UI indicator
@@ -58,14 +56,22 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario: App is loading comics:*
+*Scenario: Device does not have internet connection:*
 
-    Given that the app is loading comics
+    Given that I don't have internet connection
+    When it tries to load comics
+    Then do not present a UI activity indicator
+
+*Scenario: Device has internet connection and app is loading comics:*
+
+    Given that I have internet connection
+    When it is loading comics
     Then present a UI activity indicator
 
-*Scenario: App finished loading comics:*
+*Scenario: Device has internet connection and app finished loading comics:*
 
-    Given that the app finished loading comics
+    Given that I have internet connection
+    When it finished loading comics
     Then hide the UI activity indicator
 
 ### US04 - Loading comic characters UI indicator
@@ -75,14 +81,22 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario: App is loading comic characters:*
+*Scenario: Device does not have internet connection:*
 
-    Given that the app is loading the comic characters
+    Given that I don't have internet connection
+    When it tries to load comic characters
+    Then do not present a UI activity indicator
+
+*Scenario: Device has internet connection and app is loading comic characters:*
+
+    Given that I have internet connection
+    When the app is loading the comic characters
     Then present a UI activity indicator
 
-*Scenario: App finished loading comic characters:*
+*Scenario: Device has internet connection and app finished loading comic characters:*
 
-    Given that the app finished loading the comic characters
+    Given that I have internet connection
+    When the app finished loading the comic characters
     Then hide the UI activity indicator
 
 # Development steps
