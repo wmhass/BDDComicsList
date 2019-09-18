@@ -46,12 +46,14 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 *Scenario: No internet connection:*
 
     Given that I don't have internet connection
-    When I tapped on a comic title
+    And the list of comics has one or more items
+    When I tap on a comic title
     Then present a message informing that there is no internet connection
 
 *Scenario: Internet connection OK and response is invalid:*
 
     Given that I have internet connection
+    And the list of comics has one or more items
     When I tapped on a comic title
     And the response is invalid
     Then present a message informing that it can not present the list of characters
@@ -59,6 +61,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 *Scenario: Internet connection OK and response is valid:*
 
     Given that I have internet connection
+    And the list of comics has one or more items
     When I tapped on a comic title
     And the response is valid
     Then present a list with the name of the characters of that comic
