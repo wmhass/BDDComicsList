@@ -53,5 +53,6 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
         }
     }
     func comicSelected(comic: Comic) {
+        self.presenter.presentCharacters(ofComic: comic)
     }
 }
