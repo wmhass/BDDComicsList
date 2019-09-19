@@ -15,7 +15,7 @@ class ComicsGrouperUnitTests: QuickSpec {
     
     override func spec() {
         describe("ComicsGrouper") {
-            context("When sectioning a list of comics") {
+            context("When grouping a list of comics") {
                 it("Should categorize comics in a dictionary grouped by their first letter") {
                     let comics = [
                         Comic(id: 1, title: "a comic"),
