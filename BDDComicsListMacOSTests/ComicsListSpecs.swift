@@ -22,6 +22,9 @@ class ComicsListSpecs: QuickSpec {
         beforeSuite {
         }
         describe("Given that I don't have internet connection") {
+            beforeEach {
+                
+            }
             context("When it tries to load the comics") {
                 beforeEach {
                 }
