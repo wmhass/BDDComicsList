@@ -1,5 +1,5 @@
 //
-//  ComicsListSpecs.swift
+//  ComicsListInteractorSpecs.swift
 //  BDDComicsListMacOSTests
 //
 //  Created by William Hass on 2019-09-17.
@@ -16,7 +16,7 @@ import Nimble
 //
 //*Presenter -> Conforma "PresentationLogic" e tem uma propriedade `view: DisplayLogic`s
 
-class ComicsListSpecs: QuickSpec {
+class ComicsListInteractorSpecs: QuickSpec {
     
     var dataGatewayMock: ComicsListDataGatewayMock!
     var presenterMock: ComicsListPresenterMock!
