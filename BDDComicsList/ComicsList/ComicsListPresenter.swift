@@ -20,4 +20,8 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
     func presentNoInternetConnectionErrorMessage() {
         
     }
+    
+    func presentResponseIsInvalid() {
+        
+    }
 }

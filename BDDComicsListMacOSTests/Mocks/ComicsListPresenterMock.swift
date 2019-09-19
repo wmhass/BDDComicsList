@@ -9,6 +9,7 @@
 import Foundation
 
 class ComicsListPresenterMock {
+    var _didAskToPresentResponseIsInvalid: Bool = false
     var _didAskToPresentNoInternetConnectionErrorMessage: Bool = false
     var _didAskToPresentFetchDataActivityIndicator: (didAsk: Bool, shouldPresent: Bool?) = (false, nil)
 }
@@ -19,5 +20,8 @@ extension ComicsListPresenterMock: ComicsListPresentationLogic {
     }
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
         _didAskToPresentFetchDataActivityIndicator = (true, shouldPresent)
+    }
+    func presentResponseIsInvalid() {
+        _didAskToPresentResponseIsInvalid = true
     }
 }

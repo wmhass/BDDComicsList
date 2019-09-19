@@ -89,9 +89,12 @@ class ComicsListInteractorSpecs: QuickSpec {
         describe("Given that I have internet connection") {
             context("When the comics list response is invalid") {
                 beforeEach {
+                    self.dataGatewayMock._fetchComicsResultMock = .responseIsInvalid
+                    self.presenterMock._didAskToPresentResponseIsInvalid = false
+                    self.interactor.loadListOfComics()
                 }
                 it("Should present an error message informing that the content couldn't be read") {
-                    // TODO: Assert
+                    expect(self.presenterMock._didAskToPresentResponseIsInvalid).to(beTrue())
                 }
             }
             context("When the comics list response is valid") {

@@ -27,6 +27,8 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
             switch fetchComicsResponse {
             case .noInternetConnection:
                 self.presenter.presentNoInternetConnectionErrorMessage()
+            case .responseIsInvalid:
+                self.presenter.presentResponseIsInvalid()
             default:
                 break
             }

@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ComicsListPresentationLogic {
+    func presentResponseIsInvalid()
     func presentNoInternetConnectionErrorMessage()
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool)
 }

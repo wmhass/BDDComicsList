@@ -10,7 +10,7 @@ import Foundation
 
 enum FetchComicsResponse {
     case noInternetConnection
-    case failed(message: String)
+    case responseIsInvalid
     case success(comics: Any)
 }
 
