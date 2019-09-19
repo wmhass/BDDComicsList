@@ -30,7 +30,8 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
             case .responseIsInvalid:
                 self.presenter.presentResponseIsInvalid()
             case .success(let comics):
-                break
+                break;
+//                self.presenter.presentComics(comics: comics)
             }
         }
     }
