@@ -21,5 +21,8 @@ class ComicsListInteractor {
 
 extension ComicsListInteractor: ComicsListBusinessLogic {
     func loadListOfComics() {
+        self.dataGateway.fetchComics { fetchComicsResponse in
+
+        }
     }
 }
