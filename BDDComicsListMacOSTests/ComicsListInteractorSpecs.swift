@@ -75,15 +75,6 @@ class ComicsListInteractorSpecs: QuickSpec {
                     expect(self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage).to(beTrue())
                 }
             }
-            context("And the list of comics has one or more items") {
-                beforeEach {
-                }
-                context("When I tap on a comic title") {
-                    it("Then present a message informing that there is no internet connection") {
-                        // TODO: Assert
-                    }
-                }
-            }
         }
         
         describe("Given that I have internet connection") {
@@ -110,24 +101,22 @@ class ComicsListInteractorSpecs: QuickSpec {
                     expect(self.presenterMock._didAskToPresentComics.groupedComics).to(equal(groupedComics))
                 }
             }
-            context("And the list of comics has one or more items") {
-                context("When I tap on a comic title") {
-                    beforeEach {
-                    }
-                    context("And the response is invalid") {
-                        beforeEach {
-                        }
-                        it("Should present a message informing that it can not present the list of characters") {
-                            // TODO: Assert
-                        }
-                    }
-                    context("And the response is valid") {
-                        beforeEach {
-                        }
-                        it("Then present a list with the name of the characters of that comic") {
-                            // TODO: Assert
-                        }
-                    }
+        }
+        
+        context("Given that I selected a comic title") {
+            context("When I don't have internet connection") {
+                it("Then present a message informing that there is no internet connection") {
+                    // TODO: Assert
+                }
+            }
+            context("When the response is invalid") {
+                it("Should present a message informing that it can not present the list of characters") {
+                    // TODO: Assert
+                }
+            }
+            context("When the response is valid") {
+                it("Then present a view with the list of characters names") {
+                    // TODO: Assert
                 }
             }
         }
