@@ -21,6 +21,5 @@ class ComicsListInteractor {
 
 extension ComicsListInteractor: ComicsListBusinessLogic {
     func loadListOfComics() {
-        
     }
 }

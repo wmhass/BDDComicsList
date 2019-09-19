@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum FetchComicsResponse {
+    case noInternetConnection
+    case failed(message: String)
+    case success(comics: Any)
+}
+
 protocol ComicsListDataGatewayLogic {
-    
+    func fetchComics(completion: @escaping (FetchComicsResponse)->Void)
 }

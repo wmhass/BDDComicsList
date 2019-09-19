@@ -13,5 +13,7 @@ class ComicsListDataGateway {
 }
 
 extension ComicsListDataGateway: ComicsListDataGatewayLogic {
-    
+    func fetchComics(completion: @escaping (FetchComicsResponse)->Void) {
+        
+    }
 }
