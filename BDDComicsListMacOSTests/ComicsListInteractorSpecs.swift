@@ -103,18 +103,34 @@ class ComicsListInteractorSpecs: QuickSpec {
             }
         }
         
+        context("Given that there are one or more comics in the list") {
+            context("When I select a comic title") {
+                it("Should request the list of characters") {
+                    
+                }
+            }
+        }
+        
         context("Given that I selected a comic title") {
             context("When I don't have internet connection") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicsResultMock = .noInternetConnection
+                }
                 it("Then present a message informing that there is no internet connection") {
                     // TODO: Assert
                 }
             }
-            context("When the response is invalid") {
+            context("When the characters response is invalid") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicsResultMock = .responseIsInvalid
+                }
                 it("Should present a message informing that it can not present the list of characters") {
                     // TODO: Assert
                 }
             }
-            context("When the response is valid") {
+            context("When the characters response is valid") {
+                beforeEach {
+                }
                 it("Then present a view with the list of characters names") {
                     // TODO: Assert
                 }
