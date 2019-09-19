@@ -18,8 +18,19 @@ import Nimble
 
 class ComicsListSpecs: QuickSpec {
     
+    var dataGatewayMock: ComicsListDataGatewayMock!
+    var presenterMock: ComicsListPresenterMock!
+    var interactor: ComicsListInteractor!
+    
     override func spec() {
         beforeSuite {
+            let dataGatewayMock = ComicsListDataGatewayMock()
+            let presenterMock = ComicsListPresenterMock()
+            let interactor = ComicsListInteractor(presenter: presenterMock, dataGateway: dataGatewayMock)
+            
+            self.dataGatewayMock = dataGatewayMock
+            self.presenterMock = presenterMock
+            self.interactor = interactor
         }
         describe("Given that I don't have internet connection") {
             beforeEach {
