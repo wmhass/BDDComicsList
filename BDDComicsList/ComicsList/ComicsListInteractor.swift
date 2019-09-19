@@ -29,7 +29,7 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
                 self.presenter.presentNoInternetConnectionErrorMessage()
             case .responseIsInvalid:
                 self.presenter.presentResponseIsInvalid()
-            default:
+            case .success(let comics):
                 break
             }
         }

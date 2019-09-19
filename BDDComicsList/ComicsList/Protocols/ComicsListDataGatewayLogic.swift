@@ -11,7 +11,7 @@ import Foundation
 enum FetchComicsResponse {
     case noInternetConnection
     case responseIsInvalid
-    case success(comics: Any)
+    case success(comics: [Comic])
 }
 
 protocol ComicsListDataGatewayLogic {

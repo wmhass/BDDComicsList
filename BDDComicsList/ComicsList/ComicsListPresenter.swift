@@ -13,6 +13,10 @@ class ComicsListPresenter {
 }
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
+    func presentComics(comics: [Comic]) {
+
+    }
+    
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
 
     }

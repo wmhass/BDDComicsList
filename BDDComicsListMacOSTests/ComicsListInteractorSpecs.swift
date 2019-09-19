@@ -98,10 +98,14 @@ class ComicsListInteractorSpecs: QuickSpec {
                 }
             }
             context("When the comics list response is valid") {
+                let comics = [Comic(id: 1, title: "Comic 1"), Comic(id: 2, title: "Comic 2")]
                 beforeEach {
+                    self.dataGatewayMock._fetchComicsResultMock = .success(comics: comics)
+                    self.presenterMock._didAskToPresentComics = (false, nil)
                 }
-                it("Should present a list of Marvel Comics titles grouped by the first letter of the comic's title") {
-                    // TODO: Assert
+                it("Should present comics list") {
+                    expect(self.presenterMock._didAskToPresentComics.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentComics.comics).to(equal(comics))
                 }
             }
             context("And the list of comics has one or more items") {
