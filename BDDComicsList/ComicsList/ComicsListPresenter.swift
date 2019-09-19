@@ -13,6 +13,10 @@ class ComicsListPresenter {
 }
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
+    func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
+
+    }
+    
     func presentNoInternetConnectionErrorMessage() {
         
     }

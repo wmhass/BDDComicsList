@@ -38,13 +38,15 @@ class ComicsListSpecs: QuickSpec {
             context("When it tries to load comics") {
                 beforeEach {
                     self.dataGatewayMock._didAttemptToFetchComics = false
+                    self.presenterMock._didAskToPresentFetchDataActivityIndicator = (false, nil)
                     self.interactor.loadListOfComics()
                 }
                 it("Should ask the data gateway to fetch the comics list") {
                     expect(self.dataGatewayMock._didAttemptToFetchComics).to(beTrue())
                 }
                 it("Should present a UI activity indicator") {
-                    // TODO: Assert
+                    expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.shouldPresent).to(beTrue())
                 }
             }
         }

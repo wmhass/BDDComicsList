@@ -21,6 +21,7 @@ class ComicsListInteractor {
 
 extension ComicsListInteractor: ComicsListBusinessLogic {
     func loadListOfComics() {
+        self.presenter.presentFetchDataActivityIndicator(true)
         self.dataGateway.fetchComics { fetchComicsResponse in
             switch fetchComicsResponse {
             case .noInternetConnection:
