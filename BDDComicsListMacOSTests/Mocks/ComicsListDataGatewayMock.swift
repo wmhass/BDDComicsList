@@ -10,10 +10,12 @@ import Foundation
 
 class ComicsListDataGatewayMock {
     var _fetchComicsResultMock: FetchComicsResponse?
+    var _didAttemptToFetchComics: Bool = false
 }
 
 extension ComicsListDataGatewayMock: ComicsListDataGatewayLogic {
     func fetchComics(completion: @escaping (FetchComicsResponse)->Void) {
+        _didAttemptToFetchComics = true
         if let resultMock = _fetchComicsResultMock {
             completion(resultMock)
         }

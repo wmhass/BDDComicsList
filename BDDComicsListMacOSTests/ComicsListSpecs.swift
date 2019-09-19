@@ -32,6 +32,20 @@ class ComicsListSpecs: QuickSpec {
             self.presenterMock = presenterMock
             self.interactor = interactor
         }
+
+        // This test case is not in the user stories list because it is a unit test
+        describe("ComicsListInteractor") {
+            context("When it tries to load comics") {
+                beforeEach {
+                    self.dataGatewayMock._didAttemptToFetchComics = false
+                    self.interactor.loadListOfComics()
+                }
+                it("Should ask the data gateway to fetch the comics list") {
+                    expect(self.dataGatewayMock._didAttemptToFetchComics).to(beTrue())
+                }
+            }
+        }
+
         describe("Given that I don't have internet connection") {
             beforeEach {
                 self.dataGatewayMock._fetchComicsResultMock = .noInternetConnection
