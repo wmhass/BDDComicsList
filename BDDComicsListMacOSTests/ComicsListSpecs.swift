@@ -19,18 +19,26 @@ import Nimble
 class ComicsListSpecs: QuickSpec {
     
     override func spec() {
+        beforeSuite {
+        }
         describe("Given that I don't have internet connection") {
             context("When I open the app") {
+                beforeEach {
+                }
                 it("Then present a message informing that there is no internet connection") {
                     // TODO: Assert
                 }
             }
             context("When it tries to load the comics") {
+                beforeEach {
+                }
                 it("Should not present a UI activity inticator") {
                     // TODO: Assert
                 }
             }
             context("And the list of comics has one or more items") {
+                beforeEach {
+                }
                 context("When I tap on a comic title") {
                     it("Then present a message informing that there is no internet connection") {
                         // TODO: Assert
@@ -41,16 +49,22 @@ class ComicsListSpecs: QuickSpec {
         
         describe("Given that I have internet connection") {
             context("When the comics list response is invalid") {
+                beforeEach {
+                }
                 it("Should present an error message informing that the content couldn't be read") {
                     // TODO: Assert
                 }
             }
             context("When the comics list response is valid") {
+                beforeEach {
+                }
                 it("Should present a list of Marvel Comics titles grouped by the first letter of the comic's title") {
                     // TODO: Assert
                 }
             }
             context("When it tries to load the comics") {
+                beforeEach {
+                }
                 it("Should present a UI activity inticator") {
                     // TODO: Assert
                 }
@@ -62,12 +76,18 @@ class ComicsListSpecs: QuickSpec {
             }
             context("And the list of comics has one or more items") {
                 context("When I tap on a comic title") {
+                    beforeEach {
+                    }
                     context("And the response is invalid") {
+                        beforeEach {
+                        }
                         it("Should present a message informing that it can not present the list of characters") {
                             // TODO: Assert
                         }
                     }
                     context("And the response is valid") {
+                        beforeEach {
+                        }
                         it("Then present a list with the name of the characters of that comic") {
                             // TODO: Assert
                         }
