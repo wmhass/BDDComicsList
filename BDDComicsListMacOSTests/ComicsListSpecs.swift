@@ -22,15 +22,11 @@ class ComicsListSpecs: QuickSpec {
         beforeSuite {
         }
         describe("Given that I don't have internet connection") {
-            context("When I open the app") {
+            context("When it tries to load the comics") {
                 beforeEach {
                 }
                 it("Then present a message informing that there is no internet connection") {
                     // TODO: Assert
-                }
-            }
-            context("When it tries to load the comics") {
-                beforeEach {
                 }
                 it("Should not present a UI activity inticator") {
                     // TODO: Assert

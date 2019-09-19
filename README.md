@@ -21,7 +21,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 *Scenario - No internet connection:*
 
     Given that I don't have internet connection
-    When I open the app
+    When it tries to load comics
     Then present a message informing that there is no internet connection
 
 *Scenario - Internet connection OK and response is invalid:*
