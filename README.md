@@ -92,7 +92,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     When it is loading comics
     Then present a UI activity indicator
 
-*Scenario - Internet connection OK and app finished loading comics:*
+*Scenario - App finished loading comics:*
 
     Given that I opened the app
     When it finished loading comics
