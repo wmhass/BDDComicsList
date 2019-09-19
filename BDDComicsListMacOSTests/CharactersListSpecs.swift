@@ -13,27 +13,28 @@ import Nimble
 class CharactersListSpecs: QuickSpec {
     override func spec() {
         beforeSuite {
-            
         }
-        describe("Given that a list of comics characters was successfully loaded") {
-            context("When the view with the list of comic characters is presented") {
+        context("Given that a comic title was selected/Characters names view is presented") {
+            context("When I don't have internet connection") {
                 beforeEach {
                 }
-                it("Should show the name of the comic as the view's title") {
+                it("Then present a message informing that there is no internet connection") {
+                    // TODO: Assert
+                }
+            }
+            context("When the characters response is invalid") {
+                beforeEach {
+                }
+                it("Should present a message informing that it can not present the list of characters") {
+                    // TODO: Assert
+                }
+            }
+            context("When the characters response is valid") {
+                beforeEach {
+                }
+                it("Then present a view with the list of characters names") {
                     // TODO: Assert
                 }
             }
         }
-        
-//        This scenario is not specified in the User Stories scenarios because this is an implementation behaviour
-        describe("Given that a comic title was tapped") {
-            context("And the characters list view is presentet") {
-                beforeEach {
-                }
-                it("Should present a list with the name of the characters") {
-                    // TODO: Assert
-                }
-            }
-        }
-    }
 }
