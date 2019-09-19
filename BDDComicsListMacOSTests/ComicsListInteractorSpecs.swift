@@ -49,6 +49,17 @@ class ComicsListInteractorSpecs: QuickSpec {
                     expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.shouldPresent).to(beTrue())
                 }
             }
+            context("When it finished loading comics") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicsResultMock = .noInternetConnection
+                    self.presenterMock._didAskToPresentFetchDataActivityIndicator = (false, nil)
+                    self.interactor.loadListOfComics()
+                }
+                it("Should hide the UI activity indicator") {
+                    expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.shouldPresent).to(beFalse())
+                }
+            }
         }
 
         describe("Given that I don't have internet connection") {
