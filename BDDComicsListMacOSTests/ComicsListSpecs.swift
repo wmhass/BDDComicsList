@@ -43,6 +43,9 @@ class ComicsListSpecs: QuickSpec {
                 it("Should ask the data gateway to fetch the comics list") {
                     expect(self.dataGatewayMock._didAttemptToFetchComics).to(beTrue())
                 }
+                it("Should present a UI activity indicator") {
+                    // TODO: Assert
+                }
             }
         }
 
@@ -57,9 +60,6 @@ class ComicsListSpecs: QuickSpec {
                 }
                 it("Then present a message informing that there is no internet connection") {
                     expect(self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage).to(beTrue())
-                }
-                it("Should not present a UI activity inticator") {
-                    // TODO: Assert
                 }
             }
             context("And the list of comics has one or more items") {
@@ -85,18 +85,6 @@ class ComicsListSpecs: QuickSpec {
                 beforeEach {
                 }
                 it("Should present a list of Marvel Comics titles grouped by the first letter of the comic's title") {
-                    // TODO: Assert
-                }
-            }
-            context("When it tries to load the comics") {
-                beforeEach {
-                }
-                it("Should present a UI activity inticator") {
-                    // TODO: Assert
-                }
-            }
-            context("When it finished loading the comics") {
-                it("Should hide the UI activity inticator") {
                     // TODO: Assert
                 }
             }

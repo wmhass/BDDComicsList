@@ -86,21 +86,15 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario - No internet connection:*
+*Scenario - App is loading comics:*
 
-    Given that I don't have internet connection
-    When it tries to load comics
-    Then do not present a UI activity indicator
-
-*Scenario - Internet connection OK and app is loading comics:*
-
-    Given that I have internet connection
+    Given that I opened the app
     When it is loading comics
     Then present a UI activity indicator
 
 *Scenario - Internet connection OK and app finished loading comics:*
 
-    Given that I have internet connection
+    Given that I opened the app
     When it finished loading comics
     Then hide the UI activity indicator
 
@@ -111,21 +105,15 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario - No internet connection:*
+*Scenario - App is loading comic characters:*
 
-    Given that I don't have internet connection
-    When it tries to load comic characters
-    Then do not present a UI activity indicator
-
-*Scenario - Internet connection OK and app is loading comic characters:*
-
-    Given that I have internet connection
+    Given that I selected one comic
     When the app is loading the comic characters
     Then present a UI activity indicator
 
-*Scenario - Internet connection OK and app finished loading comic characters:*
+*Scenario - App finished loading comic characters:*
 
-    Given that I have internet connection
+    Given that I selected one comic
     When the app finished loading the comic characters
     Then hide the UI activity indicator
 
