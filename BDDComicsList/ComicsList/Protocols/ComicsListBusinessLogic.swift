@@ -1,5 +1,5 @@
 //
-//  ComicsListRouter.swift
+//  ComicsListBusinessLogic.swift
 //  BDDComicsList
 //
 //  Created by William Hass on 2019-09-18.
@@ -8,11 +8,6 @@
 
 import Foundation
 
-// Router
-class ComicsListRouter {
-    
-}
-
-extension ComicsListRouter: ComicsListRoutingLogic {
-    
+protocol ComicsListBusinessLogic {
+    func loadListOfComics()
 }

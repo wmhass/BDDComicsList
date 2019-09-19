@@ -171,7 +171,7 @@ Clean architecture VIPER like
 1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
     a) Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
     b) Create interactor class with business logic first and implement the tests
-  
+    c) Remember  to add files to macos test target
 2. Create viewcontroller and views/snapshot tests
 
 ## 6. UI Tests

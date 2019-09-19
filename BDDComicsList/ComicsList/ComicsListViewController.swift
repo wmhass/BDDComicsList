@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ComicsListDisplayLogic: class {
-    
-}
-
 class ComicsListViewController: UIViewController {
 
     var interactor: ComicsListBusinessLogic?

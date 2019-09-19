@@ -8,16 +8,14 @@
 
 import Foundation
 
-protocol ComicsListBusinessLogic {
-    func loadListOfComics()
-}
-
 class ComicsListInteractor {
 
     let presenter: ComicsListPresentationLogic
-
-    init(presenter: ComicsListPresentationLogic) {
+    let dataGateway: ComicsListDataGatewayLogic
+    
+    init(presenter: ComicsListPresentationLogic, dataGateway: ComicsListDataGatewayLogic) {
         self.presenter = presenter
+        self.dataGateway = dataGateway
     }
 }
 

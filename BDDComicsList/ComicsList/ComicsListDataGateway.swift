@@ -1,5 +1,5 @@
 //
-//  ComicsListRouter.swift
+//  ComicsListDataGateway.swift
 //  BDDComicsList
 //
 //  Created by William Hass on 2019-09-18.
@@ -8,11 +8,10 @@
 
 import Foundation
 
-// Router
-class ComicsListRouter {
+class ComicsListDataGateway {
     
 }
 
-extension ComicsListRouter: ComicsListRoutingLogic {
+extension ComicsListDataGateway: ComicsListDataGatewayLogic {
     
 }

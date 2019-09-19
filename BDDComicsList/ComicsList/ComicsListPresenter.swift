@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol ComicsListPresentationLogic {
-    
-}
-
 class ComicsListPresenter {
     weak var view: ComicsListDisplayLogic?
 }
