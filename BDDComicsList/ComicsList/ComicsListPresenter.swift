@@ -13,7 +13,7 @@ class ComicsListPresenter {
 }
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
-    func presentComics(sectionedComics: SectionedComics) {
+    func presentComics(groupedComics: GroupedComics) {
 
     }
     

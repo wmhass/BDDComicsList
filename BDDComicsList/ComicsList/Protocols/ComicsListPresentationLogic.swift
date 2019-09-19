@@ -9,11 +9,11 @@
 import Foundation
 
 typealias ComicTitleFirstLetter = String
-typealias SectionedComics = [ComicTitleFirstLetter: Comic]
+typealias GroupedComics = [ComicTitleFirstLetter: [Comic]]
 
 protocol ComicsListPresentationLogic {
     func presentResponseIsInvalid()
     func presentNoInternetConnectionErrorMessage()
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool)
-    func presentComics(sectionedComics: SectionedComics)
+    func presentComics(groupedComics: GroupedComics)
 }
