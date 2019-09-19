@@ -22,7 +22,12 @@ class ComicsListInteractor {
 extension ComicsListInteractor: ComicsListBusinessLogic {
     func loadListOfComics() {
         self.dataGateway.fetchComics { fetchComicsResponse in
-
+            switch fetchComicsResponse {
+            case .noInternetConnection:
+                self.presenter.presentNoInternetConnectionErrorMessage()
+            default:
+                break
+            }
         }
     }
 }

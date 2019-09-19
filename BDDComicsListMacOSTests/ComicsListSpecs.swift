@@ -53,6 +53,7 @@ class ComicsListSpecs: QuickSpec {
             context("When it tries to load the comics") {
                 beforeEach {
                     self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage = false
+                    self.interactor.loadListOfComics()
                 }
                 it("Then present a message informing that there is no internet connection") {
                     expect(self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage).to(beTrue())
