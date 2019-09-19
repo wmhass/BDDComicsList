@@ -1,5 +1,5 @@
 //
-//  CharactersListSpecs.swift
+//  CharactersListInteractorSpecs.swift
 //  BDDComicsListMacOSTests
 //
 //  Created by William Hass on 2019-09-17.
