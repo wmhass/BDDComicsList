@@ -52,4 +52,6 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
             }
         }
     }
+    func comicSelected(comic: Comic) {
+    }
 }

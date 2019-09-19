@@ -10,4 +10,5 @@ import Foundation
 
 protocol ComicsListBusinessLogic {
     func loadListOfComics()
+    func comicSelected(comic: Comic)
 }

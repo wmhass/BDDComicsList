@@ -28,4 +28,7 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
     func presentResponseIsInvalid() {
         
     }
+    func presentCharacters(ofComic comic: Comic) {
+        
+    }
 }

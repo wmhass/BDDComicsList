@@ -16,4 +16,5 @@ protocol ComicsListPresentationLogic {
     func presentNoInternetConnectionErrorMessage()
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool)
     func presentComics(groupedComics: GroupedComics)
+    func presentCharacters(ofComic comic: Comic)
 }
