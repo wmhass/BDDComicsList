@@ -9,9 +9,11 @@
 import Foundation
 
 class ComicsListPresenterMock {
-    
+    var _didAskToPresentNoInternetConnectionErrorMessage: Bool = false
 }
 
 extension ComicsListPresenterMock: ComicsListPresentationLogic {
-    
+    func presentNoInternetConnectionErrorMessage() {
+        _didAskToPresentNoInternetConnectionErrorMessage = true
+    }
 }

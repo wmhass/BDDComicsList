@@ -13,5 +13,7 @@ class ComicsListPresenter {
 }
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
-    
+    func presentNoInternetConnectionErrorMessage() {
+        
+    }
 }

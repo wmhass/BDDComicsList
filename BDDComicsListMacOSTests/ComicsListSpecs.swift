@@ -34,13 +34,14 @@ class ComicsListSpecs: QuickSpec {
         }
         describe("Given that I don't have internet connection") {
             beforeEach {
-                
+                self.dataGatewayMock._fetchComicsResultMock = .noInternetConnection
             }
             context("When it tries to load the comics") {
                 beforeEach {
+                    self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage = false
                 }
                 it("Then present a message informing that there is no internet connection") {
-                    // TODO: Assert
+                    expect(self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage).to(beTrue())
                 }
                 it("Should not present a UI activity inticator") {
                     // TODO: Assert

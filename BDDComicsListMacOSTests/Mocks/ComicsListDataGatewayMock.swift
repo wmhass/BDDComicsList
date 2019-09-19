@@ -9,11 +9,13 @@
 import Foundation
 
 class ComicsListDataGatewayMock {
-    
+    var _fetchComicsResultMock: FetchComicsResponse?
 }
 
 extension ComicsListDataGatewayMock: ComicsListDataGatewayLogic {
     func fetchComics(completion: @escaping (FetchComicsResponse)->Void) {
-        
+        if let resultMock = _fetchComicsResultMock {
+            completion(resultMock)
+        }
     }
 }
