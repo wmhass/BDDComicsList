@@ -160,7 +160,7 @@ Clean architecture VIPER like
     a) Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
     b) Create interactor class with business logic first and implement the tests
     c) Remember  to add files to macos test target
-    d) Add unit test to codable model
+    d) Add unit test to ComicsGrouper: 656db1087533d97a570dc043f069e1bc655c0f2a
 2. Create viewcontroller and views/snapshot tests
 
 ## 6. UI Tests

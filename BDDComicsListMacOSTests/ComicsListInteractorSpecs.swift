@@ -99,14 +99,15 @@ class ComicsListInteractorSpecs: QuickSpec {
             }
             context("When the comics list response is valid") {
                 let comics = [Comic(id: 1, title: "Comic 1"), Comic(id: 2, title: "Comic 2")]
+                let groupedComics = ComicsGrouper.groupedComics(fromComics: comics)
                 beforeEach {
                     self.dataGatewayMock._fetchComicsResultMock = .success(comics: comics)
                     self.presenterMock._didAskToPresentComics = (false, nil)
                     self.interactor.loadListOfComics()
                 }
                 it("Should present comics list") {
-//                    expect(self.presenterMock._didAskToPresentComics.didAsk).to(beTrue())
-//                    expect(self.presenterMock._didAskToPresentComics.comics).to(equal(comics))
+                    expect(self.presenterMock._didAskToPresentComics.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentComics.groupedComics).to(equal(groupedComics))
                 }
             }
             context("And the list of comics has one or more items") {

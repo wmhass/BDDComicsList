@@ -48,8 +48,7 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
             case .responseIsInvalid:
                 self.presenter.presentResponseIsInvalid()
             case .success(let comics):
-                break;
-//                self.presenter.presentComics(comics: comics)
+                self.presenter.presentComics(groupedComics: ComicsGrouper.groupedComics(fromComics: comics))
             }
         }
     }
