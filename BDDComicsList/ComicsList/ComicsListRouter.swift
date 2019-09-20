@@ -14,5 +14,7 @@ class ComicsListRouter {
 }
 
 extension ComicsListRouter: ComicsListRoutingLogic {
-    
+    func pushCharactersListView(ofComic comic: Comic) {
+        
+    }
 }

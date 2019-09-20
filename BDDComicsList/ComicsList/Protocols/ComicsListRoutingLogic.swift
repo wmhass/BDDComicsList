@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ComicsListRoutingLogic {
-    
+    func pushCharactersListView(ofComic comic: Comic)
 }

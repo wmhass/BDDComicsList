@@ -20,13 +20,16 @@ class ComicsListPresenterSpecs: QuickSpec {
     
     var presenter: ComicsListPresenter!
     var viewMock: ComicsListViewMock!
-
+    var routerMock: ComicsListRouterMock!
+    
     override func spec() {
         beforeSuite {
+            let routerMock = ComicsListRouterMock()
             let viewMock = ComicsListViewMock()
-            let presenter = ComicsListPresenter()
+            let presenter = ComicsListPresenter(router: routerMock)
             presenter.view = viewMock
-            
+
+            self.routerMock = routerMock
             self.viewMock = viewMock
             self.presenter = presenter
         }
@@ -76,7 +79,14 @@ class ComicsListPresenterSpecs: QuickSpec {
             }
             
             context("When it is asked to presentCharacters") {
+                let comic = Comic(id: 123, title: "Comic 1")
+                beforeEach {
+                    self.routerMock._didAskPushCharactersListView = (false, nil)
+                    self.presenter.presentCharacters(ofComic: comic)
+                }
                 it("Should ask the router to present the characters list view") {
+                    expect(self.routerMock._didAskPushCharactersListView.didAsk).to(beTrue())
+                    expect(self.routerMock._didAskPushCharactersListView.comic).to(equal(comic))
                 }
             }
             

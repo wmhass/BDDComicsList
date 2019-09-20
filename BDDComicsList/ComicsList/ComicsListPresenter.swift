@@ -10,6 +10,11 @@ import Foundation
 
 class ComicsListPresenter {
     weak var view: ComicsListDisplayLogic?
+    let router: ComicsListRoutingLogic
+    
+    init(router: ComicsListRoutingLogic) {
+        self.router = router
+    }
 }
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
@@ -29,6 +34,6 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
         self.view?.displayErrorAlert(title: "Failed fetching comics", message: "We failed fetching the comics because there was an error with the server response")
     }
     func presentCharacters(ofComic comic: Comic) {
-        
+        self.router.pushCharactersListView(ofComic: comic)
     }
 }
