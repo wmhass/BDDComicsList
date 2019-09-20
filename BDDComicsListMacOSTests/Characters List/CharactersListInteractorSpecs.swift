@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CharactersListSpecs: QuickSpec {
+class CharactersListInteractorSpecs: QuickSpec {
     override func spec() {
         beforeSuite {
         }
@@ -37,4 +37,5 @@ class CharactersListSpecs: QuickSpec {
                 }
             }
         }
+    }
 }
