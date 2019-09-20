@@ -14,7 +14,7 @@ class ComicsListPresenter {
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
     func presentComics(groupedComics: GroupedSortedComics) {
-
+        self.view?.displayComics(viewModel: ComicsListViewModel(groupedComics: groupedComics))
     }
     
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
