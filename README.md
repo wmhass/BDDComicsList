@@ -162,6 +162,7 @@ Clean architecture VIPER like
     c) Remember  to add files to macos test target
     d) Add unit test to ComicsGrouper: 656db1087533d97a570dc043f069e1bc655c0f2a
     e) Testing if comics interactor will present the characters view when the comic is selected: 48298dd226ccfb16aa9e979ec2e7e6c54db54730 and d5178720289c4bc5a720df068334d7446bc77371
+    f) Creating tests for the ComicsList Presenter: 8758e22fb94f2ad50d09b760b6a989a94dc2e7ec
 2. Create viewcontroller and views/snapshot tests
 
 ## 6. UI Tests
