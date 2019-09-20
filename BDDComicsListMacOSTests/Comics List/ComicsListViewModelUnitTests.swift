@@ -12,21 +12,52 @@ import Nimble
 
 class ComicsListViewModelUnitTests: QuickSpec {
     
-    override func spec() {
+    var viewModel: ComicsListViewModel!
+    var groupedComics: GroupedComics = [
+        "a": [
+            Comic(id: 123, title: "Avengers"),
+            Comic(id: 234, title: "Aero")
+        ],
+        "b": [
+            Comic(id: 345, title: "Black Cat"),
+            Comic(id: 456, title: "Black Panther")
+        ],
+        "c": [
+            Comic(id: 567, title: "Capitain America"),
+            Comic(id: 567, title: "Champions"),
+            Comic(id: 678, title: "Conan the Barbarian"),
+        ],
+        "l": [
+            Comic(id: 789, title: "Loki")
+        ],
+        "t": [
+            Comic(id: 890, title: "The Punisher")
+        ]
+    ]
     
+    
+    override func spec() {
+        beforeSuite {
+            self.viewModel = ComicsListViewModel(groupedComics: self.groupedComics)
+        }
         describe("ComicsListViewModel") {
-            context("When asking the number of sections") {
+            context("When asked the number of sections") {
                 it("Should return the number of comics group (grouped by first letter)") {
                     
                 }
             }
-            context("When asking for the number of items in a given section") {
+            context("When asked for the number of items in a given section") {
                 it("Should return the correct number of comics in the given section") {
                     
                 }
             }
-            context("When asking for the title of a given comic in a given section") {
-                it("Should return the title of the comic in that position") {
+            context("When asked for the title of a given comic in a given section") {
+                it("Should return the title of the comic in that position sorted ascending") {
+                    
+                }
+            }
+            context("When asked for the title of a given section") {
+                it("Should return the lowercased section letter sorted ascending") {
                     
                 }
             }

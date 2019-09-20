@@ -10,6 +10,9 @@ import Foundation
 
 struct ComicsListViewModel {
     
-    fileprivate let comics: GroupedComics
-    
+    fileprivate let groupedComics: GroupedComics
+
+    init(groupedComics: GroupedComics) {
+        self.groupedComics = groupedComics
+    }
 }
