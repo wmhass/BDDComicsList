@@ -13,7 +13,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 ### US01 - See a list of Marvel Comics
     As a user
-    I want to see a list of Marvel Comics grouped by the first letter of the comic's title when I open the app
+    I want to see a list of Marvel Comics grouped and sorted by the first letter of the comic's title when I open the app
     So I can get to know the comics they have
 
 #### Acceptance criteria:
@@ -34,11 +34,11 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
     Given that I have internet connection
     When the server response is valid
-    Then present a list of Marvel Comics titles grouped by the first letter of the comic's title
+    Then present a list of Marvel Comics titles grouped and sorted by the first letter of the comic's title
 
 ### US02 - See the list of characters of a given comic
     As a user
-    I want to see the list of characters when I tap on a comic title
+    I want to see the list of characters sorted by the first letter when I tap on a comic title
     So I can have more information about the comic
 
 #### Acceptance criteria:
@@ -64,7 +64,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     And the list of comics has one or more items
     When I tapped on a comic title
     And the response is valid
-    Then present a list with the name of the characters of that comic
+    Then present a list with the name of the characters of that comic sorted by the first letter
 
 ### US03 - Present comic name in the title of the characters view
     As a user
