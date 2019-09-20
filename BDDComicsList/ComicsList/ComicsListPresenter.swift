@@ -26,7 +26,7 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
     }
     
     func presentResponseIsInvalid() {
-        
+        self.view?.displayErrorAlert(title: "No internet connection", message: "We failed fetching the comics because there are no internet connection")
     }
     func presentCharacters(ofComic comic: Comic) {
         

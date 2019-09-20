@@ -20,8 +20,8 @@ class ComicsListPresenterSpecs: QuickSpec {
     
     var presenter: ComicsListPresenter!
     var viewMock: ComicsListViewMock!
-    
-    override func setUp() {
+
+    override func spec() {
         beforeSuite {
             let viewMock = ComicsListViewMock()
             let presenter = ComicsListPresenter()
@@ -31,10 +31,14 @@ class ComicsListPresenterSpecs: QuickSpec {
             self.presenter = presenter
         }
         describe("ComicsListPresenter") {
-            
             context("When it is asked to presentResponseIsInvalid") {
+                beforeEach {
+                    self.viewMock._didAskTodisplayErrorAlert = (nil, nil)
+                    self.presenter.presentResponseIsInvalid()
+                }
                 it("Should ask view to display an alert informing that there was an error with the server response") {
-                    
+                    expect(self.viewMock._didAskTodisplayErrorAlert.title).to(equal("No internet connection"))
+                    expect(self.viewMock._didAskTodisplayErrorAlert.message).to(equal("We failed fetching the comics because there are no internet connection"))
                 }
             }
             
