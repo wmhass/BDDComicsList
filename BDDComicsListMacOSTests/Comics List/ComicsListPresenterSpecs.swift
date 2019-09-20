@@ -77,13 +77,23 @@ class ComicsListPresenterSpecs: QuickSpec {
             
             context("When it is asked to presentCharacters") {
                 it("Should ask the router to present the characters list view") {
-                    
                 }
             }
             
             context("When it is asked to presentComics(groupedComics: GroupedComics)") {
-                it("Should ask the view to present a view model with the grouped comics") {
-                    
+                let comics = [
+                    Comic(id: 123, title: "Comic 1"),
+                    Comic(id: 234, title: "Comic 2"),
+                    Comic(id: 345, title: "Comic 3")
+                ]
+                let groupedComics = GroupedSortedComics(comics: comics)
+                beforeEach {
+                    self.viewMock._didAskToDisplayViewModel = (false, nil)
+                    self.presenter.presentComics(groupedComics: groupedComics)
+                }
+                it("Should ask the view to present a view model") {
+                    expect(self.viewMock._didAskToDisplayViewModel.didAsk).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayViewModel.viewModel).toNot(beNil())
                 }
             }
             
