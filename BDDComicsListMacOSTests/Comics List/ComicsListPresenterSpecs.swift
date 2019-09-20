@@ -33,35 +33,45 @@ class ComicsListPresenterSpecs: QuickSpec {
         describe("ComicsListPresenter") {
             context("When it is asked to presentResponseIsInvalid") {
                 beforeEach {
-                    self.viewMock._didAskTodisplayErrorAlert = (nil, nil)
+                    self.viewMock._didAskToDisplayErrorAlert = (nil, nil)
                     self.presenter.presentResponseIsInvalid()
                 }
                 it("Should ask view to display an alert informing that there was an error with the server response") {
-                    expect(self.viewMock._didAskTodisplayErrorAlert.title).to(equal("Failed fetching comics"))
-                    expect(self.viewMock._didAskTodisplayErrorAlert.message).to(equal("We failed fetching the comics because there was an error with the server response"))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal("Failed fetching comics"))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal("We failed fetching the comics because there was an error with the server response"))
                 }
             }
             
             context("When it is asked to presentNoInternetConnectionErrorMessage") {
                 beforeEach {
-                    self.viewMock._didAskTodisplayErrorAlert = (nil, nil)
+                    self.viewMock._didAskToDisplayErrorAlert = (nil, nil)
                     self.presenter.presentNoInternetConnectionErrorMessage()
                 }
                 it("Should ask view to display an alert informing that there is no internet connection") {
-                    expect(self.viewMock._didAskTodisplayErrorAlert.title).to(equal("No internet connection"))
-                    expect(self.viewMock._didAskTodisplayErrorAlert.message).to(equal("We failed fetching the comics because there are no internet connection"))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal("No internet connection"))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal("We failed fetching the comics because there are no internet connection"))
                 }
             }
             
             context("When it is asked to presentFetchDataActivityIndicator with true value") {
+                beforeEach {
+                    self.viewMock._didAskToDisplayProgressView = (false, nil)
+                    self.presenter.presentFetchDataActivityIndicator(true)
+                }
                 it("Should ask view to display a UI activity indicator") {
-                    
+                    expect(self.viewMock._didAskToDisplayProgressView.didAsk).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayProgressView.shouldDisplay).to(beTrue())
                 }
             }
             
             context("When it is asked to presentFetchDataActivityIndicator with false value") {
+                beforeEach {
+                    self.viewMock._didAskToDisplayProgressView = (false, nil)
+                    self.presenter.presentFetchDataActivityIndicator(false)
+                }
                 it("Should ask view to hide a UI activity indicator") {
-                    
+                    expect(self.viewMock._didAskToDisplayProgressView.didAsk).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayProgressView.shouldDisplay).to(beFalse())
                 }
             }
             
