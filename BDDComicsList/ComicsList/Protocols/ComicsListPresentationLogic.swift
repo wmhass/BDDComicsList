@@ -8,13 +8,10 @@
 
 import Foundation
 
-typealias ComicTitleFirstLetter = String
-typealias GroupedComics = [ComicTitleFirstLetter: [Comic]]
-
 protocol ComicsListPresentationLogic {
     func presentResponseIsInvalid()
     func presentNoInternetConnectionErrorMessage()
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool)
-    func presentComics(groupedComics: GroupedComics)
+    func presentComics(groupedComics: GroupedSortedComics)
     func presentCharacters(ofComic comic: Comic)
 }

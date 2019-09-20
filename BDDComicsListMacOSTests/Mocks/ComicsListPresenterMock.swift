@@ -12,7 +12,7 @@ class ComicsListPresenterMock {
     var _didAskToPresentResponseIsInvalid: Bool = false
     var _didAskToPresentNoInternetConnectionErrorMessage: Bool = false
     var _didAskToPresentFetchDataActivityIndicator: (didAsk: Bool, shouldPresent: Bool?) = (false, nil)
-    var _didAskToPresentComics: (didAsk: Bool, groupedComics: GroupedComics?) = (false, nil)
+    var _didAskToPresentComics: (didAsk: Bool, groupedComics: GroupedSortedComics?) = (false, nil)
     var _didAskToPresentCharactersOfComic: Comic?
 }
 
@@ -26,7 +26,7 @@ extension ComicsListPresenterMock: ComicsListPresentationLogic {
     func presentResponseIsInvalid() {
         _didAskToPresentResponseIsInvalid = true
     }
-    func presentComics(groupedComics: GroupedComics) {
+    func presentComics(groupedComics: GroupedSortedComics) {
         self._didAskToPresentComics = (true, groupedComics)
     }
     func presentCharacters(ofComic comic: Comic) {

@@ -90,7 +90,7 @@ class ComicsListInteractorSpecs: QuickSpec {
             }
             context("When the comics list response is valid") {
                 let comics = [Comic(id: 1, title: "Comic 1"), Comic(id: 2, title: "Comic 2")]
-                let groupedComics = ComicsGrouper.groupedComics(fromComics: comics)
+                let groupedComics = GroupedSortedComics(comics: comics)
                 beforeEach {
                     self.dataGatewayMock._fetchComicsResultMock = .success(comics: comics)
                     self.presenterMock._didAskToPresentComics = (false, nil)

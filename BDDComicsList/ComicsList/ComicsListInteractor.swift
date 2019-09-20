@@ -8,24 +8,6 @@
 
 import Foundation
 
-struct ComicsGrouper {
-    
-    static func groupedComics(fromComics comics: [Comic]) -> GroupedComics {
-        return comics.reduce(into: [ComicTitleFirstLetter: [Comic]](), { (result, comic) in
-            guard let firstLetter = comic.title.first?.lowercased() else {
-                return
-            }
-            if var comicsGroup = result[firstLetter]  {
-                comicsGroup.append(comic)
-                result[firstLetter] = comicsGroup
-            } else {
-                result[firstLetter] = [comic]
-            }
-        })
-    }
-    
-}
-
 class ComicsListInteractor {
 
     let presenter: ComicsListPresentationLogic
@@ -48,7 +30,7 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
             case .responseIsInvalid:
                 self.presenter.presentResponseIsInvalid()
             case .success(let comics):
-                self.presenter.presentComics(groupedComics: ComicsGrouper.groupedComics(fromComics: comics))
+                self.presenter.presentComics(groupedComics: GroupedSortedComics(comics: comics))
             }
         }
     }
