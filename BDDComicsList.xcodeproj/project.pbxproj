@@ -10,7 +10,7 @@
 		313CE89255C66D079DAE119E /* libPods-BDDComicsListUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B60E683960C87260FE0DB9 /* libPods-BDDComicsListUITests.a */; };
 		3D094637233537CA006BFEA2 /* ComicsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D094636233537CA006BFEA2 /* ComicsListViewModel.swift */; };
 		3D094638233537CA006BFEA2 /* ComicsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D094636233537CA006BFEA2 /* ComicsListViewModel.swift */; };
-		3D09463B23353A5E006BFEA2 /* ComicsListViewModelUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463923353A5E006BFEA2 /* ComicsListViewModelUnitTests.swift */; };
+		3D09463B23353A5E006BFEA2 /* ComicsListViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */; };
 		3D09463D23355865006BFEA2 /* GroupedSortedComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463C23355865006BFEA2 /* GroupedSortedComics.swift */; };
 		3D09463E23355865006BFEA2 /* GroupedSortedComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463C23355865006BFEA2 /* GroupedSortedComics.swift */; };
 		3D09464023355D30006BFEA2 /* ComicsListViewModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463F23355D30006BFEA2 /* ComicsListViewModelLogic.swift */; };
@@ -74,7 +74,7 @@
 /* Begin PBXFileReference section */
 		03D542F0F62917173E5E0DB9 /* libPods-BDDComicsListMacOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDDComicsListMacOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D094636233537CA006BFEA2 /* ComicsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModel.swift; sourceTree = "<group>"; };
-		3D09463923353A5E006BFEA2 /* ComicsListViewModelUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModelUnitTests.swift; sourceTree = "<group>"; };
+		3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModelSpecs.swift; sourceTree = "<group>"; };
 		3D09463C23355865006BFEA2 /* GroupedSortedComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedSortedComics.swift; sourceTree = "<group>"; };
 		3D09463F23355D30006BFEA2 /* ComicsListViewModelLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModelLogic.swift; sourceTree = "<group>"; };
 		3D224C492334FDB20042369A /* ComicsListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewMock.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 				3D64DE89233114C4003C7CBE /* ComicsListInteractorSpecs.swift */,
 				3DA4B95F233454C600EE26CB /* ComicsListPresenterSpecs.swift */,
 				3DA4B95B2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift */,
-				3D09463923353A5E006BFEA2 /* ComicsListViewModelUnitTests.swift */,
+				3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */,
 			);
 			path = "Comics List";
 			sourceTree = "<group>";
@@ -598,7 +598,7 @@
 				3DA4B95C2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift in Sources */,
 				3D22FFA02333140300ADDFB7 /* ComicsListInteractor.swift in Sources */,
 				3D22FFA82333153000ADDFB7 /* ComicsListDataGatewayLogic.swift in Sources */,
-				3D09463B23353A5E006BFEA2 /* ComicsListViewModelUnitTests.swift in Sources */,
+				3D09463B23353A5E006BFEA2 /* ComicsListViewModelSpecs.swift in Sources */,
 				3DA4B9512333B79A00EE26CB /* ComicsListDataGatewayMock.swift in Sources */,
 				3D22FFAB2333154900ADDFB7 /* ComicsListBusinessLogic.swift in Sources */,
 				3D22FFA5233314E500ADDFB7 /* ComicsListDisplayLogic.swift in Sources */,
