@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		313CE89255C66D079DAE119E /* libPods-BDDComicsListUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B60E683960C87260FE0DB9 /* libPods-BDDComicsListUITests.a */; };
+		3D224C4A2334FDB20042369A /* ComicsListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D224C492334FDB20042369A /* ComicsListViewMock.swift */; };
 		3D22FF9E2333133500ADDFB7 /* ComicsListDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */; };
 		3D22FF9F2333140000ADDFB7 /* ComicsListDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */; };
 		3D22FFA02333140300ADDFB7 /* ComicsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		03D542F0F62917173E5E0DB9 /* libPods-BDDComicsListMacOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDDComicsListMacOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D224C492334FDB20042369A /* ComicsListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewMock.swift; sourceTree = "<group>"; };
 		3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGateway.swift; sourceTree = "<group>"; };
 		3D22FFA3233314E500ADDFB7 /* ComicsListDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDisplayLogic.swift; sourceTree = "<group>"; };
 		3D22FFA62333153000ADDFB7 /* ComicsListDataGatewayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewayLogic.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */,
 				3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */,
+				3D224C492334FDB20042369A /* ComicsListViewMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			files = (
 				3DA4B94F2333B77000EE26CB /* ComicsListPresenterMock.swift in Sources */,
 				3D22FF9F2333140000ADDFB7 /* ComicsListDataGateway.swift in Sources */,
+				3D224C4A2334FDB20042369A /* ComicsListViewMock.swift in Sources */,
 				3DA4B960233454C600EE26CB /* ComicsListPresenterSpecs.swift in Sources */,
 				3D22FFAE2333155C00ADDFB7 /* ComicsListPresentationLogic.swift in Sources */,
 				3DFD380D23311B72004F0FFA /* CharactersListInteractorSpecs.swift in Sources */,
