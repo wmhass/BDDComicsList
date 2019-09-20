@@ -167,11 +167,10 @@
 		3D428DBF2330D4C0005A9309 /* BDDComicsListMacOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DA4B95E2334549A00EE26CB /* Characters List */,
+				3DA4B95D2334547F00EE26CB /* Comics List */,
 				3DA4B94D2333B75D00EE26CB /* Mocks */,
 				3D428DC22330D4C0005A9309 /* Info.plist */,
-				3DA4B95B2333FB3A00EE26CB /* ComicsGrouperUnitTests.swift */,
-				3D64DE89233114C4003C7CBE /* ComicsListInteractorSpecs.swift */,
-				3DFD380C23311B72004F0FFA /* CharactersListInteractorSpecs.swift */,
 			);
 			path = BDDComicsListMacOSTests;
 			sourceTree = "<group>";
@@ -251,6 +250,23 @@
 				3DA4B9532333E87800EE26CB /* Comic.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3DA4B95D2334547F00EE26CB /* Comics List */ = {
+			isa = PBXGroup;
+			children = (
+				3D64DE89233114C4003C7CBE /* ComicsListInteractorSpecs.swift */,
+				3DA4B95B2333FB3A00EE26CB /* ComicsGrouperUnitTests.swift */,
+			);
+			path = "Comics List";
+			sourceTree = "<group>";
+		};
+		3DA4B95E2334549A00EE26CB /* Characters List */ = {
+			isa = PBXGroup;
+			children = (
+				3DFD380C23311B72004F0FFA /* CharactersListInteractorSpecs.swift */,
+			);
+			path = "Characters List";
 			sourceTree = "<group>";
 		};
 		567803F00D451704A8C574AA /* Pods */ = {
