@@ -166,6 +166,7 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     e) Testing if comics interactor will present the characters view when the comic is selected: 48298dd226ccfb16aa9e979ec2e7e6c54db54730 and d5178720289c4bc5a720df068334d7446bc77371
     f) Creating tests for the ComicsList Presenter: 8758e22fb94f2ad50d09b760b6a989a94dc2e7ec
     g) !! Fiest write the test cases (description, context, it) -> This gives you an idea of the behaviour you want
+    h) It is okay that user stories change along the development: The developer should never guess, if you realize that something is missing, add first in the user stories before implement it.
     
 2. Create viewcontroller and views/snapshot tests
 
