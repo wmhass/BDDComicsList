@@ -37,14 +37,19 @@ class ComicsListPresenterSpecs: QuickSpec {
                     self.presenter.presentResponseIsInvalid()
                 }
                 it("Should ask view to display an alert informing that there was an error with the server response") {
-                    expect(self.viewMock._didAskTodisplayErrorAlert.title).to(equal("No internet connection"))
-                    expect(self.viewMock._didAskTodisplayErrorAlert.message).to(equal("We failed fetching the comics because there are no internet connection"))
+                    expect(self.viewMock._didAskTodisplayErrorAlert.title).to(equal("Failed fetching comics"))
+                    expect(self.viewMock._didAskTodisplayErrorAlert.message).to(equal("We failed fetching the comics because there was an error with the server response"))
                 }
             }
             
             context("When it is asked to presentNoInternetConnectionErrorMessage") {
+                beforeEach {
+                    self.viewMock._didAskTodisplayErrorAlert = (nil, nil)
+                    self.presenter.presentNoInternetConnectionErrorMessage()
+                }
                 it("Should ask view to display an alert informing that there is no internet connection") {
-                    
+                    expect(self.viewMock._didAskTodisplayErrorAlert.title).to(equal("No internet connection"))
+                    expect(self.viewMock._didAskTodisplayErrorAlert.message).to(equal("We failed fetching the comics because there are no internet connection"))
                 }
             }
             
