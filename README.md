@@ -158,7 +158,7 @@ Clean architecture VIPER like
 
 When wirting tests we don't write any view (i.e. UIKit dependent classes). This is just testing the logic behind it.
 
-1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
+1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed (another option is to start creating the views first, and then create the interactor...)
     a) Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
     b) Create interactor class with business logic first and implement the tests
     c) Remember  to add files to macos test target
