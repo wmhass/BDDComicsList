@@ -52,6 +52,8 @@
 		3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */; };
 		3DA019642336B88800C25801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7A23306A1800E767E1 /* Main.storyboard */; };
 		3DA019672336C86300C25801 /* ComicsListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */; };
+		3DA0196C2336E18600C25801 /* CustomListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0196A2336E18600C25801 /* CustomListTableViewCell.swift */; };
+		3DA0196D2336E18600C25801 /* CustomListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */; };
 		3DA4B94F2333B77000EE26CB /* ComicsListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */; };
 		3DA4B9512333B79A00EE26CB /* ComicsListDataGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */; };
 		3DA4B9542333E87800EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
@@ -126,6 +128,8 @@
 		3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataLoader.swift; sourceTree = "<group>"; };
 		3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewControllerSpecs.swift; sourceTree = "<group>"; };
 		3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListInteractorMock.swift; sourceTree = "<group>"; };
+		3DA0196A2336E18600C25801 /* CustomListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewCell.swift; sourceTree = "<group>"; };
+		3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomListTableViewCell.xib; sourceTree = "<group>"; };
 		3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListPresenterMock.swift; sourceTree = "<group>"; };
 		3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewayMock.swift; sourceTree = "<group>"; };
 		3DA4B9532333E87800EE26CB /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 		3D6A3A652332C6B40005B51D /* ComicsList */ = {
 			isa = PBXGroup;
 			children = (
+				3DA019692336E15500C25801 /* CustomListCell */,
 				3D094635233537B4006BFEA2 /* ViewModel */,
 				3DA4B9522333E78300EE26CB /* Models */,
 				3D22FFA2233314D900ADDFB7 /* Protocols */,
@@ -313,6 +318,15 @@
 				3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */,
 			);
 			path = ComicsList;
+			sourceTree = "<group>";
+		};
+		3DA019692336E15500C25801 /* CustomListCell */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0196A2336E18600C25801 /* CustomListTableViewCell.swift */,
+				3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */,
+			);
+			path = CustomListCell;
 			sourceTree = "<group>";
 		};
 		3DA4B94D2333B75D00EE26CB /* Mocks */ = {
@@ -546,6 +560,7 @@
 			files = (
 				3D7DDB8123306A1A00E767E1 /* LaunchScreen.storyboard in Resources */,
 				3D7DDB7E23306A1A00E767E1 /* Assets.xcassets in Resources */,
+				3DA0196D2336E18600C25801 /* CustomListTableViewCell.xib in Resources */,
 				3D7DDB7C23306A1800E767E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,6 +735,7 @@
 				3D6A3A6D2332C7920005B51D /* ComicsListViewController.swift in Sources */,
 				3DE9EF1D2336AE1D00FA519A /* MarvelAPI.swift in Sources */,
 				3D22FFA72333153000ADDFB7 /* ComicsListDataGatewayLogic.swift in Sources */,
+				3DA0196C2336E18600C25801 /* CustomListTableViewCell.swift in Sources */,
 				3D6A3A672332C6C60005B51D /* ComicsListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

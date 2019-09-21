@@ -17,10 +17,15 @@ class ComicsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(CustomListTableViewCell.defaultNib, forCellReuseIdentifier: CustomListTableViewCell.defaultReuseIdentifier)
+        
         self.displayUIActivityView(false)
         self.interactor?.loadListOfComics()
     }
 
+    
+    
     /*
     // MARK: - Navigation
 
@@ -43,7 +48,11 @@ extension ComicsListViewController: UITableViewDataSource {
         return self.viewModel?.titleOfSection(atIndex: section)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomListTableViewCell.defaultReuseIdentifier, for: indexPath) as! CustomListTableViewCell
+        
+        cell.customTitleLabel.text = self.viewModel?.titleOfComic(atIndex: indexPath.row, inSection: indexPath.section)
+        
+        return cell
     }
 }
 

@@ -102,6 +102,30 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     expect(self.comicsListViewController.tableView.headerView(forSection: 0)?.textLabel?.text).to(equal(viewModel.titleOfSection(atIndex: 0)))
                     expect(self.comicsListViewController.tableView.headerView(forSection: 1)?.textLabel?.text).to(equal(viewModel.titleOfSection(atIndex: 1)))
                 }
+                
+                it("Should display the correct type of cell") {
+                    let numberOfSections = self.comicsListViewController.tableView.numberOfSections
+                    for section in (0..<numberOfSections) {
+                        let rows = self.comicsListViewController.tableView.numberOfRows(inSection: section)
+                        for row in (0..<rows) {
+                            let indexPath = IndexPath(row: row, section: section)
+                            let cell = self.comicsListViewController.tableView.cellForRow(at: indexPath)
+                            expect(cell).to(beAnInstanceOf(CustomListTableViewCell.self))
+                        }
+                    }
+                }
+                
+                it("Should display the correct cell with correct content") {
+                    let numberOfSections = self.comicsListViewController.tableView.numberOfSections
+                    for section in (0..<numberOfSections) {
+                        let rows = self.comicsListViewController.tableView.numberOfRows(inSection: section)
+                        for row in (0..<rows) {
+                            let indexPath = IndexPath(row: row, section: section)
+                            let cell = self.comicsListViewController.tableView.cellForRow(at: indexPath) as? CustomListTableViewCell
+                            expect(cell?.customTitleLabel.text).to(equal(viewModel.titleOfComic(atIndex: row, inSection: section)))
+                        }
+                    }
+                }
             }
         }
     }
