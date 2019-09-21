@@ -22,7 +22,11 @@ class MarvelComicsResponseSpecs: QuickSpec {
                 let validData = validJson.data(using: .utf8)!
                 it("Should create the object properly") {
                     expect {
-                        try JSONDecoder().decode(MarvelComicsResponse.self, from: validData)
+                        let comicsResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: validData)
+                        expect(comicsResponse.code).to(equal(200))
+                        expect(comicsResponse.status).to(equal("Ok"))
+                        expect(comicsResponse.data.results.count).to(equal(1))
+                        return comicsResponse
                         }.toNot(throwError())
                 }
             }
@@ -41,13 +45,19 @@ class MarvelComicsResponseSpecs: QuickSpec {
         
         describe("MarvelComicsResponseData") {
             let validJson: String = """
-                { "results":[ {"title": "Comic title", "id": 123} ]}
+                { "results":[ {"title": "Comic title 1", "id": 123}, {"title": "Comic title 2", "id": 321} ]}
                 """
             let validData = validJson.data(using: .utf8)!
             context("When the json is valid and there are comics") {
                 it("Should create the object properly") {
                     expect {
-                        try JSONDecoder().decode(MarvelComicsResponseData.self, from: validData)
+                        let responseData = try JSONDecoder().decode(MarvelComicsResponseData.self, from: validData)
+                        expect(responseData.results.count).to(equal(2))
+                        expect(responseData.results[0].title).to(equal("Comic title 1"))
+                        expect(responseData.results[0].id).to(equal(123))
+                        expect(responseData.results[1].title).to(equal("Comic title 2"))
+                        expect(responseData.results[1].id).to(equal(321))
+                        return responseData
                         }.toNot(throwError())
                 }
             }
