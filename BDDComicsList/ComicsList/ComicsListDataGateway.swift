@@ -9,7 +9,7 @@
 import Foundation
 
 class ComicsListDataGateway {
-    // As this is a sample project and we are not using any networking library, we will mock this value here just for educational purpose
+    // As this is a sample project and we are not using any networking library, we will mock this value here just for educational purpose, but Ideally, we would use some kind of reachability component
     var hasInternetConnection: Bool = true
     let remoteData: ComicsListRemoteDataLogic
     

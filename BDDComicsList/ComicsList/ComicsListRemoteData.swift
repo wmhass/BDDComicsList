@@ -11,16 +11,18 @@ import Foundation
 class ComicsListRemoteData {
 
     let marvelAPIURLBuilder: MarvelAPIURLBuilder
-
-    init(marvelAPIURLBuilder: MarvelAPIURLBuilder) {
+    let httpDataLoader: HTTPDataLoaderLogic
+    
+    init(marvelAPIURLBuilder: MarvelAPIURLBuilder, httpDataLoader: HTTPDataLoaderLogic) {
         self.marvelAPIURLBuilder = marvelAPIURLBuilder
+        self.httpDataLoader = httpDataLoader
     }
 }
 
 extension ComicsListRemoteData: ComicsListRemoteDataLogic {
     func fetchAllComics(completion: @escaping (ComicsListRemoteResponse) -> Void) {
         let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.comicsListURL(limit: 5))
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, urlResponse, error) in
+        self.httpDataLoader.loadData(withRequest: urlRequest) { (data, urlResponse, error) in
             if let data = data {
                 do {
                     let marvelResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: data)
@@ -32,6 +34,5 @@ extension ComicsListRemoteData: ComicsListRemoteDataLogic {
                 completion(ComicsListRemoteResponse.failedParsingData)
             }
         }
-        dataTask.resume()
     }
 }
