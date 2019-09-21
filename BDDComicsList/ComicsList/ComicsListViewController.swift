@@ -19,8 +19,13 @@ class ComicsListViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableView.register(CustomListTableViewCell.defaultNib, forCellReuseIdentifier: CustomListTableViewCell.defaultReuseIdentifier)
-        
+        self.tableView.tableFooterView = UIView()
+
         self.displayUIActivityView(false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.interactor?.loadListOfComics()
     }
 

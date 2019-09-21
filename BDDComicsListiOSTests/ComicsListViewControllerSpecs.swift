@@ -39,12 +39,24 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 initialViewController?.view.layoutIfNeeded()
             }
             context("When the view finished loading") {
-                it("Should ask interactor to fetch the comics") {
-                    expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
-                }
                 it("Should have the activity indicator view initially hidden") {
                     expect(self.comicsListViewController.activityIndicator.isHidden).to(beTrue())
                     expect(self.comicsListViewController.activityIndicator.isAnimating).to(beFalse())
+                }
+                it("Should set an empty footer for the tableview to remove the empty lines at the end") {
+                    expect(self.comicsListViewController.tableView.tableFooterView).toNot(beNil())
+                    expect(self.comicsListViewController.tableView.tableFooterView).to(beAnInstanceOf(UIView.self))
+                }
+            }
+            
+            context("When the view will appear") {
+                beforeEach {
+                    // Trigger view will appear
+                    self.comicsListViewController.beginAppearanceTransition(true, animated: false)
+                    self.comicsListViewController.endAppearanceTransition()
+                }
+                it("Should ask interactor to fetch the comics") {
+                    expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
                 }
             }
             
