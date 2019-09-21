@@ -76,7 +76,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     expect(self.comicsListViewController.presentedViewController).to(beAnInstanceOf(UIAlertController.self))
                 }
             }
-            
+
             context("When asked to display a view model") {
                 let comics = [
                     Comic(id: 123, title: "aaa"),
@@ -125,6 +125,9 @@ class ComicsListViewControllerSpecs: QuickSpec {
                             expect(cell?.customTitleLabel.text).to(equal(viewModel.titleOfComic(atIndex: row, inSection: section)))
                         }
                     }
+                }
+
+                it("Should use automatic cell height") { expect(self.comicsListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
                 }
             }
         }
