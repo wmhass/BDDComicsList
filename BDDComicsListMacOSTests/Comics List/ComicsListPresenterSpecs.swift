@@ -58,23 +58,23 @@ class ComicsListPresenterSpecs: QuickSpec {
             
             context("When it is asked to presentFetchDataActivityIndicator with true value") {
                 beforeEach {
-                    self.viewMock._didAskToDisplayProgressView = (false, nil)
+                    self.viewMock._didAskToDisplayActivityView = (false, nil)
                     self.presenter.presentFetchDataActivityIndicator(true)
                 }
                 it("Should ask view to display a UI activity indicator") {
-                    expect(self.viewMock._didAskToDisplayProgressView.didAsk).to(beTrue())
-                    expect(self.viewMock._didAskToDisplayProgressView.shouldDisplay).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayActivityView.didAsk).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayActivityView.shouldDisplay).to(beTrue())
                 }
             }
             
             context("When it is asked to presentFetchDataActivityIndicator with false value") {
                 beforeEach {
-                    self.viewMock._didAskToDisplayProgressView = (false, nil)
+                    self.viewMock._didAskToDisplayActivityView = (false, nil)
                     self.presenter.presentFetchDataActivityIndicator(false)
                 }
                 it("Should ask view to hide a UI activity indicator") {
-                    expect(self.viewMock._didAskToDisplayProgressView.didAsk).to(beTrue())
-                    expect(self.viewMock._didAskToDisplayProgressView.shouldDisplay).to(beFalse())
+                    expect(self.viewMock._didAskToDisplayActivityView.didAsk).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayActivityView.shouldDisplay).to(beFalse())
                 }
             }
             

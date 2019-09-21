@@ -23,7 +23,7 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
     }
     
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
-        self.view?.displayUIProgressView(shouldPresent)
+        self.view?.displayUIActivityView(shouldPresent)
     }
     
     func presentNoInternetConnectionErrorMessage() {

@@ -10,6 +10,6 @@ import Foundation
 
 protocol ComicsListDisplayLogic: class {
     func displayErrorAlert(title: String, message: String)
-    func displayUIProgressView(_ display: Bool)
+    func displayUIActivityView(_ display: Bool)
     func displayComics(viewModel: ComicsListViewModelLogic)
 }

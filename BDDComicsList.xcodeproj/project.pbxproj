@@ -50,13 +50,12 @@
 		3DA0195C2336B40A00C25801 /* HTTPDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */; };
 		3DA0195D2336B40A00C25801 /* HTTPDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */; };
 		3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */; };
-		3DA019612336B86400C25801 /* ComicsListBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22FFA92333154900ADDFB7 /* ComicsListBusinessLogic.swift */; };
 		3DA019642336B88800C25801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7A23306A1800E767E1 /* Main.storyboard */; };
+		3DA019672336C86300C25801 /* ComicsListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */; };
 		3DA4B94F2333B77000EE26CB /* ComicsListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */; };
 		3DA4B9512333B79A00EE26CB /* ComicsListDataGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */; };
 		3DA4B9542333E87800EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
 		3DA4B9552333E87800EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
-		3DA4B9562333E8BB00EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
 		3DA4B95C2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B95B2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift */; };
 		3DA4B960233454C600EE26CB /* ComicsListPresenterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B95F233454C600EE26CB /* ComicsListPresenterSpecs.swift */; };
 		3DE9EF172336A5E500FA519A /* ComicsListRemoteDataSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE9EF162336A5E500FA519A /* ComicsListRemoteDataSpecs.swift */; };
@@ -126,6 +125,7 @@
 		3D7DDB8223306A1A00E767E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataLoader.swift; sourceTree = "<group>"; };
 		3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewControllerSpecs.swift; sourceTree = "<group>"; };
+		3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListInteractorMock.swift; sourceTree = "<group>"; };
 		3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListPresenterMock.swift; sourceTree = "<group>"; };
 		3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewayMock.swift; sourceTree = "<group>"; };
 		3DA4B9532333E87800EE26CB /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
@@ -217,6 +217,7 @@
 		3D428DB02330D3D6005A9309 /* BDDComicsListiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DA019652336C82B00C25801 /* ComicsList */,
 				3D428DB32330D3D6005A9309 /* Info.plist */,
 				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
 			);
@@ -304,6 +305,14 @@
 				3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */,
 			);
 			path = HTTPDataLoader;
+			sourceTree = "<group>";
+		};
+		3DA019652336C82B00C25801 /* ComicsList */ = {
+			isa = PBXGroup;
+			children = (
+				3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */,
+			);
+			path = ComicsList;
 			sourceTree = "<group>";
 		};
 		3DA4B94D2333B75D00EE26CB /* Mocks */ = {
@@ -639,9 +648,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA019612336B86400C25801 /* ComicsListBusinessLogic.swift in Sources */,
+				3DA019672336C86300C25801 /* ComicsListInteractorMock.swift in Sources */,
 				3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */,
-				3DA4B9562333E8BB00EE26CB /* Comic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,18 +11,14 @@ import UIKit
 class ComicsListViewController: UIViewController {
 
     var interactor: ComicsListBusinessLogic?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var tableView: UITableView!
+    fileprivate var viewModel: ComicsListViewModelLogic?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.displayUIActivityView(false)
+        self.interactor?.loadListOfComics()
     }
 
     /*
@@ -36,17 +32,39 @@ class ComicsListViewController: UIViewController {
     */
 }
 
+extension ComicsListViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.viewModel?.numberOfSections ?? 0
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel?.numberOfComics(inSection: section) ?? 0
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ""
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
 extension ComicsListViewController: ComicsListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func displayUIProgressView(_ display: Bool) {
-        
+    func displayUIActivityView(_ display: Bool) {
+        if display {
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+        }
     }
     
     func displayComics(viewModel: ComicsListViewModelLogic) {
-        
+        self.viewModel = viewModel
+        self.tableView.reloadData()
     }
 }
