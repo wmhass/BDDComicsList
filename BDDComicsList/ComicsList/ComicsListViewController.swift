@@ -40,7 +40,7 @@ extension ComicsListViewController: UITableViewDataSource {
         return self.viewModel?.numberOfComics(inSection: section) ?? 0
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return self.viewModel?.titleOfSection(atIndex: section)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()

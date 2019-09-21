@@ -88,6 +88,8 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 let viewModel = ComicsListViewModel(groupedComics: groupedSortedComics)
                 beforeEach {
                     self.comicsListViewController.displayComics(viewModel: viewModel)
+                    self.comicsListViewController.tableView.setNeedsLayout()
+                    self.comicsListViewController.tableView.layoutIfNeeded()
                 }
                 it("Should display the right number of sections in the table view") {
                     expect(self.comicsListViewController.tableView.numberOfSections).to(equal(viewModel.numberOfSections))
@@ -95,6 +97,10 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 it("Should display the right number of items in each section of the table view") {
                     expect(self.comicsListViewController.tableView.numberOfRows(inSection: 0)).to(equal(viewModel.numberOfComics(inSection: 0)))
                     expect(self.comicsListViewController.tableView.numberOfRows(inSection: 1)).to(equal(viewModel.numberOfComics(inSection: 1)))
+                }
+                it("Should present the correct title for each section") {
+                    expect(self.comicsListViewController.tableView.headerView(forSection: 0)?.textLabel?.text).to(equal(viewModel.titleOfSection(atIndex: 0)))
+                    expect(self.comicsListViewController.tableView.headerView(forSection: 1)?.textLabel?.text).to(equal(viewModel.titleOfSection(atIndex: 1)))
                 }
             }
         }
