@@ -37,5 +37,16 @@ class ComicsListViewController: UIViewController {
 }
 
 extension ComicsListViewController: ComicsListDisplayLogic {
+    func displayErrorAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        self.present(alertController, animated: true, completion: nil)
+    }
     
+    func displayUIProgressView(_ display: Bool) {
+        
+    }
+    
+    func displayComics(viewModel: ComicsListViewModelLogic) {
+        
+    }
 }
