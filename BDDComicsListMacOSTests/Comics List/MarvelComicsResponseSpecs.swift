@@ -10,17 +10,6 @@ import Foundation
 import Quick
 import Nimble
 
-/*struct MarvelComicsResponseData: Decodable {
-    let results: [Comic]
-}
-
-struct MarvelComicsResponse: Decodable {
-    let code: Int
-    let status: String
-    let data: MarvelComicsResponseData
-}*/
-
-
 class MarvelComicsResponseSpecs: QuickSpec {
     
     override func spec() {
