@@ -11,10 +11,29 @@ import Foundation
 class ComicsListDataGateway {
     // As this is a sample project and we are not using any networking library, we will mock this value here just for educational purpose
     var hasInternetConnection: Bool = true
+    let remoteData: ComicsListRemoteDataLogic
+    
+    init(remoteData: ComicsListRemoteDataLogic) {
+        self.remoteData = remoteData
+    }
 }
 
 extension ComicsListDataGateway: ComicsListDataGatewayLogic {
     func fetchComics(completion: @escaping (FetchComicsResponse)->Void) {
-        
+        guard self.hasInternetConnection else {
+            return completion(.noInternetConnection)
+        }
+        self.remoteData.fetchAllComics { remoteResponse in
+            switch remoteResponse {
+            case .failedParsingData:
+                completion(.responseIsInvalid)
+            case .success(let response):
+                if response.code == 200 {
+                    completion(FetchComicsResponse.success(comics: response.data.results))
+                } else {
+                    completion(.responseIsInvalid)
+                }
+            }
+        }
     }
 }

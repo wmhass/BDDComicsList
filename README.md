@@ -167,6 +167,7 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     f) Creating tests for the ComicsList Presenter: 8758e22fb94f2ad50d09b760b6a989a94dc2e7ec
     g) !! Fiest write the test cases (description, context, it) -> This gives you an idea of the behaviour you want
     h) It is okay that user stories change along the development: The developer should never guess, if you realize that something is missing, add first in the user stories before implement it.
+    i) Write your code based on behaviour 
     
 2. Create viewcontroller and views/snapshot tests
 
@@ -174,3 +175,8 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
 Once UI is done, do UI tests
 
 ## 7. Automate tests
+
+# General
+
+## No reachability
+For now, our 

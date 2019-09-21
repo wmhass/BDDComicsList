@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Comic: Equatable {
+struct Comic: Equatable, Decodable {
     let id: Int
     let title: String
 }
