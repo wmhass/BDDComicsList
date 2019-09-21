@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Comics List View Controller-->
+        <!--Marvel Comics-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ComicsListViewController" customModule="BDDComicsList" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="akk-BU-brg"/>
+                    <navigationItem key="navigationItem" title="Marvel Comics" id="akk-BU-brg"/>
                     <connections>
                         <outlet property="activityIndicator" destination="MSV-om-ysr" id="Mon-C1-DGX"/>
                         <outlet property="tableView" destination="1TL-Y6-K2m" id="L6X-se-LgG"/>

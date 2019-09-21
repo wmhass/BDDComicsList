@@ -47,6 +47,9 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     expect(self.comicsListViewController.tableView.tableFooterView).toNot(beNil())
                     expect(self.comicsListViewController.tableView.tableFooterView).to(beAnInstanceOf(UIView.self))
                 }
+                it("Should have 'Marvel Comics' as its navigation title") {
+                    expect(self.comicsListViewController.navigationItem.title).to(equal("Marvel Comics"))
+                }
             }
             
             context("When the view will appear") {

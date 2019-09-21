@@ -170,6 +170,7 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     i) Write your code based on behaviour
     j) Write unit tests if needed, but in a BDD style: 2c14ab14de5267bda9a6198871db1bbbc371a329
     k) Write viewcontroller tests in iOSTests target - it has access to uikit
+    l) You do not write any code in the application without a test - you need to justify why you are writing any line 
     
 2. Create viewcontroller and views/snapshot tests
 
