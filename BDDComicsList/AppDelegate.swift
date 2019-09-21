@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let connector = ComicsListModuleConnector()
+        
+        if let window = self.window,
+            let navigationController = window.rootViewController as? UINavigationController,
+            let comicsListViewController = navigationController.viewControllers.first as? ComicsListViewController {
+            connector.connect(window: window, comicsListViewController: comicsListViewController)
+        }
+        
         // Override point for customization after application launch.
         return true
     }
