@@ -19,7 +19,9 @@ struct HTTPDataLoader {
 extension HTTPDataLoader: HTTPDataLoaderLogic {
     func loadData(withRequest urlRequest: URLRequest, completion: @escaping (Data?, URLResponse?, Error?)-> Void) {
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, urlResponse, error) in
-            completion(data, urlResponse, error)
+            DispatchQueue.main.async {
+                completion(data, urlResponse, error)
+            }
         }
         dataTask.resume()
     }
