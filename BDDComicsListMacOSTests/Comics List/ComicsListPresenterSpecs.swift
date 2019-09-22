@@ -35,7 +35,7 @@ class ComicsListPresenterSpecs: QuickSpec {
             self.viewMock = viewMock
             self.presenter = presenter
         }
-        describe("ComicsListPresenter") {
+        describe("ComicsListPresentationLogic") {
             context("When it is asked to presentResponseIsInvalid") {
                 beforeEach {
                     self.viewMock._didAskToDisplayErrorAlert = (nil, nil)
