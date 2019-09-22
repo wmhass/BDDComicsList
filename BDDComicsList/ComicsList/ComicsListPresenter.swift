@@ -11,9 +11,11 @@ import Foundation
 class ComicsListPresenter {
     weak var view: ComicsListDisplayLogic?
     let router: ComicsListRoutingLogic
+    let interactor: ComicsListBusinessLogic
     
-    init(router: ComicsListRoutingLogic) {
+    init(router: ComicsListRoutingLogic, interactor: ComicsListBusinessLogic) {
         self.router = router
+        self.interactor = interactor
     }
 }
 

@@ -21,12 +21,14 @@ class ComicsListPresenterSpecs: QuickSpec {
     var presenter: ComicsListPresenter!
     var viewMock: ComicsListViewMock!
     var routerMock: ComicsListRouterMock!
+    var interactorMock: ComicsListInteractorMock!
     
     override func spec() {
         beforeSuite {
+            let interactorMock = ComicsListInteractorMock()
             let routerMock = ComicsListRouterMock()
             let viewMock = ComicsListViewMock()
-            let presenter = ComicsListPresenter(router: routerMock)
+            let presenter = ComicsListPresenter(router: routerMock, interactor: interactorMock)
             presenter.view = viewMock
 
             self.routerMock = routerMock
