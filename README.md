@@ -169,8 +169,9 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     h) It is okay that user stories change along the development: The developer should never guess, if you realize that something is missing, add first in the user stories before implement it.
     i) Write your code based on behaviour
     j) Write unit tests if needed, but in a BDD style: 2c14ab14de5267bda9a6198871db1bbbc371a329
-    k) Write viewcontroller tests in iOSTests target - it has access to uikit
-    l) You do not write any code in the application without a test - you need to justify why you are writing any line 
+    k) Write viewcontroller and custom list table view cell tests in iOSTests target - it has access to uikit
+    l) You do not write any code in the application without a test - you need to justify why you are writing any line
+    m) Added snapshot tests to custom list table view cell: 857ba0b77993084c70687f0bb626a86cc4d3936e
     
 2. Create viewcontroller and views/snapshot tests
 
