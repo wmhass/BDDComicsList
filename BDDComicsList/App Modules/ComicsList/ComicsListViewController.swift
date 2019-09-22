@@ -43,15 +43,6 @@ class ComicsListViewController: UIViewController {
 extension ComicsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.evenHandler?.comicSelected(atIndexPath: indexPath)
-        /*
-        // TODO: Move this to the router
-        let connection = CharactersListConnection { viewController in
-            // TODO: Do dependency injection
-            print("Here!")
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        
-        self.performSegue(withIdentifier: AppSegue.characterList.rawValue, sender: connection)*/
     }
 }
 

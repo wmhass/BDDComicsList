@@ -26,6 +26,7 @@ class ComicsListModuleConnector {
         
         
         // Dependency Injection
+        router.viewController = comicsListViewController
         comicsListViewController.evenHandler = presenter
         comicsListViewController.dataSource = presenter
         presenter.view = comicsListViewController

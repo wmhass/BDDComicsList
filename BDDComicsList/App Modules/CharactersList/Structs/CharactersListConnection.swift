@@ -8,6 +8,9 @@
 
 import UIKit
 
+// TODO: Remove this when we create the CharactesListViewController
+typealias CharactesListViewController = UIViewController
+
 struct CharactersListConnection {
-    var connect: (UIViewController) -> Void
+    var connect: (ComicsListViewController?, CharactesListViewController?) -> Void
 }

@@ -11,11 +11,12 @@ import UIKit
 enum AppSegue: String {
     case characterList = "CharacterListSegue"
     
+    // TODO:: Can we use Generics here?
     func prepare(segue: UIStoryboardSegue, sender: Any?) {
         switch self {
         case .characterList:
             if let connection = sender as? CharactersListConnection {
-                connection.connect(segue.destination)
+                connection.connect(segue.source as? ComicsListViewController, segue.destination as? CharactesListViewController)
             }
         }
     }
