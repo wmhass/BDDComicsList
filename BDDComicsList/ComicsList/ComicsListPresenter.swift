@@ -39,3 +39,9 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
         self.router.pushCharactersListView(ofComic: comic)
     }
 }
+
+extension ComicsListPresenter: ComicsListViewEventHandler {
+    func viewIsReadyToDisplayContent() {
+        self.interactor.loadListOfComics()
+    }
+}

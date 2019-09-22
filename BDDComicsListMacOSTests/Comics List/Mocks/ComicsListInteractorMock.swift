@@ -9,12 +9,12 @@
 import Foundation
 
 class ComicsListInteractorMock {
-    
+    var _didAskToLoadListOfComics: Bool = false
 }
 
 extension ComicsListInteractorMock: ComicsListBusinessLogic {
     func loadListOfComics() {
-        
+        _didAskToLoadListOfComics = true
     }
     func comicSelected(comic: Comic) {
         

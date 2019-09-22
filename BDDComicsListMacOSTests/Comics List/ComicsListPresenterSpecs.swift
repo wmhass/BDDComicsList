@@ -31,10 +31,24 @@ class ComicsListPresenterSpecs: QuickSpec {
             let presenter = ComicsListPresenter(router: routerMock, interactor: interactorMock)
             presenter.view = viewMock
 
+            self.interactorMock = interactorMock
             self.routerMock = routerMock
             self.viewMock = viewMock
             self.presenter = presenter
         }
+        
+        describe("ComicsListViewEventHandler") {
+            context("When view is ready to display content") {
+                beforeEach {
+                    self.interactorMock._didAskToLoadListOfComics = false
+                    self.presenter.viewIsReadyToDisplayContent()
+                }
+                it("Should ask interactor to load the list of comics") {
+                    expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
+                }
+            }
+        }
+        
         describe("ComicsListPresentationLogic") {
             context("When it is asked to presentResponseIsInvalid") {
                 beforeEach {
