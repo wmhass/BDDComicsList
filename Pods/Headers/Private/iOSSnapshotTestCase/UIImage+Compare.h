@@ -1,1 +1,0 @@
-../../../iOSSnapshotTestCase/FBSnapshotTestCase/Categories/UIImage+Compare.h

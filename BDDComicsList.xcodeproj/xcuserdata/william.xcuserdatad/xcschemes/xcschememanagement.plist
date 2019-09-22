@@ -7,12 +7,30 @@
 		<key>BDDComicsList.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>0</integer>
 		</dict>
 		<key>BDDComicsListMacOSTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3D428DAE2330D3D6005A9309</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3D428DCA2330D80D005A9309</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3D7DDB7223306A1800E767E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AD35778BFB6B5336BB5D8B1 /* Pods_BDDComicsListiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B9E70CE1D8F7896620C3C4 /* Pods_BDDComicsListiOSTests.framework */; };
 		313CE89255C66D079DAE119E /* libPods-BDDComicsListUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B60E683960C87260FE0DB9 /* libPods-BDDComicsListUITests.a */; };
 		3D094637233537CA006BFEA2 /* ComicsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D094636233537CA006BFEA2 /* ComicsListViewModel.swift */; };
 		3D094638233537CA006BFEA2 /* ComicsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D094636233537CA006BFEA2 /* ComicsListViewModel.swift */; };
@@ -69,7 +70,6 @@
 		3DE9EF1E2336AE1D00FA519A /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE9EF1C2336AE1D00FA519A /* MarvelAPI.swift */; };
 		3DFD380D23311B72004F0FFA /* CharactersListInteractorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD380C23311B72004F0FFA /* CharactersListInteractorSpecs.swift */; };
 		9DF63ABDBA7D4E78FDB5A6C0 /* Pods_BDDComicsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A95A000055183A80AF1A7F9 /* Pods_BDDComicsList.framework */; };
-		FB69B57422B168DC737D57B7 /* libPods-BDDComicsListiOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FDF9E6F9F04CAA98CA9D73 /* libPods-BDDComicsListiOSTests.a */; };
 		FDDB4A93159D2CCBE8B3CBFC /* libPods-BDDComicsListMacOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D542F0F62917173E5E0DB9 /* libPods-BDDComicsListMacOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -144,7 +144,7 @@
 		3DE9EF1C2336AE1D00FA519A /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 		3DFD380C23311B72004F0FFA /* CharactersListInteractorSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractorSpecs.swift; sourceTree = "<group>"; };
 		3F828CAC9737CA57C2C9A330 /* Pods-BDDComicsListMacOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDDComicsListMacOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDDComicsListMacOSTests/Pods-BDDComicsListMacOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		53FDF9E6F9F04CAA98CA9D73 /* libPods-BDDComicsListiOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDDComicsListiOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46B9E70CE1D8F7896620C3C4 /* Pods_BDDComicsListiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDDComicsListiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCE5608FE4E782DA31C7D9D /* Pods-BDDComicsList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDDComicsList.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDDComicsList/Pods-BDDComicsList.release.xcconfig"; sourceTree = "<group>"; };
 		6B03425A024AE87AB4C2C1F8 /* Pods-BDDComicsListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDDComicsListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDDComicsListUITests/Pods-BDDComicsListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99B60E683960C87260FE0DB9 /* libPods-BDDComicsListUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDDComicsListUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB69B57422B168DC737D57B7 /* libPods-BDDComicsListiOSTests.a in Frameworks */,
+				2AD35778BFB6B5336BB5D8B1 /* Pods_BDDComicsListiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +408,7 @@
 				9A95A000055183A80AF1A7F9 /* Pods_BDDComicsList.framework */,
 				03D542F0F62917173E5E0DB9 /* libPods-BDDComicsListMacOSTests.a */,
 				99B60E683960C87260FE0DB9 /* libPods-BDDComicsListUITests.a */,
-				53FDF9E6F9F04CAA98CA9D73 /* libPods-BDDComicsListiOSTests.a */,
+				46B9E70CE1D8F7896620C3C4 /* Pods_BDDComicsListiOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -424,6 +424,7 @@
 				3D428DAB2330D3D6005A9309 /* Sources */,
 				3D428DAC2330D3D6005A9309 /* Frameworks */,
 				3D428DAD2330D3D6005A9309 /* Resources */,
+				044DD15AAC3EF53C6A370714 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -574,6 +575,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		044DD15AAC3EF53C6A370714 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BDDComicsListiOSTests/Pods-BDDComicsListiOSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble-framework/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick-framework/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BDDComicsListiOSTests/Pods-BDDComicsListiOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1241E47A9FCC7C0E4206513F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

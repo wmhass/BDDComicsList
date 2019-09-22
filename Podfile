@@ -3,7 +3,6 @@
 
 
 target 'BDDComicsList' do
-
     use_frameworks!
 end
 
@@ -11,12 +10,13 @@ target 'BDDComicsListUITests' do
 end
 
 target 'BDDComicsListiOSTests' do
-  pod 'Quick'
-  pod 'Nimble'
-  pod 'iOSSnapshotTestCase'
+    use_frameworks!
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'iOSSnapshotTestCase'
 end
 
 target 'BDDComicsListMacOSTests' do
-  pod 'Quick'
-  pod 'Nimble'
+    pod 'Quick'
+    pod 'Nimble'
 end

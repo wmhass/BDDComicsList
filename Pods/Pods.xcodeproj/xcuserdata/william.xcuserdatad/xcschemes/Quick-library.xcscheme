@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93FB2E76E4DFE16A05CE13F4B889FA7B"
-               BuildableName = "libQuick-macOS.a"
-               BlueprintName = "Quick-macOS"
+               BlueprintIdentifier = "E5971B40DDA4D39A7F4A7C0C4CCADF56"
+               BuildableName = "libQuick-library.a"
+               BlueprintName = "Quick-library"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

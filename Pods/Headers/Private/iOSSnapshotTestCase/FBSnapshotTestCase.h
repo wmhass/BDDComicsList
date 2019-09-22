@@ -1,1 +1,0 @@
-../../../iOSSnapshotTestCase/FBSnapshotTestCase/FBSnapshotTestCase.h
