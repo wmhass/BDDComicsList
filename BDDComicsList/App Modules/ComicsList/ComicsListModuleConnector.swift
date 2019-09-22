@@ -9,7 +9,7 @@
 import UIKit
 
 class ComicsListModuleConnector {
-    func connect(window: UIWindow, comicsListViewController: ComicsListViewController) {
+    func connect(comicsListViewController: ComicsListViewController) {
         
         // Data Layer
         let httpDataLoader = HTTPDataLoader()

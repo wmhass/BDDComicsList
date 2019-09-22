@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = self.window,
             let navigationController = window.rootViewController as? UINavigationController,
             let comicsListViewController = navigationController.viewControllers.first as? ComicsListViewController {
-            connector.connect(window: window, comicsListViewController: comicsListViewController)
+            connector.connect(comicsListViewController: comicsListViewController)
         }
         
         // Override point for customization after application launch.
