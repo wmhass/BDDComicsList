@@ -37,16 +37,7 @@ class ComicsListPresenterSpecs: QuickSpec {
             self.presenter = presenter
         }
         
-        describe("ComicsListViewEventHandler") {
-            context("When view is ready to display content") {
-                beforeEach {
-                    self.interactorMock._didAskToLoadListOfComics = false
-                    self.presenter.viewIsReadyToDisplayContent()
-                }
-                it("Should ask interactor to load the list of comics") {
-                    expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
-                }
-            }
+        describe("ComicsListViewDataSource") {
             context("When there are comics to present") {
                 let comics = [
                     Comic(id: 123, title: "Comic 1"),
@@ -85,6 +76,18 @@ class ComicsListPresenterSpecs: QuickSpec {
                             expect(self.presenter.titleOfComic(atIndex: comicIndex, inSection: section)).to(equal(comicsInSection[comicIndex].title))
                         }
                     }
+                }
+            }
+        }
+        
+        describe("ComicsListViewEventHandler") {
+            context("When view is ready to display content") {
+                beforeEach {
+                    self.interactorMock._didAskToLoadListOfComics = false
+                    self.presenter.viewIsReadyToDisplayContent()
+                }
+                it("Should ask interactor to load the list of comics") {
+                    expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
                 }
             }
         }

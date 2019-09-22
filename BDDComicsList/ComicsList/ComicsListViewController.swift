@@ -10,10 +10,11 @@ import UIKit
 
 class ComicsListViewController: UIViewController {
 
-    var interactor: ComicsListBusinessLogic?
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
-    fileprivate var viewModel: ComicsListViewModelLogic?
+    var evenHandler: ComicsListViewEventHandler?
+    var dataSource: ComicsListViewDataSource?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,8 @@ class ComicsListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.interactor?.loadListOfComics()
+        self.evenHandler?.viewIsReadyToDisplayContent()
     }
-
-    
     
     /*
     // MARK: - Navigation
@@ -44,24 +43,28 @@ class ComicsListViewController: UIViewController {
 
 extension ComicsListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel?.numberOfSections ?? 0
+        return self.dataSource?.numberOfSections ?? 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel?.numberOfComics(inSection: section) ?? 0
+        return self.dataSource?.numberOfComics(inSection: section) ?? 0
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.viewModel?.titleOfSection(atIndex: section)
+        return self.dataSource?.titleOfSection(atIndex: section)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomListTableViewCell.defaultReuseIdentifier, for: indexPath) as! CustomListTableViewCell
         
-        cell.customTitleLabel.text = self.viewModel?.titleOfComic(atIndex: indexPath.row, inSection: indexPath.section)
+        cell.customTitleLabel.text = self.dataSource?.titleOfComic(atIndex: indexPath.row, inSection: indexPath.section)
         
         return cell
     }
 }
 
 extension ComicsListViewController: ComicsListDisplayLogic {
+    func reloadListOfComics() {
+        self.tableView.reloadData()
+    }
+    
     func displayErrorAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         self.present(alertController, animated: true, completion: nil)
@@ -77,9 +80,5 @@ extension ComicsListViewController: ComicsListDisplayLogic {
         }
     }
     
-    // TODO: Remove
-    func displayComics(viewModel: ComicsListViewModelLogic) {
-        self.viewModel = viewModel
-        self.tableView.reloadData()
-    }
+    
 }

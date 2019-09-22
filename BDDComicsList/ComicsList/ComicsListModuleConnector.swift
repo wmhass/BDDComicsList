@@ -17,15 +17,18 @@ class ComicsListModuleConnector {
         let remoteData = ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
         let dataGateway = ComicsListDataGateway(remoteData: remoteData)
         
+        // Business Logic
+        let interactor = ComicsListInteractor(dataGateway: dataGateway)
+        
         // Presentation layer
         let router = ComicsListRouter()
-        let presenter = ComicsListPresenter(router: router)
+        let presenter = ComicsListPresenter(router: router, interactor: interactor)
         
-        // Business Logic
-        let interactor = ComicsListInteractor(presenter: presenter, dataGateway: dataGateway)
         
         // Dependency Injection
-        comicsListViewController.interactor = interactor
+        comicsListViewController.evenHandler = presenter
+        comicsListViewController.dataSource = presenter
         presenter.view = comicsListViewController
+        interactor.presenter = presenter
     }
 }

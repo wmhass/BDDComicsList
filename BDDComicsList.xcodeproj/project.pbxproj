@@ -52,7 +52,6 @@
 		3DA0195D2336B40A00C25801 /* HTTPDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */; };
 		3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */; };
 		3DA019642336B88800C25801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7A23306A1800E767E1 /* Main.storyboard */; };
-		3DA019672336C86300C25801 /* ComicsListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */; };
 		3DA0196C2336E18600C25801 /* CustomListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0196A2336E18600C25801 /* CustomListTableViewCell.swift */; };
 		3DA0196D2336E18600C25801 /* CustomListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */; };
 		3DA0196F2336E70D00C25801 /* ComicsListModuleConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */; };
@@ -63,6 +62,7 @@
 		3DA019812337228200C25801 /* ComicsListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019802337228200C25801 /* ComicsListInteractorMock.swift */; };
 		3DA01983233723A500C25801 /* ComicsListViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA01982233723A500C25801 /* ComicsListViewEventHandler.swift */; };
 		3DA01984233723A500C25801 /* ComicsListViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA01982233723A500C25801 /* ComicsListViewEventHandler.swift */; };
+		3DA0198623372CD100C25801 /* ComicsListViewEventHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0198523372CD100C25801 /* ComicsListViewEventHandlerMock.swift */; };
 		3DA4B94F2333B77000EE26CB /* ComicsListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */; };
 		3DA4B9512333B79A00EE26CB /* ComicsListDataGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */; };
 		3DA4B9542333E87800EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
@@ -135,7 +135,6 @@
 		3D7DDB8223306A1A00E767E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataLoader.swift; sourceTree = "<group>"; };
 		3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewControllerSpecs.swift; sourceTree = "<group>"; };
-		3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListInteractorMock.swift; sourceTree = "<group>"; };
 		3DA0196A2336E18600C25801 /* CustomListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewCell.swift; sourceTree = "<group>"; };
 		3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomListTableViewCell.xib; sourceTree = "<group>"; };
 		3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListModuleConnector.swift; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		3DA0197A2337051500C25801 /* ComicsListViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		3DA019802337228200C25801 /* ComicsListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListInteractorMock.swift; sourceTree = "<group>"; };
 		3DA01982233723A500C25801 /* ComicsListViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewEventHandler.swift; sourceTree = "<group>"; };
+		3DA0198523372CD100C25801 /* ComicsListViewEventHandlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewEventHandlerMock.swift; sourceTree = "<group>"; };
 		3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListPresenterMock.swift; sourceTree = "<group>"; };
 		3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewayMock.swift; sourceTree = "<group>"; };
 		3DA4B9532333E87800EE26CB /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
@@ -336,9 +336,9 @@
 		3DA019652336C82B00C25801 /* ComicsList */ = {
 			isa = PBXGroup;
 			children = (
-				3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */,
 				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
 				3DA0197A2337051500C25801 /* ComicsListViewControllerSnapshotTest.swift */,
+				3DA0198523372CD100C25801 /* ComicsListViewEventHandlerMock.swift */,
 			);
 			path = ComicsList;
 			sourceTree = "<group>";
@@ -732,9 +732,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA0198623372CD100C25801 /* ComicsListViewEventHandlerMock.swift in Sources */,
 				3DA0197B2337051500C25801 /* ComicsListViewControllerSnapshotTest.swift in Sources */,
 				3DA019712336F01900C25801 /* CustomListTableViewCellSpecs.swift in Sources */,
-				3DA019672336C86300C25801 /* ComicsListInteractorMock.swift in Sources */,
 				3DA019742336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift in Sources */,
 				3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */,
 				3DA019792336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m in Sources */,

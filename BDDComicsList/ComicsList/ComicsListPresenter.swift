@@ -43,7 +43,7 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
     }
 }
 
-extension ComicsListPresenter: ComicsListViewEventHandler {
+extension ComicsListPresenter: ComicsListViewDataSource {
     var numberOfSections: Int {
         return self.viewModel?.numberOfSections ?? 0
     }
@@ -56,6 +56,9 @@ extension ComicsListPresenter: ComicsListViewEventHandler {
     func titleOfComic(atIndex index: Int, inSection sectionIndex: Int) -> String? {
         return self.viewModel?.titleOfComic(atIndex: index, inSection: sectionIndex)
     }
+}
+
+extension ComicsListPresenter: ComicsListViewEventHandler {
     func viewIsReadyToDisplayContent() {
         self.interactor.loadListOfComics()
     }

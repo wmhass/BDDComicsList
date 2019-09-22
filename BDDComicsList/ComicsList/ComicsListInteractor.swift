@@ -13,8 +13,7 @@ class ComicsListInteractor {
     weak var presenter: ComicsListPresentationLogic?
     let dataGateway: ComicsListDataGatewayLogic
     
-    init(presenter: ComicsListPresentationLogic, dataGateway: ComicsListDataGatewayLogic) {
-        self.presenter = presenter
+    init(dataGateway: ComicsListDataGatewayLogic) {
         self.dataGateway = dataGateway
     }
 }

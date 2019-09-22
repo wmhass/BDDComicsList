@@ -45,17 +45,16 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
             Comic(id: 231, title: "bba"),
             Comic(id: 231, title: "bbb"),
         ]
-        let groupedSortedComics = GroupedSortedComics(comics: comics)
-        let viewModel = ComicsListViewModel(groupedComics: groupedSortedComics)
-        self.comicsListViewController.displayComics(viewModel: viewModel)
+        self.comicsListViewController.dataSource = ComicsListViewEventHandlerMock(comics: comics)
+        
+        self.comicsListViewController.reloadListOfComics()
         
         self.snapshotVerifyView(self.comicsListViewController.view, withIdentifier: "")
     }
     
     func testComicsListViewControllerWithoutComics() {
-        let groupedSortedComics = GroupedSortedComics(comics: [])
-        let viewModel = ComicsListViewModel(groupedComics: groupedSortedComics)
-        self.comicsListViewController.displayComics(viewModel: viewModel)
+        self.comicsListViewController.dataSource = ComicsListViewEventHandlerMock(comics: [])
+        self.comicsListViewController.reloadListOfComics()
         
         self.snapshotVerifyView(self.comicsListViewController.view, withIdentifier: "")
     }

@@ -26,8 +26,9 @@ class ComicsListInteractorSpecs: QuickSpec {
         beforeSuite {
             let dataGatewayMock = ComicsListDataGatewayMock()
             let presenterMock = ComicsListPresenterMock()
-            let interactor = ComicsListInteractor(presenter: presenterMock, dataGateway: dataGatewayMock)
-            
+            let interactor = ComicsListInteractor(dataGateway: dataGatewayMock)
+            interactor.presenter = presenterMock
+
             self.dataGatewayMock = dataGatewayMock
             self.presenterMock = presenterMock
             self.interactor = interactor

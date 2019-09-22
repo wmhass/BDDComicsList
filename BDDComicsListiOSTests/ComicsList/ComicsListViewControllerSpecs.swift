@@ -13,19 +13,26 @@ import Nimble
 
 class ComicsListViewControllerSpecs: QuickSpec {
     
-    var interactorMock: ComicsListInteractorMock!
+    var viewEventHandlerMock: ComicsListViewEventHandlerMock!
     var comicsListViewController: ComicsListViewController!
     var window: UIWindow!
     
     override func spec() {
         describe("ComicsListViewController") {
             beforeEach {
-                let interactorMock = ComicsListInteractorMock()
+                let comics = [
+                    Comic(id: 123, title: "aaa"),
+                    Comic(id: 231, title: "baa"),
+                    Comic(id: 231, title: "bba"),
+                    Comic(id: 231, title: "bbb"),
+                ]
+                let viewEventHandlerMock = ComicsListViewEventHandlerMock(comics: comics)
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyBoard.instantiateInitialViewController() as? UINavigationController
                 let comicsListViewController = initialViewController?.viewControllers.first as! ComicsListViewController
                 
-                comicsListViewController.interactor = interactorMock
+                comicsListViewController.evenHandler = viewEventHandlerMock
+                comicsListViewController.dataSource = viewEventHandlerMock
                 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
@@ -33,7 +40,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 
                 self.window = window
                 self.comicsListViewController = comicsListViewController
-                self.interactorMock = interactorMock
+                self.viewEventHandlerMock = viewEventHandlerMock
                 
                 initialViewController?.view.setNeedsLayout()
                 initialViewController?.view.layoutIfNeeded()
@@ -58,8 +65,8 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     self.comicsListViewController.beginAppearanceTransition(true, animated: false)
                     self.comicsListViewController.endAppearanceTransition()
                 }
-                it("Should ask interactor to fetch the comics") {
-                    expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
+                it("Should notify the event handler that the view is ready to present content") {
+                    expect(self.viewEventHandlerMock._didNotifyViewIsReadyToDisplayContent).to(beTrue())
                 }
             }
             
@@ -93,29 +100,21 @@ class ComicsListViewControllerSpecs: QuickSpec {
             }
 
             context("When asked to display a view model") {
-                let comics = [
-                    Comic(id: 123, title: "aaa"),
-                    Comic(id: 231, title: "baa"),
-                    Comic(id: 231, title: "bba"),
-                    Comic(id: 231, title: "bbb"),
-                ]
-                let groupedSortedComics = GroupedSortedComics(comics: comics)
-                let viewModel = ComicsListViewModel(groupedComics: groupedSortedComics)
                 beforeEach {
-                    self.comicsListViewController.displayComics(viewModel: viewModel)
+                    self.comicsListViewController.reloadListOfComics()
                     self.comicsListViewController.tableView.setNeedsLayout()
                     self.comicsListViewController.tableView.layoutIfNeeded()
                 }
                 it("Should display the right number of sections in the table view") {
-                    expect(self.comicsListViewController.tableView.numberOfSections).to(equal(viewModel.numberOfSections))
+                    expect(self.comicsListViewController.tableView.numberOfSections).to(equal(self.viewEventHandlerMock.numberOfSections))
                 }
                 it("Should display the right number of items in each section of the table view") {
-                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 0)).to(equal(viewModel.numberOfComics(inSection: 0)))
-                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 1)).to(equal(viewModel.numberOfComics(inSection: 1)))
+                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 0)).to(equal(self.viewEventHandlerMock.numberOfComics(inSection: 0)))
+                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 1)).to(equal(self.viewEventHandlerMock.numberOfComics(inSection: 1)))
                 }
                 it("Should present the correct title for each section") {
-                    expect(self.comicsListViewController.tableView.headerView(forSection: 0)?.textLabel?.text).to(equal(viewModel.titleOfSection(atIndex: 0)))
-                    expect(self.comicsListViewController.tableView.headerView(forSection: 1)?.textLabel?.text).to(equal(viewModel.titleOfSection(atIndex: 1)))
+                    expect(self.comicsListViewController.tableView.headerView(forSection: 0)?.textLabel?.text).to(equal(self.viewEventHandlerMock.titleOfSection(atIndex: 0)))
+                    expect(self.comicsListViewController.tableView.headerView(forSection: 1)?.textLabel?.text).to(equal(self.viewEventHandlerMock.titleOfSection(atIndex: 1)))
                 }
                 
                 it("Should display the correct type of cell") {
@@ -137,7 +136,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                         for row in (0..<rows) {
                             let indexPath = IndexPath(row: row, section: section)
                             let cell = self.comicsListViewController.tableView.cellForRow(at: indexPath) as? CustomListTableViewCell
-                            expect(cell?.customTitleLabel.text).to(equal(viewModel.titleOfComic(atIndex: row, inSection: section)))
+                            expect(cell?.customTitleLabel.text).to(equal(self.viewEventHandlerMock.titleOfComic(atIndex: row, inSection: section)))
                         }
                     }
                 }
