@@ -47,6 +47,46 @@ class ComicsListPresenterSpecs: QuickSpec {
                     expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
                 }
             }
+            context("When there are comics to present") {
+                let comics = [
+                    Comic(id: 123, title: "Comic 1"),
+                    Comic(id: 234, title: "Comic 2"),
+                    Comic(id: 345, title: "Comic 3"),
+                    Comic(id: 345, title: "Avengers"),
+                    Comic(id: 345, title: "Aaskdjasd"),
+                    Comic(id: 345, title: "Bahsdkh")
+                ]
+                let groupedComics = GroupedSortedComics(comics: comics)
+                beforeEach {
+                    self.presenter.presentComics(groupedComics: groupedComics)
+                }
+                it("Should return the correct number of sections") {
+                    expect(self.presenter.numberOfSections).to(equal(groupedComics.sortedKeys.count))
+                }
+                it("Should return the correct number of comics in each section") {
+                    for section in (0..<groupedComics.sortedKeys.count) {
+                        let key = groupedComics.sortedKeys[section]
+                        let comicsInSection = groupedComics.groupedComics[key]
+                        expect(self.presenter.numberOfComics(inSection: section)).to(equal(comicsInSection?.count))
+                    }
+                }
+                it("Should return the correct title for each section") {
+                    for section in (0..<groupedComics.sortedKeys.count) {
+                        let key = groupedComics.sortedKeys[section]
+                        expect(self.presenter.titleOfSection(atIndex: section)).to(equal(key.uppercased()))
+                    }
+                }
+                it("Should return the correct title for each comic") {
+                    for section in (0..<groupedComics.sortedKeys.count) {
+                        let key = groupedComics.sortedKeys[section]
+                        let comicsInSection = groupedComics.groupedComics[key]!
+                        let numOfComics = comicsInSection.count
+                        for comicIndex in (0..<numOfComics) {
+                            expect(self.presenter.titleOfComic(atIndex: comicIndex, inSection: section)).to(equal(comicsInSection[comicIndex].title))
+                        }
+                    }
+                }
+            }
         }
         
         describe("ComicsListPresentationLogic") {
@@ -114,12 +154,12 @@ class ComicsListPresenterSpecs: QuickSpec {
                 ]
                 let groupedComics = GroupedSortedComics(comics: comics)
                 beforeEach {
-                    self.viewMock._didAskToReloadData = false
+                    self.viewMock._didAskToReloadListOfComics = false
                     self.presenter.presentComics(groupedComics: groupedComics)
                 }
 
                 it("Should ask the view to reload the table data") {
-                    expect(self.viewMock._didAskToReloadData).to(beTrue())
+                    expect(self.viewMock._didAskToReloadListOfComics).to(beTrue())
                 }
             }
             

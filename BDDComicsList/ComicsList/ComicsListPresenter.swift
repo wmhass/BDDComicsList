@@ -24,7 +24,7 @@ class ComicsListPresenter {
 extension ComicsListPresenter: ComicsListPresentationLogic {
     func presentComics(groupedComics: GroupedSortedComics) {
         self.viewModel = ComicsListViewModel(groupedComics: groupedComics)
-        self.view?.reloadDisplayingData()
+        self.view?.reloadListOfComics()
     }
     
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
@@ -44,6 +44,18 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
 }
 
 extension ComicsListPresenter: ComicsListViewEventHandler {
+    var numberOfSections: Int {
+        return self.viewModel?.numberOfSections ?? 0
+    }
+    func numberOfComics(inSection section: Int) -> Int {
+        return self.viewModel?.numberOfComics(inSection: section) ?? 0
+    }
+    func titleOfSection(atIndex sectionIndex: Int) -> String? {
+        return self.viewModel?.titleOfSection(atIndex: sectionIndex)
+    }
+    func titleOfComic(atIndex index: Int, inSection sectionIndex: Int) -> String? {
+        return self.viewModel?.titleOfComic(atIndex: index, inSection: sectionIndex)
+    }
     func viewIsReadyToDisplayContent() {
         self.interactor.loadListOfComics()
     }

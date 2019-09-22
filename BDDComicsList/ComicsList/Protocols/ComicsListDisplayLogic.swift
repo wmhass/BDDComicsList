@@ -11,5 +11,5 @@ import Foundation
 protocol ComicsListDisplayLogic: class {
     func displayErrorAlert(title: String, message: String)
     func displayUIActivityView(_ display: Bool)
-    func reloadDisplayingData()
+    func reloadListOfComics()
 }
