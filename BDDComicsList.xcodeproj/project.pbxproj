@@ -57,6 +57,8 @@
 		3DA0196D2336E18600C25801 /* CustomListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */; };
 		3DA0196F2336E70D00C25801 /* ComicsListModuleConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */; };
 		3DA019712336F01900C25801 /* CustomListTableViewCellSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019702336F01900C25801 /* CustomListTableViewCellSpecs.swift */; };
+		3DA019742336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019732336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift */; };
+		3DA019792336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019782336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m */; };
 		3DA4B94F2333B77000EE26CB /* ComicsListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */; };
 		3DA4B9512333B79A00EE26CB /* ComicsListDataGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */; };
 		3DA4B9542333E87800EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
@@ -134,6 +136,10 @@
 		3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomListTableViewCell.xib; sourceTree = "<group>"; };
 		3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListModuleConnector.swift; sourceTree = "<group>"; };
 		3DA019702336F01900C25801 /* CustomListTableViewCellSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewCellSpecs.swift; sourceTree = "<group>"; };
+		3DA019732336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewCellSnapshotTest.swift; sourceTree = "<group>"; };
+		3DA019752336FBFD00C25801 /* BDDComicsList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BDDComicsList-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DA019772336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase+SwiftAdditions.h"; sourceTree = "<group>"; };
+		3DA019782336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase+SwiftAdditions.m"; sourceTree = "<group>"; };
 		3DA4B94E2333B77000EE26CB /* ComicsListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListPresenterMock.swift; sourceTree = "<group>"; };
 		3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewayMock.swift; sourceTree = "<group>"; };
 		3DA4B9532333E87800EE26CB /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
@@ -225,10 +231,11 @@
 		3D428DB02330D3D6005A9309 /* BDDComicsListiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DA019762336FC6900C25801 /* Extensions */,
+				3DA019722336FAE600C25801 /* CustomListTableViewCell */,
 				3DA019652336C82B00C25801 /* ComicsList */,
 				3D428DB32330D3D6005A9309 /* Info.plist */,
-				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
-				3DA019702336F01900C25801 /* CustomListTableViewCellSpecs.swift */,
+				3DA019752336FBFD00C25801 /* BDDComicsList-Bridging-Header.h */,
 			);
 			path = BDDComicsListiOSTests;
 			sourceTree = "<group>";
@@ -322,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA019662336C86300C25801 /* ComicsListInteractorMock.swift */,
+				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
 			);
 			path = ComicsList;
 			sourceTree = "<group>";
@@ -333,6 +341,24 @@
 				3DA0196B2336E18600C25801 /* CustomListTableViewCell.xib */,
 			);
 			path = CustomListCell;
+			sourceTree = "<group>";
+		};
+		3DA019722336FAE600C25801 /* CustomListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3DA019702336F01900C25801 /* CustomListTableViewCellSpecs.swift */,
+				3DA019732336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift */,
+			);
+			path = CustomListTableViewCell;
+			sourceTree = "<group>";
+		};
+		3DA019762336FC6900C25801 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DA019772336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.h */,
+				3DA019782336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3DA4B94D2333B75D00EE26CB /* Mocks */ = {
@@ -698,7 +724,9 @@
 			files = (
 				3DA019712336F01900C25801 /* CustomListTableViewCellSpecs.swift in Sources */,
 				3DA019672336C86300C25801 /* ComicsListInteractorMock.swift in Sources */,
+				3DA019742336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift in Sources */,
 				3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */,
+				3DA019792336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +853,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lilohass.BDDComicsListiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BDDComicsListiOSTests/BDDComicsList-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDDComicsList.app/BDDComicsList";
@@ -846,6 +875,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lilohass.BDDComicsListiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BDDComicsListiOSTests/BDDComicsList-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDDComicsList.app/BDDComicsList";
