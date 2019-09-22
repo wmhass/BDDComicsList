@@ -221,12 +221,12 @@
 		3D22FFA2233314D900ADDFB7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3D22FFA3233314E500ADDFB7 /* ComicsListDisplayLogic.swift */,
-				3D22FFA62333153000ADDFB7 /* ComicsListDataGatewayLogic.swift */,
 				3D22FFA92333154900ADDFB7 /* ComicsListBusinessLogic.swift */,
+				3D22FFA62333153000ADDFB7 /* ComicsListDataGatewayLogic.swift */,
+				3D22FFA3233314E500ADDFB7 /* ComicsListDisplayLogic.swift */,
 				3D22FFAC2333155C00ADDFB7 /* ComicsListPresentationLogic.swift */,
-				3D22FFAF2333157100ADDFB7 /* ComicsListRoutingLogic.swift */,
 				3D09464623366ADB006BFEA2 /* ComicsListRemoteDataLogic.swift */,
+				3D22FFAF2333157100ADDFB7 /* ComicsListRoutingLogic.swift */,
 				3DA01982233723A500C25801 /* ComicsListViewEventHandler.swift */,
 			);
 			path = Protocols;
@@ -235,11 +235,11 @@
 		3D428DB02330D3D6005A9309 /* BDDComicsListiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0198A2337368D00C25801 /* App Modules */,
 				3DA019762336FC6900C25801 /* Extensions */,
-				3DA019722336FAE600C25801 /* CustomListTableViewCell */,
-				3DA019652336C82B00C25801 /* ComicsList */,
-				3D428DB32330D3D6005A9309 /* Info.plist */,
+				3DA0198B2337369800C25801 /* Views */,
 				3DA019752336FBFD00C25801 /* BDDComicsList-Bridging-Header.h */,
+				3D428DB32330D3D6005A9309 /* Info.plist */,
 			);
 			path = BDDComicsListiOSTests;
 			sourceTree = "<group>";
@@ -247,9 +247,8 @@
 		3D428DBF2330D4C0005A9309 /* BDDComicsListMacOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DA0198C233736B100C25801 /* App Modules */,
 				3D0946522336A326006BFEA2 /* Models */,
-				3DA4B95E2334549A00EE26CB /* Characters List */,
-				3DA4B95D2334547F00EE26CB /* Comics List */,
 				3D428DC22330D4C0005A9309 /* Info.plist */,
 			);
 			path = BDDComicsListMacOSTests;
@@ -268,16 +267,16 @@
 			isa = PBXGroup;
 			children = (
 				3DA019692336E15500C25801 /* CustomListCell */,
-				3D094635233537B4006BFEA2 /* ViewModel */,
 				3DA4B9522333E78300EE26CB /* Models */,
 				3D22FFA2233314D900ADDFB7 /* Protocols */,
-				3DE9EF182336A61200FA519A /* ComicsListRemoteData.swift */,
+				3D094635233537B4006BFEA2 /* ViewModel */,
 				3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */,
 				3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */,
+				3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */,
 				3D6A3A662332C6C60005B51D /* ComicsListPresenter.swift */,
+				3DE9EF182336A61200FA519A /* ComicsListRemoteData.swift */,
 				3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */,
 				3D6A3A6C2332C7920005B51D /* ComicsListViewController.swift */,
-				3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */,
 			);
 			path = ComicsList;
 			sourceTree = "<group>";
@@ -286,12 +285,12 @@
 			isa = PBXGroup;
 			children = (
 				3D7DDB7523306A1800E767E1 /* BDDComicsList */,
-				3D428DB02330D3D6005A9309 /* BDDComicsListiOSTests */,
 				3D428DBF2330D4C0005A9309 /* BDDComicsListMacOSTests */,
 				3D428DCC2330D80D005A9309 /* BDDComicsListUITests */,
-				3D7DDB7423306A1800E767E1 /* Products */,
-				567803F00D451704A8C574AA /* Pods */,
+				3D428DB02330D3D6005A9309 /* BDDComicsListiOSTests */,
 				5A31747FC83B5C50D3C0991F /* Frameworks */,
+				567803F00D451704A8C574AA /* Pods */,
+				3D7DDB7423306A1800E767E1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -309,14 +308,13 @@
 		3D7DDB7523306A1800E767E1 /* BDDComicsList */ = {
 			isa = PBXGroup;
 			children = (
-				3DA0195A2336B3EE00C25801 /* HTTPDataLoader */,
-				3DE9EF1B2336AE0700FA519A /* Marvel */,
-				3D6A3A652332C6B40005B51D /* ComicsList */,
+				3DA019892337367F00C25801 /* App Modules */,
+				3DA019882337366A00C25801 /* HTTP */,
 				3D7DDB7623306A1800E767E1 /* AppDelegate.swift */,
-				3D7DDB7A23306A1800E767E1 /* Main.storyboard */,
 				3D7DDB7D23306A1A00E767E1 /* Assets.xcassets */,
-				3D7DDB7F23306A1A00E767E1 /* LaunchScreen.storyboard */,
 				3D7DDB8223306A1A00E767E1 /* Info.plist */,
+				3D7DDB7F23306A1A00E767E1 /* LaunchScreen.storyboard */,
+				3D7DDB7A23306A1800E767E1 /* Main.storyboard */,
 			);
 			path = BDDComicsList;
 			sourceTree = "<group>";
@@ -332,8 +330,8 @@
 		3DA019652336C82B00C25801 /* ComicsList */ = {
 			isa = PBXGroup;
 			children = (
-				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
 				3DA0197A2337051500C25801 /* ComicsListViewControllerSnapshotTest.swift */,
+				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
 				3DA0198523372CD100C25801 /* ComicsListViewEventHandlerMock.swift */,
 			);
 			path = ComicsList;
@@ -351,8 +349,8 @@
 		3DA019722336FAE600C25801 /* CustomListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				3DA019702336F01900C25801 /* CustomListTableViewCellSpecs.swift */,
 				3DA019732336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift */,
+				3DA019702336F01900C25801 /* CustomListTableViewCellSpecs.swift */,
 			);
 			path = CustomListTableViewCell;
 			sourceTree = "<group>";
@@ -366,15 +364,65 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		3DA019872337365E00C25801 /* CharactersList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		3DA019882337366A00C25801 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				3DA0195A2336B3EE00C25801 /* HTTPDataLoader */,
+				3DE9EF1B2336AE0700FA519A /* Marvel */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		3DA019892337367F00C25801 /* App Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3DA019872337365E00C25801 /* CharactersList */,
+				3D6A3A652332C6B40005B51D /* ComicsList */,
+			);
+			path = "App Modules";
+			sourceTree = "<group>";
+		};
+		3DA0198A2337368D00C25801 /* App Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3DA019652336C82B00C25801 /* ComicsList */,
+			);
+			path = "App Modules";
+			sourceTree = "<group>";
+		};
+		3DA0198B2337369800C25801 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DA019722336FAE600C25801 /* CustomListTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DA0198C233736B100C25801 /* App Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3DA4B95E2334549A00EE26CB /* Characters List */,
+				3DA4B95D2334547F00EE26CB /* Comics List */,
+			);
+			path = "App Modules";
+			sourceTree = "<group>";
+		};
 		3DA4B94D2333B75D00EE26CB /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				3DA4B94E2333B77000EE26CB /* ComicsListPresentationMock.swift */,
 				3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */,
-				3D224C492334FDB20042369A /* ComicsListViewMock.swift */,
-				3D09464223356E57006BFEA2 /* ComicsListRouterMock.swift */,
-				3D09464923366B92006BFEA2 /* ComicsListRemoteDataMock.swift */,
 				3DA019802337228200C25801 /* ComicsListInteractorMock.swift */,
+				3DA4B94E2333B77000EE26CB /* ComicsListPresentationMock.swift */,
+				3D09464923366B92006BFEA2 /* ComicsListRemoteDataMock.swift */,
+				3D09464223356E57006BFEA2 /* ComicsListRouterMock.swift */,
+				3D224C492334FDB20042369A /* ComicsListViewMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -392,13 +440,13 @@
 			isa = PBXGroup;
 			children = (
 				3DA4B94D2333B75D00EE26CB /* Mocks */,
-				3DA4B95B2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift */,
+				3D094644233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift */,
 				3D64DE89233114C4003C7CBE /* ComicsListInteractorSpecs.swift */,
 				3DA4B95F233454C600EE26CB /* ComicsListPresenterSpecs.swift */,
-				3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */,
-				3D094644233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift */,
-				3D0946502336A02D006BFEA2 /* MarvelComicsResponseSpecs.swift */,
 				3DE9EF162336A5E500FA519A /* ComicsListRemoteDataSpecs.swift */,
+				3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */,
+				3DA4B95B2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift */,
+				3D0946502336A02D006BFEA2 /* MarvelComicsResponseSpecs.swift */,
 			);
 			path = "Comics List";
 			sourceTree = "<group>";
@@ -833,6 +881,7 @@
 				3D7DDB7B23306A1800E767E1 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		3D7DDB7F23306A1A00E767E1 /* LaunchScreen.storyboard */ = {
@@ -841,6 +890,7 @@
 				3D7DDB8023306A1A00E767E1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
