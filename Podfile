@@ -13,6 +13,7 @@ end
 target 'BDDComicsListiOSTests' do
   pod 'Quick'
   pod 'Nimble'
+  pod 'iOSSnapshotTestCase'
 end
 
 target 'BDDComicsListMacOSTests' do

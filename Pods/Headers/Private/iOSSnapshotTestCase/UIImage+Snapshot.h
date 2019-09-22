@@ -1,0 +1,1 @@
+../../../iOSSnapshotTestCase/FBSnapshotTestCase/Categories/UIImage+Snapshot.h
