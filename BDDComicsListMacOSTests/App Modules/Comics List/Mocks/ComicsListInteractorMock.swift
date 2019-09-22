@@ -10,6 +10,7 @@ import Foundation
 
 class ComicsListInteractorMock {
     var _didAskToLoadListOfComics: Bool = false
+    var _didNotifyAComicWasSelected: (didAsk: Bool, comic: Comic?) = (false, nil)
 }
 
 extension ComicsListInteractorMock: ComicsListBusinessLogic {
@@ -17,6 +18,6 @@ extension ComicsListInteractorMock: ComicsListBusinessLogic {
         _didAskToLoadListOfComics = true
     }
     func comicSelected(comic: Comic) {
-        
+        _didNotifyAComicWasSelected = (true, comic)
     }
 }

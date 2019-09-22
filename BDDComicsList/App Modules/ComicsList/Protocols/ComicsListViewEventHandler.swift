@@ -10,11 +10,5 @@ import Foundation
 
 protocol ComicsListViewEventHandler {
     func viewIsReadyToDisplayContent()
-}
-
-protocol ComicsListViewDataSource {
-    var numberOfSections: Int { get }
-    func numberOfComics(inSection section: Int) -> Int
-    func titleOfSection(atIndex sectionIndex: Int) -> String?
-    func titleOfComic(atIndex index: Int, inSection sectionIndex: Int) -> String?
+    func comicSelected(atIndexPath indexPath: IndexPath)
 }

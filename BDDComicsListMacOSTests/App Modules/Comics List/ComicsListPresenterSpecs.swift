@@ -90,6 +90,37 @@ class ComicsListPresenterSpecs: QuickSpec {
                     expect(self.interactorMock._didAskToLoadListOfComics).to(beTrue())
                 }
             }
+            context("When a valid cell is selected at an index path") {
+                let comics = [
+                    Comic(id: 123, title: "Comic 1")
+                ]
+                let groupedComics = GroupedSortedComics(comics: comics)
+                beforeEach {
+                    self.interactorMock._didNotifyAComicWasSelected = (false, nil)
+                    self.presenter.presentComics(groupedComics: groupedComics)
+                    self.presenter.comicSelected(atIndexPath: IndexPath(item: 0, section: 0))
+                }
+                it("Should notify the interactor that a comic was selected passing the comic as a parameter") {
+                    expect(self.interactorMock._didNotifyAComicWasSelected.didAsk).to(beTrue())
+                    expect(self.interactorMock._didNotifyAComicWasSelected.comic).to(equal(comics[0]))
+                }
+            }
+            
+            context("When an invalid cell is selected at an index path") {
+                let comics = [
+                    Comic(id: 123, title: "Comic 1")
+                ]
+                let groupedComics = GroupedSortedComics(comics: comics)
+                beforeEach {
+                    self.interactorMock._didNotifyAComicWasSelected = (false, nil)
+                    self.presenter.presentComics(groupedComics: groupedComics)
+                    self.presenter.comicSelected(atIndexPath: IndexPath(item: 1, section: 0))
+                }
+                it("Should not notify the interactor") {
+                    expect(self.interactorMock._didNotifyAComicWasSelected.didAsk).to(beFalse())
+                    expect(self.interactorMock._didNotifyAComicWasSelected.comic).to(beNil())
+                }
+            }
         }
         
         describe("ComicsListPresentationLogic") {

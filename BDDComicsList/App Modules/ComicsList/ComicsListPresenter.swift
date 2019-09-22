@@ -62,4 +62,10 @@ extension ComicsListPresenter: ComicsListViewEventHandler {
     func viewIsReadyToDisplayContent() {
         self.interactor.loadListOfComics()
     }
+    func comicSelected(atIndexPath indexPath: IndexPath) {
+        guard let selectedComic = self.viewModel?.comic(atIndex: indexPath.item, inSection: indexPath.section) else {
+            return
+        }
+        self.interactor.comicSelected(comic: selectedComic)
+    }
 }
