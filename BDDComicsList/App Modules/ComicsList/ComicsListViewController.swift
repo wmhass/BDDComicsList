@@ -29,16 +29,29 @@ class ComicsListViewController: UIViewController {
         super.viewWillAppear(animated)
         self.evenHandler?.viewIsReadyToDisplayContent()
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let segueIdentifier = segue.identifier,
+            let appSegue = AppSegue(rawValue: segueIdentifier) else {
+            return
+            
+        }
+        appSegue.prepare(segue: segue, sender: sender)
     }
-    */
+}
+
+extension ComicsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // TODO: Move this to the router
+        let connection = CharactersListConnection { viewController in
+            // TODO: Do dependency injection
+            print("Here!")
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        self.performSegue(withIdentifier: AppSegue.characterList.rawValue, sender: connection)
+    }
 }
 
 extension ComicsListViewController: UITableViewDataSource {

@@ -23,6 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="DEQ-cH-baB"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="MHS-9v-Xnr"/>
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MSV-om-ysr">
@@ -44,11 +45,27 @@
                     <connections>
                         <outlet property="activityIndicator" destination="MSV-om-ysr" id="Mon-C1-DGX"/>
                         <outlet property="tableView" destination="1TL-Y6-K2m" id="L6X-se-LgG"/>
+                        <segue destination="PeG-eI-Qwr" kind="show" identifier="CharacterListSegue" id="fAP-3v-4i6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="960.86956521739137" y="20.758928571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qt9-VJ-qyk">
+            <objects>
+                <viewController id="PeG-eI-Qwr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="td8-u7-T83">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GBi-7f-Xr8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OtY-al-iB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1762" y="23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="udm-Uv-dNa">

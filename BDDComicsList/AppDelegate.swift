@@ -17,10 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let connector = ComicsListModuleConnector()
-        
         if let navigationController = self.window?.rootViewController as? UINavigationController,
             let comicsListViewController = navigationController.viewControllers.first as? ComicsListViewController {
-            connector.connect(comicsListViewController: comicsListViewController)
+            if ProcessInfo().arguments.contains("UITests") {
+                // TODO: Connect with mock data
+            } else {
+                connector.connect(comicsListViewController: comicsListViewController)
+            }
         }
         
         // Override point for customization after application launch.

@@ -17,7 +17,9 @@ class BDDComicsListUITests: XCTestCase {
         continueAfterFailure = false
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let application = XCUIApplication()
+        application.launchArguments = ["UITests"]
+        application.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -28,8 +30,8 @@ class BDDComicsListUITests: XCTestCase {
 
     func testApp() {
         XCTContext.runActivity(named: "Given I launched the app") { _ in
-            let app = XCUIApplication()
             XCTContext.runActivity(named: "Then do [something]....", block: { _ in
+                XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["Ant-Man (2003) #2"]/*[[".cells.staticTexts[\"Ant-Man (2003) #2\"]",".staticTexts[\"Ant-Man (2003) #2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeDown()
                 
             })
         }
