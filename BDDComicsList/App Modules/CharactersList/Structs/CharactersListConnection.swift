@@ -12,5 +12,5 @@ import UIKit
 typealias CharactesListViewController = UIViewController
 
 struct CharactersListConnection {
-    var connect: (ComicsListViewController?, CharactesListViewController?) -> Void
+    var connectDependencies: (ComicsListViewController?, CharactesListViewController?) -> Void
 }

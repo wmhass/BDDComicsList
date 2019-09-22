@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if ProcessInfo().arguments.contains("UITests") {
                 // TODO: Connect with mock data
             } else {
-                connector.connect(comicsListViewController: comicsListViewController)
+                connector.connectDependencies(comicsListViewController: comicsListViewController)
             }
         }
         

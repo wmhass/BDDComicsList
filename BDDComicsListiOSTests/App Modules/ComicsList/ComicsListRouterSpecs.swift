@@ -30,6 +30,11 @@ class ComicsListRouterSpecs: QuickSpec {
                     
                 }
             }
+            context("When connecting dependencies of the CharactersListViewController") {
+                it("Should set am interactor to the viewcontroller") {
+                    
+                }
+            }
         }
     }
     
