@@ -29,6 +29,6 @@ class ComicsListModuleConnector {
         comicsListViewController.evenHandler = presenter
         comicsListViewController.dataSource = presenter
         presenter.view = comicsListViewController
-        interactor.presenter = presenter
+        interactor.presentation = presenter
     }
 }

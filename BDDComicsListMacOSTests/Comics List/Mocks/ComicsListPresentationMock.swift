@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ComicsListPresenterMock {
+class ComicsListPresentationMock {
     var _didAskToPresentResponseIsInvalid: Bool = false
     var _didAskToPresentNoInternetConnectionErrorMessage: Bool = false
     var _didAskToPresentFetchDataActivityIndicator: (didAsk: Bool, shouldPresent: Bool?) = (false, nil)
@@ -16,7 +16,7 @@ class ComicsListPresenterMock {
     var _didAskToPresentCharactersOfComic: Comic?
 }
 
-extension ComicsListPresenterMock: ComicsListPresentationLogic {
+extension ComicsListPresentationMock: ComicsListPresentationLogic {
     func presentNoInternetConnectionErrorMessage() {
         _didAskToPresentNoInternetConnectionErrorMessage = true
     }
