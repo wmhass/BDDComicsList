@@ -172,6 +172,7 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     k) Write viewcontroller and custom list table view cell tests in iOSTests target - it has access to uikit
     l) You do not write any code in the application without a test - you need to justify why you are writing any line
     m) Added snapshot tests to custom list table view cell: 857ba0b77993084c70687f0bb626a86cc4d3936e
+    o) Added snapshot tests to comicslistviewcontroller: ee5112a790cbfb7f48ae41be0b3f9df57c364159
     
 2. Create viewcontroller and views/snapshot tests
 
