@@ -114,12 +114,12 @@ class ComicsListPresenterSpecs: QuickSpec {
                 ]
                 let groupedComics = GroupedSortedComics(comics: comics)
                 beforeEach {
-                    self.viewMock._didAskToDisplayViewModel = (false, nil)
+                    self.viewMock._didAskToReloadData = false
                     self.presenter.presentComics(groupedComics: groupedComics)
                 }
-                it("Should ask the view to present a view model") {
-                    expect(self.viewMock._didAskToDisplayViewModel.didAsk).to(beTrue())
-                    expect(self.viewMock._didAskToDisplayViewModel.viewModel).toNot(beNil())
+
+                it("Should ask the view to reload the table data") {
+                    expect(self.viewMock._didAskToReloadData).to(beTrue())
                 }
             }
             

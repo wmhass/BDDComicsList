@@ -11,7 +11,7 @@ import Foundation
 class ComicsListViewMock {
     var _didAskToDisplayErrorAlert: (title: String?, message: String?) = (nil,nil)
     var _didAskToDisplayActivityView: (didAsk: Bool, shouldDisplay: Bool?) = (false, nil)
-    var _didAskToDisplayViewModel: (didAsk: Bool, viewModel: ComicsListViewModelLogic?) = (false, nil)
+    var _didAskToReloadData: Bool = false
 }
 
 extension ComicsListViewMock: ComicsListDisplayLogic {
@@ -21,7 +21,7 @@ extension ComicsListViewMock: ComicsListDisplayLogic {
     func displayUIActivityView(_ display: Bool) {
         _didAskToDisplayActivityView = (true, display)
     }
-    func displayComics(viewModel: ComicsListViewModelLogic) {
-        _didAskToDisplayViewModel = (true, viewModel)
+    func reloadDisplayingData() {
+        _didAskToReloadData = true
     }
 }

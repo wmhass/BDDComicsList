@@ -12,6 +12,8 @@ class ComicsListPresenter {
     weak var view: ComicsListDisplayLogic?
     let router: ComicsListRoutingLogic
     let interactor: ComicsListBusinessLogic
+    fileprivate var viewModel: ComicsListViewModel?
+    
     
     init(router: ComicsListRoutingLogic, interactor: ComicsListBusinessLogic) {
         self.router = router
@@ -21,7 +23,8 @@ class ComicsListPresenter {
 
 extension ComicsListPresenter: ComicsListPresentationLogic {
     func presentComics(groupedComics: GroupedSortedComics) {
-        self.view?.displayComics(viewModel: ComicsListViewModel(groupedComics: groupedComics))
+        self.viewModel = ComicsListViewModel(groupedComics: groupedComics)
+        self.view?.reloadDisplayingData()
     }
     
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {

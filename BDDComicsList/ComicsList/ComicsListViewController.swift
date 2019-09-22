@@ -77,6 +77,7 @@ extension ComicsListViewController: ComicsListDisplayLogic {
         }
     }
     
+    // TODO: Remove
     func displayComics(viewModel: ComicsListViewModelLogic) {
         self.viewModel = viewModel
         self.tableView.reloadData()
