@@ -98,6 +98,18 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     expect(self.comicsListViewController.presentedViewController).to(beAnInstanceOf(UIAlertController.self))
                 }
             }
+            
+            context("When a cell is selected") {
+                let selectedIndexPath = IndexPath(item: 1, section: 0)
+                beforeEach {
+                    self.viewPresenter._didNotifyAComicWasSelected = (false, nil)
+                    self.comicsListViewController.tableView(self.comicsListViewController.tableView, didSelectRowAt: selectedIndexPath)
+                }
+                it("Should notify the event handler passing the indexPath") {
+                    expect(self.viewPresenter._didNotifyAComicWasSelected.didAsk).to(beTrue())
+                    expect(self.viewPresenter._didNotifyAComicWasSelected.indexPath).to(equal(selectedIndexPath))
+                }
+            }
 
             context("When asked to display a view model") {
                 beforeEach {

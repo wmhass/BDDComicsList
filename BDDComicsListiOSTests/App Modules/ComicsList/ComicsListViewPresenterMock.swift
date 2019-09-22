@@ -11,6 +11,7 @@ import Foundation
 
 class ComicsListViewPresenterMock {
 
+    var _didNotifyAComicWasSelected: (didAsk: Bool, indexPath: IndexPath?) = (false, nil)
     var _didNotifyViewIsReadyToDisplayContent: Bool = false
     let _viewModel: ComicsListViewModel
     
@@ -22,6 +23,10 @@ class ComicsListViewPresenterMock {
 }
 
 extension ComicsListViewPresenterMock: ComicsListViewEventHandler {
+    func comicSelected(atIndexPath indexPath: IndexPath) {
+        _didNotifyAComicWasSelected = (true, indexPath)
+    }
+    
     func viewIsReadyToDisplayContent() {
         _didNotifyViewIsReadyToDisplayContent = true
     }

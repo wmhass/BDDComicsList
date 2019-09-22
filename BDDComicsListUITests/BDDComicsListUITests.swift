@@ -29,12 +29,12 @@ class BDDComicsListUITests: XCTestCase {
     }
 
     func testApp() {
-        XCTContext.runActivity(named: "Given I launched the app") { _ in
+        /*XCTContext.runActivity(named: "Given I launched the app") { _ in
             XCTContext.runActivity(named: "Then do [something]....", block: { _ in
                 XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["Ant-Man (2003) #2"]/*[[".cells.staticTexts[\"Ant-Man (2003) #2\"]",".staticTexts[\"Ant-Man (2003) #2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeDown()
                 
             })
-        }
+        }*/
     }
 
 }
