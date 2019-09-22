@@ -16,7 +16,7 @@ enum AppSegue: String {
         switch self {
         case .characterList:
             if let connection = sender as? CharactersListConnection {
-                connection.connect(segue.source as? ComicsListViewController, segue.destination as? CharactesListViewController)
+                connection.connectDependencies(segue.source as? ComicsListViewController, segue.destination as? CharactesListViewController)
             }
         }
     }
