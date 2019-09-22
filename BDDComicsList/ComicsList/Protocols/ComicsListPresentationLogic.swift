@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ComicsListPresentationLogic {
+protocol ComicsListPresentationLogic: class {
     func presentResponseIsInvalid()
     func presentNoInternetConnectionErrorMessage()
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool)

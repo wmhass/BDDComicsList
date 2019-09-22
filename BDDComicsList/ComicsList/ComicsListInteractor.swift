@@ -10,7 +10,7 @@ import Foundation
 
 class ComicsListInteractor {
 
-    let presenter: ComicsListPresentationLogic
+    weak var presenter: ComicsListPresentationLogic?
     let dataGateway: ComicsListDataGatewayLogic
     
     init(presenter: ComicsListPresentationLogic, dataGateway: ComicsListDataGatewayLogic) {
@@ -21,20 +21,20 @@ class ComicsListInteractor {
 
 extension ComicsListInteractor: ComicsListBusinessLogic {
     func loadListOfComics() {
-        self.presenter.presentFetchDataActivityIndicator(true)
+        self.presenter?.presentFetchDataActivityIndicator(true)
         self.dataGateway.fetchComics { fetchComicsResponse in
-            self.presenter.presentFetchDataActivityIndicator(false)
+            self.presenter?.presentFetchDataActivityIndicator(false)
             switch fetchComicsResponse {
             case .noInternetConnection:
-                self.presenter.presentNoInternetConnectionErrorMessage()
+                self.presenter?.presentNoInternetConnectionErrorMessage()
             case .responseIsInvalid:
-                self.presenter.presentResponseIsInvalid()
+                self.presenter?.presentResponseIsInvalid()
             case .success(let comics):
-                self.presenter.presentComics(groupedComics: GroupedSortedComics(comics: comics))
+                self.presenter?.presentComics(groupedComics: GroupedSortedComics(comics: comics))
             }
         }
     }
     func comicSelected(comic: Comic) {
-        self.presenter.presentCharacters(ofComic: comic)
+        self.presenter?.presentCharacters(ofComic: comic)
     }
 }
