@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let connector = ComicsListModuleConnector()
         
-        if let window = self.window,
-            let navigationController = window.rootViewController as? UINavigationController,
+        if let navigationController = self.window?.rootViewController as? UINavigationController,
             let comicsListViewController = navigationController.viewControllers.first as? ComicsListViewController {
             connector.connect(comicsListViewController: comicsListViewController)
         }
