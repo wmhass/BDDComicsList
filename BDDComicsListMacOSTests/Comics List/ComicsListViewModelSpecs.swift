@@ -67,17 +67,17 @@ class ComicsListViewModelSpecs: QuickSpec {
             context("When asking for the comic for selection at a giving index path") {
                 it("Should return the correct Comic model") {
                     // "a"
-                    expect(self.viewModel.comicForSelection(atIndex: 0, inSection: 0)).to(equal(self.comics[1]))
-                    expect(self.viewModel.comicForSelection(atIndex: 1, inSection: 0)).to(equal(self.comics[2]))
-                    expect(self.viewModel.comicForSelection(atIndex: 2, inSection: 0)).to(beNil())
+                    expect(self.viewModel.comic(atIndex: 0, inSection: 0)).to(equal(self.comics[1]))
+                    expect(self.viewModel.comic(atIndex: 1, inSection: 0)).to(equal(self.comics[2]))
+                    expect(self.viewModel.comic(atIndex: 2, inSection: 0)).to(beNil())
                     // "b"
-                    expect(self.viewModel.comicForSelection(atIndex: 0, inSection: 1)).to(equal(self.comics[4]))
-                    expect(self.viewModel.comicForSelection(atIndex: 1, inSection: 1)).to(beNil())
+                    expect(self.viewModel.comic(atIndex: 0, inSection: 1)).to(equal(self.comics[4]))
+                    expect(self.viewModel.comic(atIndex: 1, inSection: 1)).to(beNil())
                     // "a"
-                    expect(self.viewModel.comicForSelection(atIndex: 0, inSection: 2)).to(equal(self.comics[0]))
-                    expect(self.viewModel.comicForSelection(atIndex: 1, inSection: 2)).to(equal(self.comics[5]))
-                    expect(self.viewModel.comicForSelection(atIndex: 2, inSection: 2)).to(equal(self.comics[3]))
-                    expect(self.viewModel.comicForSelection(atIndex: 3, inSection: 2)).to(beNil())
+                    expect(self.viewModel.comic(atIndex: 0, inSection: 2)).to(equal(self.comics[0]))
+                    expect(self.viewModel.comic(atIndex: 1, inSection: 2)).to(equal(self.comics[5]))
+                    expect(self.viewModel.comic(atIndex: 2, inSection: 2)).to(equal(self.comics[3]))
+                    expect(self.viewModel.comic(atIndex: 3, inSection: 2)).to(beNil())
                 }
             }
         }

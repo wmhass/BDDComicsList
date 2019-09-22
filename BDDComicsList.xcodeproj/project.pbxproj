@@ -14,8 +14,6 @@
 		3D09463B23353A5E006BFEA2 /* ComicsListViewModelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */; };
 		3D09463D23355865006BFEA2 /* GroupedSortedComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463C23355865006BFEA2 /* GroupedSortedComics.swift */; };
 		3D09463E23355865006BFEA2 /* GroupedSortedComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463C23355865006BFEA2 /* GroupedSortedComics.swift */; };
-		3D09464023355D30006BFEA2 /* ComicsListViewModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463F23355D30006BFEA2 /* ComicsListViewModelLogic.swift */; };
-		3D09464123355D30006BFEA2 /* ComicsListViewModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09463F23355D30006BFEA2 /* ComicsListViewModelLogic.swift */; };
 		3D09464323356E57006BFEA2 /* ComicsListRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09464223356E57006BFEA2 /* ComicsListRouterMock.swift */; };
 		3D094645233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D094644233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift */; };
 		3D09464723366ADB006BFEA2 /* ComicsListRemoteDataLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09464623366ADB006BFEA2 /* ComicsListRemoteDataLogic.swift */; };
@@ -101,7 +99,6 @@
 		3D094636233537CA006BFEA2 /* ComicsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModel.swift; sourceTree = "<group>"; };
 		3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModelSpecs.swift; sourceTree = "<group>"; };
 		3D09463C23355865006BFEA2 /* GroupedSortedComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedSortedComics.swift; sourceTree = "<group>"; };
-		3D09463F23355D30006BFEA2 /* ComicsListViewModelLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModelLogic.swift; sourceTree = "<group>"; };
 		3D09464223356E57006BFEA2 /* ComicsListRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListRouterMock.swift; sourceTree = "<group>"; };
 		3D094644233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewaySpecs.swift; sourceTree = "<group>"; };
 		3D09464623366ADB006BFEA2 /* ComicsListRemoteDataLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListRemoteDataLogic.swift; sourceTree = "<group>"; };
@@ -224,7 +221,6 @@
 		3D22FFA2233314D900ADDFB7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3D09463F23355D30006BFEA2 /* ComicsListViewModelLogic.swift */,
 				3D22FFA3233314E500ADDFB7 /* ComicsListDisplayLogic.swift */,
 				3D22FFA62333153000ADDFB7 /* ComicsListDataGatewayLogic.swift */,
 				3D22FFA92333154900ADDFB7 /* ComicsListBusinessLogic.swift */,
@@ -755,7 +751,6 @@
 				3D224C4A2334FDB20042369A /* ComicsListViewMock.swift in Sources */,
 				3D094645233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift in Sources */,
 				3DA4B960233454C600EE26CB /* ComicsListPresenterSpecs.swift in Sources */,
-				3D09464123355D30006BFEA2 /* ComicsListViewModelLogic.swift in Sources */,
 				3D09464323356E57006BFEA2 /* ComicsListRouterMock.swift in Sources */,
 				3D22FFAE2333155C00ADDFB7 /* ComicsListPresentationLogic.swift in Sources */,
 				3DFD380D23311B72004F0FFA /* CharactersListInteractorSpecs.swift in Sources */,
@@ -807,7 +802,6 @@
 				3D22FFA4233314E500ADDFB7 /* ComicsListDisplayLogic.swift in Sources */,
 				3DA0195C2336B40A00C25801 /* HTTPDataLoader.swift in Sources */,
 				3D09463D23355865006BFEA2 /* GroupedSortedComics.swift in Sources */,
-				3D09464023355D30006BFEA2 /* ComicsListViewModelLogic.swift in Sources */,
 				3D22FFB02333157100ADDFB7 /* ComicsListRoutingLogic.swift in Sources */,
 				3D6A3A6D2332C7920005B51D /* ComicsListViewController.swift in Sources */,
 				3DE9EF1D2336AE1D00FA519A /* MarvelAPI.swift in Sources */,
