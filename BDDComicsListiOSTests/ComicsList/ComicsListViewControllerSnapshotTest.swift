@@ -45,7 +45,7 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
             Comic(id: 231, title: "bba"),
             Comic(id: 231, title: "bbb"),
         ]
-        self.comicsListViewController.dataSource = ComicsListViewEventHandlerMock(comics: comics)
+        self.comicsListViewController.dataSource = ComicsListViewPresenterMock(comics: comics)
         
         self.comicsListViewController.reloadListOfComics()
         
@@ -53,7 +53,7 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
     }
     
     func testComicsListViewControllerWithoutComics() {
-        self.comicsListViewController.dataSource = ComicsListViewEventHandlerMock(comics: [])
+        self.comicsListViewController.dataSource = ComicsListViewPresenterMock(comics: [])
         self.comicsListViewController.reloadListOfComics()
         
         self.snapshotVerifyView(self.comicsListViewController.view, withIdentifier: "")

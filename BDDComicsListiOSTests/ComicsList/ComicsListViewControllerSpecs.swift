@@ -13,7 +13,7 @@ import Nimble
 
 class ComicsListViewControllerSpecs: QuickSpec {
     
-    var viewEventHandlerMock: ComicsListViewEventHandlerMock!
+    var viewPresenter: ComicsListViewPresenterMock!
     var comicsListViewController: ComicsListViewController!
     var window: UIWindow!
     
@@ -26,13 +26,13 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     Comic(id: 231, title: "bba"),
                     Comic(id: 231, title: "bbb"),
                 ]
-                let viewEventHandlerMock = ComicsListViewEventHandlerMock(comics: comics)
+                let viewPresenter = ComicsListViewPresenterMock(comics: comics)
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyBoard.instantiateInitialViewController() as? UINavigationController
                 let comicsListViewController = initialViewController?.viewControllers.first as! ComicsListViewController
                 
-                comicsListViewController.evenHandler = viewEventHandlerMock
-                comicsListViewController.dataSource = viewEventHandlerMock
+                comicsListViewController.evenHandler = viewPresenter
+                comicsListViewController.dataSource = viewPresenter
                 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
@@ -40,7 +40,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 
                 self.window = window
                 self.comicsListViewController = comicsListViewController
-                self.viewEventHandlerMock = viewEventHandlerMock
+                self.viewPresenter = viewPresenter
                 
                 initialViewController?.view.setNeedsLayout()
                 initialViewController?.view.layoutIfNeeded()
@@ -66,7 +66,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     self.comicsListViewController.endAppearanceTransition()
                 }
                 it("Should notify the event handler that the view is ready to present content") {
-                    expect(self.viewEventHandlerMock._didNotifyViewIsReadyToDisplayContent).to(beTrue())
+                    expect(self.viewPresenter._didNotifyViewIsReadyToDisplayContent).to(beTrue())
                 }
             }
             
@@ -106,15 +106,15 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     self.comicsListViewController.tableView.layoutIfNeeded()
                 }
                 it("Should display the right number of sections in the table view") {
-                    expect(self.comicsListViewController.tableView.numberOfSections).to(equal(self.viewEventHandlerMock.numberOfSections))
+                    expect(self.comicsListViewController.tableView.numberOfSections).to(equal(self.viewPresenter.numberOfSections))
                 }
                 it("Should display the right number of items in each section of the table view") {
-                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 0)).to(equal(self.viewEventHandlerMock.numberOfComics(inSection: 0)))
-                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 1)).to(equal(self.viewEventHandlerMock.numberOfComics(inSection: 1)))
+                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 0)).to(equal(self.viewPresenter.numberOfComics(inSection: 0)))
+                    expect(self.comicsListViewController.tableView.numberOfRows(inSection: 1)).to(equal(self.viewPresenter.numberOfComics(inSection: 1)))
                 }
                 it("Should present the correct title for each section") {
-                    expect(self.comicsListViewController.tableView.headerView(forSection: 0)?.textLabel?.text).to(equal(self.viewEventHandlerMock.titleOfSection(atIndex: 0)))
-                    expect(self.comicsListViewController.tableView.headerView(forSection: 1)?.textLabel?.text).to(equal(self.viewEventHandlerMock.titleOfSection(atIndex: 1)))
+                    expect(self.comicsListViewController.tableView.headerView(forSection: 0)?.textLabel?.text).to(equal(self.viewPresenter.titleOfSection(atIndex: 0)))
+                    expect(self.comicsListViewController.tableView.headerView(forSection: 1)?.textLabel?.text).to(equal(self.viewPresenter.titleOfSection(atIndex: 1)))
                 }
                 
                 it("Should display the correct type of cell") {
@@ -136,7 +136,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                         for row in (0..<rows) {
                             let indexPath = IndexPath(row: row, section: section)
                             let cell = self.comicsListViewController.tableView.cellForRow(at: indexPath) as? CustomListTableViewCell
-                            expect(cell?.customTitleLabel.text).to(equal(self.viewEventHandlerMock.titleOfComic(atIndex: row, inSection: section)))
+                            expect(cell?.customTitleLabel.text).to(equal(self.viewPresenter.titleOfComic(atIndex: row, inSection: section)))
                         }
                     }
                 }

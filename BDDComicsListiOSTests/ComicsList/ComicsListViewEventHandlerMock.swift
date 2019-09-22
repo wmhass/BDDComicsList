@@ -1,5 +1,5 @@
 //
-//  ComicsListViewEventHandlerMock.swift
+//  ComicsListViewPresenterMock.swift
 //  BDDComicsListiOSTests
 //
 //  Created by William Hass on 2019-09-22.
@@ -9,7 +9,7 @@
 import Foundation
 @testable import BDDComicsList
 
-class ComicsListViewEventHandlerMock {
+class ComicsListViewPresenterMock {
 
     var _didNotifyViewIsReadyToDisplayContent: Bool = false
     let _viewModel: ComicsListViewModel
@@ -21,13 +21,13 @@ class ComicsListViewEventHandlerMock {
     }
 }
 
-extension ComicsListViewEventHandlerMock: ComicsListViewEventHandler {
+extension ComicsListViewPresenterMock: ComicsListViewEventHandler {
     func viewIsReadyToDisplayContent() {
         _didNotifyViewIsReadyToDisplayContent = true
     }
 }
 
-extension ComicsListViewEventHandlerMock: ComicsListViewDataSource {
+extension ComicsListViewPresenterMock: ComicsListViewDataSource {
     var numberOfSections: Int {
         return self._viewModel.numberOfSections
     }
