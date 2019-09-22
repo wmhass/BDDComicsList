@@ -57,6 +57,10 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 it("Should have 'Marvel Comics' as its navigation title") {
                     expect(self.comicsListViewController.navigationItem.title).to(equal("Marvel Comics"))
                 }
+                it("Should have the tableView delegate and datasource set") {
+                    expect(self.comicsListViewController.tableView.dataSource).to(be(self.comicsListViewController))
+                    expect(self.comicsListViewController.tableView.delegate).to(be(self.comicsListViewController))
+                }
             }
             
             context("When the view will appear") {
