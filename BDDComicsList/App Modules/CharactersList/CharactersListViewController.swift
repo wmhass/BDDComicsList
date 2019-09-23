@@ -55,7 +55,7 @@ extension CharactersListViewController: CharactersListDisplayLogic {
     }
     
     func reloadListOfCharacters() {
-        
+        self.tableView.reloadData()
     }
     
     func displayViewTitle(_ viewTitle: String) {

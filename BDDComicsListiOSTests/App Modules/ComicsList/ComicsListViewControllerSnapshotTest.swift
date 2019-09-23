@@ -7,17 +7,20 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 import XCTest
 @testable import BDDComicsList
-
 
 class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
     
     var comicsListViewController: ComicsListViewController!
     var window: UIWindow!
+    let comics = [
+        Comic(id: 123, title: "aaa"),
+        Comic(id: 231, title: "baa"),
+        Comic(id: 231, title: "bba"),
+        Comic(id: 231, title: "bbb"),
+    ]
 
     override func setUp() {
         super.setUp()
@@ -37,12 +40,6 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
     }
     
     func testComicsListViewControllerWithComics() {
-        let comics = [
-            Comic(id: 123, title: "aaa"),
-            Comic(id: 231, title: "baa"),
-            Comic(id: 231, title: "bba"),
-            Comic(id: 231, title: "bbb"),
-        ]
         self.comicsListViewController.dataSource = ComicsListViewPresenterMock(comics: comics)
         
         self.comicsListViewController.reloadListOfComics()
@@ -63,12 +60,6 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
     }
     
     func testComicsListViewControllerDisplayingActivityIndicator() {
-        let comics = [
-            Comic(id: 123, title: "aaa"),
-            Comic(id: 231, title: "baa"),
-            Comic(id: 231, title: "bba"),
-            Comic(id: 231, title: "bbb"),
-        ]
         self.comicsListViewController.dataSource = ComicsListViewPresenterMock(comics: comics)
         
         self.comicsListViewController.reloadListOfComics()
