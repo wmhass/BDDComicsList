@@ -31,17 +31,17 @@ extension CharactersListPresenter: CharactersListPresentationLogic {
         
     }
     func presentComicCharacters(characters: [ComicCharacter]) {
-        
+        self.viewModel = CharactersListViewModel(comicCharacters: characters)
     }
 }
 
 extension CharactersListPresenter: CharactersListViewDataSource {
     var numberOfCharacters: Int {
-        return 0
+        return self.viewModel?.numberOfCharacters ?? 0
     }
     
     func nameOfCharacter(atIndex index: Int) -> String? {
-        return nil
+        return self.viewModel?.nameOfCharacter(atIndex: index)
     }
 }
 
