@@ -47,6 +47,6 @@ extension CharactersListPresenter: CharactersListViewDataSource {
 
 extension CharactersListPresenter: CharactersListViewEventHandler {
     func viewIsReadyToDisplayContent() {
-
+        self.interactor.loadListOfCharacters()
     }
 }

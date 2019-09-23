@@ -57,8 +57,11 @@ class CharactersListPresenterSpecs: QuickSpec {
         describe("CharactersListViewEventHandler") {
             context("When view is ready to display content") {
                 beforeEach {
+                    self.interactorMock._didCallLoadListOfCharacters = false
+                    self.presenter.viewIsReadyToDisplayContent()
                 }
                 it("Should ask interactor to load the list of comic characters") {
+                    expect(self.interactorMock._didCallLoadListOfCharacters).to(beTrue())
                 }
             }
         }
