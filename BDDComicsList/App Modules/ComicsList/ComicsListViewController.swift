@@ -9,7 +9,7 @@
 import UIKit
 
 class ComicsListViewController: UIViewController {
-
+    static let DefaultStoryboardID = "ComicsListViewController"
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
     var evenHandler: ComicsListViewEventHandler?
@@ -32,7 +32,7 @@ class ComicsListViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueIdentifier = segue.identifier,
-            let appSegue = AppSegue(rawValue: segueIdentifier) else {
+            let appSegue = AppStoryboard.Main.Segue(rawValue: segueIdentifier) else {
             return
             
         }

@@ -27,8 +27,7 @@ class CharactersListViewControllerSpecs: QuickSpec {
         describe("CharactersListViewController") {
             beforeEach {
                 let viewPresenter = CharactersListPresenterMock(characters: self.characters)
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let charactersListViewController = storyBoard.instantiateViewController(withIdentifier: CharactersListViewController.DefaultStoryboardID) as? CharactersListViewController
+                let charactersListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: CharactersListViewController.DefaultStoryboardID) as? CharactersListViewController
                 
                 charactersListViewController?.eventHandler = viewPresenter
                 charactersListViewController?.dataSource = viewPresenter

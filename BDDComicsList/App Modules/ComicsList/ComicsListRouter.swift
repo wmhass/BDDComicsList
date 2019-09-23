@@ -21,6 +21,6 @@ extension ComicsListRouter: ComicsListRoutingLogic {
             }
             // TODO: Do dependency injection
         }
-        self.viewController?.performSegue(withIdentifier: AppSegue.characterList.rawValue, sender: connection)
+        self.viewController?.performSegue(withIdentifier: AppStoryboard.Main.Segue.characterList.rawValue, sender: connection)
     }
 }

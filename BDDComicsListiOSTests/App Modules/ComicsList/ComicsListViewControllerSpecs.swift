@@ -27,23 +27,21 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     Comic(id: 231, title: "bbb"),
                 ]
                 let viewPresenter = ComicsListViewPresenterMock(comics: comics)
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController = storyBoard.instantiateInitialViewController() as? UINavigationController
-                let comicsListViewController = initialViewController?.viewControllers.first as! ComicsListViewController
+                let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as? ComicsListViewController
                 
-                comicsListViewController.evenHandler = viewPresenter
-                comicsListViewController.dataSource = viewPresenter
+                comicsListViewController?.evenHandler = viewPresenter
+                comicsListViewController?.dataSource = viewPresenter
                 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
-                window.rootViewController = initialViewController
+                window.rootViewController = comicsListViewController
                 
                 self.window = window
                 self.comicsListViewController = comicsListViewController
                 self.viewPresenter = viewPresenter
                 
-                initialViewController?.view.setNeedsLayout()
-                initialViewController?.view.layoutIfNeeded()
+                comicsListViewController?.view.setNeedsLayout()
+                comicsListViewController?.view.layoutIfNeeded()
             }
             context("When the view finished loading") {
                 it("Should have the activity indicator view initially hidden") {
