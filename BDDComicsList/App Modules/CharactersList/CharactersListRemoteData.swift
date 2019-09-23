@@ -20,18 +20,18 @@ class CharactersListRemoteData {
 
 extension CharactersListRemoteData: CharactersListRemoteDataLogic {
     func fetchAllCharacters(comic: Comic, completion: @escaping (ComicCharactersListRemoteResponse) -> Void) {
-        /*let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.comicsListURL(limit: 5))
+        let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.charactersListURL(comicID: comic.id))
         self.httpDataLoader.loadData(withRequest: urlRequest) { (data, urlResponse, error) in
             if let data = data {
                 do {
-                    let marvelResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: data)
-                    completion(ComicsListRemoteResponse.success(response: marvelResponse))
+                    let marvelResponse = try JSONDecoder().decode(MarvelComicCharactersResponse.self, from: data)
+                    completion(ComicCharactersListRemoteResponse.success(response: marvelResponse))
                 } catch {
-                    completion(ComicsListRemoteResponse.failedParsingData)
+                    completion(ComicCharactersListRemoteResponse.failedParsingData)
                 }
             } else {
-                completion(ComicsListRemoteResponse.failedParsingData)
+                completion(ComicCharactersListRemoteResponse.failedParsingData)
             }
-        }*/
+        }
     }
 }

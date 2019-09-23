@@ -28,7 +28,13 @@ class CharactersListRemoteDataSpecs: QuickSpec {
                 it("Should load list of comics") {
                     waitUntil(timeout: 5) { done in
                         self.remoteData.fetchAllCharacters(comic: comic) { fetchResponse in
-                            
+                            switch fetchResponse {
+                            case .success(let response):
+                                expect(response.code).to(equal(200))
+                            default:
+                                fail("Response wasn't loaded")
+                            }
+                            done()
                         }
                     }
                 }
