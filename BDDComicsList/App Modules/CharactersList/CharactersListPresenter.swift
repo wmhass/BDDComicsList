@@ -26,6 +26,7 @@ extension CharactersListPresenter: CharactersListPresentationLogic {
                                      message: AppErrorMessages.FailedFetchingComicCharacters.message.rawValue)
     }
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
+        self.view?.displayUIActivityView(shouldPresent)
     }
     func presentNoInternetConnectionErrorMessage() {
         self.view?.displayErrorAlert(title: AppErrorMessages.NoInternetConnectionErrorMessage.title.rawValue,
