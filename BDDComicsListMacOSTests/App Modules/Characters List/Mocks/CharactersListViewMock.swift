@@ -12,6 +12,7 @@ class CharactersListViewMock {
     var _didAskToDisplayErrorAlert: (title: String?, message: String?) = (nil,nil)
     var _didAskToDisplayActivityView: (didAsk: Bool, shouldDisplay: Bool?) = (false, nil)
     var _didAskToReloadListOfCharacters: Bool = false
+    var _didAskToDisplayViewTitle: (didAsk: Bool, viewTitle: String?) = (false, nil)
 }
 
 extension CharactersListViewMock: CharactersListDisplayLogic {
@@ -23,5 +24,8 @@ extension CharactersListViewMock: CharactersListDisplayLogic {
     }
     func reloadListOfCharacters() {
         _didAskToReloadListOfCharacters = true
+    }
+    func displayViewTitle(_ viewTitle: String) {
+        _didAskToDisplayViewTitle = (true, viewTitle)
     }
 }

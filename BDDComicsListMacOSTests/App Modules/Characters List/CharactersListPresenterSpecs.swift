@@ -28,7 +28,7 @@ class CharactersListPresenterSpecs: QuickSpec {
             let viewMock = CharactersListViewMock()
             let presenter = CharactersListPresenter(interactor: interactorMock)
             presenter.view = viewMock
-            
+
             self.interactorMock = interactorMock
             self.viewMock = viewMock
             self.presenter = presenter
@@ -57,16 +57,31 @@ class CharactersListPresenterSpecs: QuickSpec {
         describe("CharactersListViewEventHandler") {
             context("When view is ready to display content") {
                 beforeEach {
+                    self.interactorMock._didCallLoadViewTitle = false
                     self.interactorMock._didCallLoadListOfCharacters = false
                     self.presenter.viewIsReadyToDisplayContent()
                 }
                 it("Should ask interactor to load the list of comic characters") {
                     expect(self.interactorMock._didCallLoadListOfCharacters).to(beTrue())
                 }
+                it("Should ask the interactor to fetch the view title") {
+                    expect(self.interactorMock._didCallLoadViewTitle).to(beTrue())
+                }
             }
         }
         
         describe("CharactersListPresentationLogic") {
+            context("When it is asked to present presentViewTitle(_:)") {
+                let viewTitle = "This is a view title"
+                beforeEach {
+                    self.viewMock._didAskToDisplayViewTitle = (false, nil)
+                    self.presenter.presentViewTitle(viewTitle)
+                }
+                it("Should tell the view to display the title") {
+                    expect(self.viewMock._didAskToDisplayViewTitle.didAsk).to(beTrue())
+                    expect(self.viewMock._didAskToDisplayViewTitle.viewTitle).to(equal(viewTitle))
+                }
+            }
             context("When it is asked to presentResponseIsInvalid") {
                 beforeEach {
                     self.viewMock._didAskToDisplayErrorAlert = (nil, nil)

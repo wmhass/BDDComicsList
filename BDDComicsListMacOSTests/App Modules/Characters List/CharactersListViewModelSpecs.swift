@@ -22,9 +22,12 @@ class CharactersListViewModelSpecs: QuickSpec {
     
     override func spec() {
         beforeSuite {
-            self.viewModel = CharactersListViewModel(comicCharacters: self.characters)
+            self.viewModel = CharactersListViewModel()
         }
-        describe("CharactersListViewModel") {
+        describe("Given that there are characters to present") {
+            beforeEach {
+                self.viewModel.set(comicCharacters: self.characters)
+            }
             context("When asked for the number of comic characters") {
                 it("Should return the correct number of characters") {
                     expect(self.viewModel.numberOfCharacters).to(equal(self.characters.count))

@@ -37,4 +37,7 @@ extension CharactersListInteractor: CharactersListBusinessLogic {
             }
         }
     }
+    func loadViewTitle() {
+        self.presentation?.presentViewTitle(self.comic.title)
+    }
 }

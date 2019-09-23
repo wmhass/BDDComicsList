@@ -9,12 +9,16 @@
 import Foundation
 
 struct CharactersListViewModel {
-    fileprivate let comicCharacters: [ComicCharacter]
+    var viewTitle: String?
+    fileprivate var comicCharacters: [ComicCharacter] = []
+}
+
+extension CharactersListViewModel {
     var numberOfCharacters: Int {
         return self.comicCharacters.count
     }
     
-    init(comicCharacters: [ComicCharacter]) {
+    mutating func set(comicCharacters: [ComicCharacter]) {
         self.comicCharacters = comicCharacters
     }
     
