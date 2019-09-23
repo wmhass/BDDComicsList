@@ -28,7 +28,7 @@ class CharactersListInteractorSpecs: QuickSpec {
             self.presenterMock = presenterMock
             self.interactor = interactor
         }
-        describe("Given that the interactor has one Comic to display the list of characters") {
+        describe("CharactersListInteractor") {
 
             context("When it tries to load characters") {
                 beforeEach {
@@ -44,14 +44,32 @@ class CharactersListInteractorSpecs: QuickSpec {
                     expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.shouldPresent).to(beTrue())
                 }
             }
+            context("When it finished loading comics") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicCharactersResultMock = .noInternetConnection
+                    self.presenterMock._didAskToPresentFetchDataActivityIndicator = (false, nil)
+                    self.interactor.loadListOfCharacters()
+                }
+                it("Should hide the UI activity indicator") {
+                    expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentFetchDataActivityIndicator.shouldPresent).to(beFalse())
+                }
+            }
             
+        }
+        describe("Given that the interactor has one Comic to display the list of characters") {
             context("When I don't have internet connection") {
                 beforeEach {
+                    self.dataGatewayMock._fetchComicCharactersResultMock = .noInternetConnection
+                    self.interactor.loadListOfCharacters()
                 }
                 it("Then present a message informing that there is no internet connection") {
                     // TODO: Assert
                 }
             }
+            
+            
+            
             context("When the characters response is invalid") {
                 beforeEach {
                 }

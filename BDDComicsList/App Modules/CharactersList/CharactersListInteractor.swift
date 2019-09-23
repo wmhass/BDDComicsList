@@ -24,7 +24,7 @@ extension CharactersListInteractor: CharactersListBusinessLogic {
     func loadListOfCharacters() {
         self.presentation?.presentFetchDataActivityIndicator(true)
         self.dataGateway.fetchComicCharacters(comic: self.comic) { response in
-
+            self.presentation?.presentFetchDataActivityIndicator(false)
         }
     }
 }
