@@ -97,6 +97,8 @@
 		3DA019CE233867AE00C25801 /* CharactersListRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */; };
 		3DA019CF233867AE00C25801 /* CharactersListRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */; };
 		3DA019D1233867E000C25801 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019D0233867E000C25801 /* CharactersListViewController.swift */; };
+		3DA019D32339287400C25801 /* CharactersListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019D22339287400C25801 /* CharactersListInteractorMock.swift */; };
+		3DA019D5233928C600C25801 /* CharactersListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA019D4233928C600C25801 /* CharactersListViewMock.swift */; };
 		3DA4B94F2333B77000EE26CB /* ComicsListPresentationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B94E2333B77000EE26CB /* ComicsListPresentationMock.swift */; };
 		3DA4B9512333B79A00EE26CB /* ComicsListDataGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */; };
 		3DA4B9542333E87800EE26CB /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4B9532333E87800EE26CB /* Comic.swift */; };
@@ -202,6 +204,8 @@
 		3DA019CA2338677300C25801 /* CharactersListDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListDataGateway.swift; sourceTree = "<group>"; };
 		3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRemoteData.swift; sourceTree = "<group>"; };
 		3DA019D0233867E000C25801 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
+		3DA019D22339287400C25801 /* CharactersListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractorMock.swift; sourceTree = "<group>"; };
+		3DA019D4233928C600C25801 /* CharactersListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewMock.swift; sourceTree = "<group>"; };
 		3DA4B94E2333B77000EE26CB /* ComicsListPresentationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListPresentationMock.swift; sourceTree = "<group>"; };
 		3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListDataGatewayMock.swift; sourceTree = "<group>"; };
 		3DA4B9532333E87800EE26CB /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
@@ -520,6 +524,8 @@
 			children = (
 				3DA019A7233848CB00C25801 /* CharactersListDataGatewayMock.swift */,
 				3DA019AC23384C8800C25801 /* CharactersListPresenterMock.swift */,
+				3DA019D22339287400C25801 /* CharactersListInteractorMock.swift */,
+				3DA019D4233928C600C25801 /* CharactersListViewMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -930,9 +936,11 @@
 				3DE9EF1E2336AE1D00FA519A /* MarvelAPI.swift in Sources */,
 				3D224C4A2334FDB20042369A /* ComicsListViewMock.swift in Sources */,
 				3DA019B72338611000C25801 /* CharactersListPresenter.swift in Sources */,
+				3DA019D32339287400C25801 /* CharactersListInteractorMock.swift in Sources */,
 				3D094645233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift in Sources */,
 				3DA019C3233863F100C25801 /* CharactersListViewEventHandler.swift in Sources */,
 				3DA4B960233454C600EE26CB /* ComicsListPresenterSpecs.swift in Sources */,
+				3DA019D5233928C600C25801 /* CharactersListViewMock.swift in Sources */,
 				3DA019B223385AD800C25801 /* ComicCharacter.swift in Sources */,
 				3DA019C7233866CF00C25801 /* CharactersListViewModel.swift in Sources */,
 				3D09464323356E57006BFEA2 /* ComicsListRouterMock.swift in Sources */,

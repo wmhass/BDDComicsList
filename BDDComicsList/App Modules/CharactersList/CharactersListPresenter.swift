@@ -10,6 +10,7 @@ import Foundation
 
 class CharactersListPresenter {
 
+    weak var view: CharactersListDisplayLogic?
     let interactor: CharactersListBusinessLogic
     fileprivate var viewModel: CharactersListViewModel?
     
