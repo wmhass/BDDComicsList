@@ -30,6 +30,19 @@ class CharactersListViewModelSpecs: QuickSpec {
                     expect(self.viewModel.numberOfCharacters).to(equal(self.characters.count))
                 }
             }
+            context("When asked the name of a character at a valid given index") {
+                it("Should return the correct name") {
+                    expect(self.viewModel.nameOfCharacter(atIndex: 0)).to(equal(self.characters[0].name))
+                    expect(self.viewModel.nameOfCharacter(atIndex: 1)).to(equal(self.characters[1].name))
+                    expect(self.viewModel.nameOfCharacter(atIndex: 2)).to(equal(self.characters[2].name))
+                    expect(self.viewModel.nameOfCharacter(atIndex: 3)).to(equal(self.characters[3].name))
+                }
+            }
+            context("When asked the name of a character at an out of bounds index") {
+                it("Should return nil") {
+                    expect(self.viewModel.nameOfCharacter(atIndex: 4)).to(beNil())
+                }
+            }
         }
     }
     

@@ -17,4 +17,11 @@ struct CharactersListViewModel {
     init(comicCharacters: [ComicCharacter]) {
         self.comicCharacters = comicCharacters
     }
+    
+    func nameOfCharacter(atIndex characterIndex: Int) -> String? {
+        guard self.comicCharacters.indices.contains(characterIndex) else {
+            return nil
+        }
+        return self.comicCharacters[characterIndex].name
+    }
 }
