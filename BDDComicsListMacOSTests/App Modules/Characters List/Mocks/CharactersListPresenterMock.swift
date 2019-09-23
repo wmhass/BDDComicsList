@@ -14,6 +14,7 @@ class CharactersListPresenterMock {
     var _didAskToPresentNoInternetConnectionErrorMessage: Bool = false
     var _didAskToPresentFetchDataActivityIndicator: (didAsk: Bool, shouldPresent: Bool?) = (false, nil)
     var _didAskToPresentComicCharacters: (didAsk: Bool, characters: [ComicCharacter]?) = (false, nil)
+    var _didAskToPresentViewTitle: (didAsk: Bool, viewTitle: String?) = (false, nil)
 }
 
 extension CharactersListPresenterMock: CharactersListPresentationLogic {
@@ -28,5 +29,8 @@ extension CharactersListPresenterMock: CharactersListPresentationLogic {
     }
     func presentComicCharacters(characters: [ComicCharacter]) {
         _didAskToPresentComicCharacters = (true, characters)
+    }
+    func presentViewTitle(_ viewTitle: String) {
+        _didAskToPresentViewTitle = (true, viewTitle)
     }
 }

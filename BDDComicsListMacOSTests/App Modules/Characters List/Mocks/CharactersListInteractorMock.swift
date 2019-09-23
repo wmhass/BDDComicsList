@@ -10,10 +10,14 @@ import Foundation
 
 class CharactersListInteractorMock {
     var _didCallLoadListOfCharacters: Bool = false
+    var _didCallLoadViewTitle: Bool = false
 }
 
 extension CharactersListInteractorMock: CharactersListBusinessLogic {
     func loadListOfCharacters() {
         _didCallLoadListOfCharacters = true
+    }
+    func loadViewTitle() {
+        _didCallLoadViewTitle = true
     }
 }
