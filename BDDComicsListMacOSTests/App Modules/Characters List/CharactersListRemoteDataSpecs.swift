@@ -14,7 +14,7 @@ class CharactersListRemoteDataSpecs: QuickSpec {
     
     var remoteData: CharactersListRemoteData!
 
-    override func setUp() {
+    override func spec() {
         beforeSuite {
             let httpDataLoader = HTTPDataLoader()
             let urlBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)

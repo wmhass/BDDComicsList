@@ -13,14 +13,14 @@ import Nimble
 class CharactersListInteractorSpecs: QuickSpec {
     
     var dataGatewayMock: CharactersListDataGatewayMock!
-    var presenterMock: CharactersListPresenterMock!
+    var presenterMock: CharactersListPresentationMock!
     var interactor: CharactersListInteractor!
     let comic: Comic = Comic(id: 123, title: "A comic")
     
     override func spec() {
         beforeSuite {
             let dataGatewayMock = CharactersListDataGatewayMock()
-            let presenterMock = CharactersListPresenterMock()
+            let presenterMock = CharactersListPresentationMock()
             let interactor = CharactersListInteractor(comic: self.comic, dataGateway: dataGatewayMock)
             interactor.presentation = presenterMock
             
