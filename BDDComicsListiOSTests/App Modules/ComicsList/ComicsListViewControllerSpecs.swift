@@ -61,6 +61,8 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     expect(self.comicsListViewController.tableView.dataSource).to(be(self.comicsListViewController))
                     expect(self.comicsListViewController.tableView.delegate).to(be(self.comicsListViewController))
                 }
+                it("Should use automatic cell height") { expect(self.comicsListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
+                }
             }
             
             context("When the view will appear") {
@@ -115,7 +117,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 }
             }
 
-            context("When asked to display a view model") {
+            context("When asked to reload the list of comics") {
                 beforeEach {
                     self.comicsListViewController.reloadListOfComics()
                     self.comicsListViewController.tableView.setNeedsLayout()
@@ -155,9 +157,6 @@ class ComicsListViewControllerSpecs: QuickSpec {
                             expect(cell?.customTitleLabel.text).to(equal(self.viewPresenter.titleOfComic(atIndex: row, inSection: section)))
                         }
                     }
-                }
-
-                it("Should use automatic cell height") { expect(self.comicsListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
                 }
             }
         }
