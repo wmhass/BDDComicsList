@@ -559,10 +559,10 @@
 		3DA4B94D2333B75D00EE26CB /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				3D09464923366B92006BFEA2 /* ComicsListRemoteDataMock.swift */,
 				3DA4B9502333B79A00EE26CB /* ComicsListDataGatewayMock.swift */,
 				3DA019802337228200C25801 /* ComicsListInteractorMock.swift */,
 				3DA4B94E2333B77000EE26CB /* ComicsListPresentationMock.swift */,
-				3D09464923366B92006BFEA2 /* ComicsListRemoteDataMock.swift */,
 				3D09464223356E57006BFEA2 /* ComicsListRouterMock.swift */,
 				3D224C492334FDB20042369A /* ComicsListViewMock.swift */,
 			);
@@ -582,13 +582,13 @@
 			isa = PBXGroup;
 			children = (
 				3DA4B94D2333B75D00EE26CB /* Mocks */,
+				3D0946502336A02D006BFEA2 /* MarvelComicsResponseSpecs.swift */,
+				3DE9EF162336A5E500FA519A /* ComicsListRemoteDataSpecs.swift */,
 				3D094644233572E3006BFEA2 /* ComicsListDataGatewaySpecs.swift */,
 				3D64DE89233114C4003C7CBE /* ComicsListInteractorSpecs.swift */,
 				3DA4B95F233454C600EE26CB /* ComicsListPresenterSpecs.swift */,
-				3DE9EF162336A5E500FA519A /* ComicsListRemoteDataSpecs.swift */,
 				3D09463923353A5E006BFEA2 /* ComicsListViewModelSpecs.swift */,
 				3DA4B95B2333FB3A00EE26CB /* GroupedSortedComicsSpecs.swift */,
-				3D0946502336A02D006BFEA2 /* MarvelComicsResponseSpecs.swift */,
 			);
 			path = "Comics List";
 			sourceTree = "<group>";
@@ -597,11 +597,11 @@
 			isa = PBXGroup;
 			children = (
 				3DA019A6233848B200C25801 /* Mocks */,
+				3D52451F23396D3400802F8A /* MarvelComicCharactersResponseSpecs.swift */,
+				3D52451D233940D300802F8A /* CharactersListRemoteDataSpecs.swift */,
 				3DFD380C23311B72004F0FFA /* CharactersListInteractorSpecs.swift */,
 				3DA019B323385FA300C25801 /* CharactersListPresenterSpecs.swift */,
 				3D524518233934C000802F8A /* CharactersListViewModelSpecs.swift */,
-				3D52451D233940D300802F8A /* CharactersListRemoteDataSpecs.swift */,
-				3D52451F23396D3400802F8A /* MarvelComicCharactersResponseSpecs.swift */,
 			);
 			path = "Characters List";
 			sourceTree = "<group>";
