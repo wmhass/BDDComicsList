@@ -60,21 +60,24 @@ class CharactersListInteractorSpecs: QuickSpec {
         describe("Given that the interactor has one Comic to display the list of characters") {
             context("When I don't have internet connection") {
                 beforeEach {
+                    self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage = false
                     self.dataGatewayMock._fetchComicCharactersResultMock = .noInternetConnection
                     self.interactor.loadListOfCharacters()
                 }
                 it("Then present a message informing that there is no internet connection") {
-                    // TODO: Assert
+                    expect(self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage).to(beTrue())
                 }
             }
             
             
-            
             context("When the characters response is invalid") {
                 beforeEach {
+                    self.presenterMock._didAskToPresentResponseIsInvalid = false
+                    self.dataGatewayMock._fetchComicCharactersResultMock = .responseIsInvalid
+                    self.interactor.loadListOfCharacters()
                 }
                 it("Should present a message informing that it can not present the list of characters") {
-                    // TODO: Assert
+                    expect(self.presenterMock._didAskToPresentResponseIsInvalid).to(beTrue())
                 }
             }
             context("When the characters response is valid") {

@@ -25,6 +25,14 @@ extension CharactersListInteractor: CharactersListBusinessLogic {
         self.presentation?.presentFetchDataActivityIndicator(true)
         self.dataGateway.fetchComicCharacters(comic: self.comic) { response in
             self.presentation?.presentFetchDataActivityIndicator(false)
+            switch response {
+            case .noInternetConnection:
+                self.presentation?.presentNoInternetConnectionErrorMessage()
+            case .responseIsInvalid:
+                self.presentation?.presentResponseIsInvalid()
+            case .success(let characters):
+                break
+            }
         }
     }
 }
