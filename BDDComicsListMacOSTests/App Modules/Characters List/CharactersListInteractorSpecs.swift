@@ -81,10 +81,18 @@ class CharactersListInteractorSpecs: QuickSpec {
                 }
             }
             context("When the characters response is valid") {
+                let characters = [
+                    ComicCharacter(id: 1, name: "3d man"),
+                    ComicCharacter(id: 2, name: "Ant man"),
+                ]
                 beforeEach {
+                    self.presenterMock._didAskToPresentComicCharacters = (false, nil)
+                    self.dataGatewayMock._fetchComicCharactersResultMock = .success(characters: characters)
+                    self.interactor.loadListOfCharacters()
                 }
                 it("Then present a view with the list of characters names") {
-                    // TODO: Assert
+                    expect(self.presenterMock._didAskToPresentComicCharacters.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentComicCharacters.characters).to(equal(characters))
                 }
             }
         }

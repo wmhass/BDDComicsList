@@ -27,7 +27,7 @@ extension ComicsListPresentationMock: ComicsListPresentationLogic {
         _didAskToPresentResponseIsInvalid = true
     }
     func presentComics(groupedComics: GroupedSortedComics) {
-        self._didAskToPresentComics = (true, groupedComics)
+        _didAskToPresentComics = (true, groupedComics)
     }
     func presentCharacters(ofComic comic: Comic) {
         _didAskToPresentCharactersOfComic = comic

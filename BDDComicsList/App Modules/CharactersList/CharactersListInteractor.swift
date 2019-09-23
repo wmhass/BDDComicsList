@@ -31,7 +31,7 @@ extension CharactersListInteractor: CharactersListBusinessLogic {
             case .responseIsInvalid:
                 self.presentation?.presentResponseIsInvalid()
             case .success(let characters):
-                break
+                self.presentation?.presentComicCharacters(characters: characters)
             }
         }
     }
