@@ -9,5 +9,29 @@
 import Foundation
 
 class CharactersListRemoteData {
+    let marvelAPIURLBuilder: MarvelAPIURLBuilder
+    let httpDataLoader: HTTPDataLoaderLogic
     
+    init(marvelAPIURLBuilder: MarvelAPIURLBuilder, httpDataLoader: HTTPDataLoaderLogic) {
+        self.marvelAPIURLBuilder = marvelAPIURLBuilder
+        self.httpDataLoader = httpDataLoader
+    }
+}
+
+extension CharactersListRemoteData: CharactersListRemoteDataLogic {
+    func fetchAllCharacters(comic: Comic, completion: @escaping (ComicCharactersListRemoteResponse) -> Void) {
+        /*let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.comicsListURL(limit: 5))
+        self.httpDataLoader.loadData(withRequest: urlRequest) { (data, urlResponse, error) in
+            if let data = data {
+                do {
+                    let marvelResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: data)
+                    completion(ComicsListRemoteResponse.success(response: marvelResponse))
+                } catch {
+                    completion(ComicsListRemoteResponse.failedParsingData)
+                }
+            } else {
+                completion(ComicsListRemoteResponse.failedParsingData)
+            }
+        }*/
+    }
 }
