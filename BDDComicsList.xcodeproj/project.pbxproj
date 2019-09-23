@@ -342,13 +342,13 @@
 				3DA4B9522333E78300EE26CB /* Models */,
 				3D22FFA2233314D900ADDFB7 /* Protocols */,
 				3D094635233537B4006BFEA2 /* ViewModel */,
+				3DE9EF182336A61200FA519A /* ComicsListRemoteData.swift */,
 				3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */,
 				3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */,
-				3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */,
 				3D6A3A662332C6C60005B51D /* ComicsListPresenter.swift */,
-				3DE9EF182336A61200FA519A /* ComicsListRemoteData.swift */,
-				3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */,
+				3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */,
 				3D6A3A6C2332C7920005B51D /* ComicsListViewController.swift */,
+				3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */,
 			);
 			path = ComicsList;
 			sourceTree = "<group>";
@@ -497,11 +497,11 @@
 				3DA019AF23385AC300C25801 /* Models */,
 				3DA019942337427F00C25801 /* Structs */,
 				3DA0199E2337BB7800C25801 /* Protocol */,
+				3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */,
+				3DA019CA2338677300C25801 /* CharactersListDataGateway.swift */,
 				3DA0199C2337BB7400C25801 /* CharactersListInteractor.swift */,
 				3DA019B523385FD600C25801 /* CharactersListPresenter.swift */,
 				3DA019C82338674B00C25801 /* CharactersListModuleConnector.swift */,
-				3DA019CA2338677300C25801 /* CharactersListDataGateway.swift */,
-				3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */,
 				3DA019D0233867E000C25801 /* CharactersListViewController.swift */,
 			);
 			path = CharactersList;
