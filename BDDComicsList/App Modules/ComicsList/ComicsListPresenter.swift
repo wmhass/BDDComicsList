@@ -26,17 +26,19 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
         self.viewModel = ComicsListViewModel(groupedComics: groupedComics)
         self.view?.reloadListOfComics()
     }
-    
+
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
         self.view?.displayUIActivityView(shouldPresent)
     }
-    
+
     func presentNoInternetConnectionErrorMessage() {
-        self.view?.displayErrorAlert(title: "No internet connection", message: "We failed fetching the comics because there are no internet connection")
+        self.view?.displayErrorAlert(title: AppErrorMessages.NoInternetConnectionErrorMessage.title.rawValue,
+                                     message: AppErrorMessages.NoInternetConnectionErrorMessage.message.rawValue)
     }
     
     func presentResponseIsInvalid() {
-        self.view?.displayErrorAlert(title: "Failed fetching comics", message: "We failed fetching the comics because there was an error with the server response")
+        self.view?.displayErrorAlert(title: AppErrorMessages.FailedFetchingComics.title.rawValue,
+                                     message: AppErrorMessages.FailedFetchingComics.message.rawValue)
     }
     func presentCharacters(ofComic comic: Comic) {
         self.router.pushCharactersListView(ofComic: comic)

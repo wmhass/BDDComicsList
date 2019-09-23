@@ -69,15 +69,23 @@ class CharactersListPresenterSpecs: QuickSpec {
         describe("CharactersListPresentationLogic") {
             context("When it is asked to presentResponseIsInvalid") {
                 beforeEach {
+                    self.viewMock._didAskToDisplayErrorAlert = (nil, nil)
+                    self.presenter.presentResponseIsInvalid()
                 }
                 it("Should ask view to display an alert informing that there was an error with the server response") {
+                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal(AppErrorMessages.FailedFetchingComicCharacters.title.rawValue))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal(AppErrorMessages.FailedFetchingComicCharacters.message.rawValue))
                 }
             }
             
             context("When it is asked to presentNoInternetConnectionErrorMessage") {
                 beforeEach {
+                    self.viewMock._didAskToDisplayErrorAlert = (nil, nil)
+                    self.presenter.presentNoInternetConnectionErrorMessage()
                 }
                 it("Should ask view to display an alert informing that there is no internet connection") {
+                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal(AppErrorMessages.NoInternetConnectionErrorMessage.title.rawValue))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal(AppErrorMessages.NoInternetConnectionErrorMessage.message.rawValue))
                 }
             }
             

@@ -22,13 +22,14 @@ class CharactersListPresenter {
 
 extension CharactersListPresenter: CharactersListPresentationLogic {
     func presentResponseIsInvalid() {
-        
+        self.view?.displayErrorAlert(title: AppErrorMessages.FailedFetchingComicCharacters.title.rawValue,
+                                     message: AppErrorMessages.FailedFetchingComicCharacters.message.rawValue)
     }
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
-        
     }
     func presentNoInternetConnectionErrorMessage() {
-        
+        self.view?.displayErrorAlert(title: AppErrorMessages.NoInternetConnectionErrorMessage.title.rawValue,
+                                     message: AppErrorMessages.NoInternetConnectionErrorMessage.message.rawValue)
     }
     func presentComicCharacters(characters: [ComicCharacter]) {
         self.viewModel = CharactersListViewModel(comicCharacters: characters)
