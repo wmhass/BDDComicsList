@@ -82,17 +82,25 @@ class CharactersListInteractorSpecs: QuickSpec {
             }
             context("When the characters response is valid") {
                 let characters = [
-                    ComicCharacter(id: 1, name: "3d man"),
                     ComicCharacter(id: 2, name: "Ant man"),
+                    ComicCharacter(id: 3, name: "Tigra"),
+                    ComicCharacter(id: 1, name: "3d man"),
+                    ComicCharacter(id: 4, name: "Hank Pym")
                 ]
                 beforeEach {
                     self.presenterMock._didAskToPresentComicCharacters = (false, nil)
                     self.dataGatewayMock._fetchComicCharactersResultMock = .success(characters: characters)
                     self.interactor.loadListOfCharacters()
                 }
-                it("Then present a view with the list of characters names") {
+                it("Then present a view with the list of characters names sorted asc") {
                     expect(self.presenterMock._didAskToPresentComicCharacters.didAsk).to(beTrue())
-                    expect(self.presenterMock._didAskToPresentComicCharacters.characters).to(equal(characters))
+                    expect(self.presenterMock._didAskToPresentComicCharacters.characters?.count).to(equal(characters.count))
+                    
+                    let presentingCharacters = self.presenterMock._didAskToPresentComicCharacters.characters!
+                    expect(presentingCharacters[0].name).to(equal("3d man"))
+                    expect(presentingCharacters[1].name).to(equal("Ant man"))
+                    expect(presentingCharacters[2].name).to(equal("Hank Pym"))
+                    expect(presentingCharacters[3].name).to(equal("Tigra"))
                 }
             }
         }
