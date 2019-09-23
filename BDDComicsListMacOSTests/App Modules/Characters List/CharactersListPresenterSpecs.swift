@@ -30,14 +30,26 @@ class CharactersListPresenterSpecs: QuickSpec {
         describe("CharactersListViewDataSource") {
             context("When there are comic characters to present") {
                 let characters = [
-                    ComicCharacter(id: 1, name: "Ant-Man"),
+                    ComicCharacter(id: 2, name: "Ant man"),
+                    ComicCharacter(id: 3, name: "Tigra"),
+                    ComicCharacter(id: 1, name: "3d man"),
+                    ComicCharacter(id: 4, name: "Hank Pym")
                 ]
                 beforeEach {
-                    
+                    self.presenter.presentComicCharacters(characters: characters)
                 }
                 it("Should return the correct number of characters") {
+                    expect(self.presenter.numberOfCharacters).to(equal(characters.count))
                 }
                 it("Should return the correct title for each character") {
+                    expect(self.presenter.nameOfCharacter(atIndex: 0)).to(equal(characters[0].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 1)).to(equal(characters[1].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 2)).to(equal(characters[2].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 3)).to(equal(characters[3].name))
+                }
+                it("Should return nil title for an out of bounds index") {
+                    expect(self.presenter.nameOfCharacter(atIndex: -1)).to(beNil())
+                    expect(self.presenter.nameOfCharacter(atIndex: 4)).to(beNil())
                 }
             }
         }
