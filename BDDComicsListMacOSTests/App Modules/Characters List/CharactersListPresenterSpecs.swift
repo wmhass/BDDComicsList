@@ -15,7 +15,13 @@ class CharactersListPresenterSpecs: QuickSpec {
     var presenter: CharactersListPresenter!
     var viewMock: CharactersListViewMock!
     var interactorMock: CharactersListInteractorMock!
-    
+    let characters = [
+        ComicCharacter(id: 2, name: "Ant man"),
+        ComicCharacter(id: 3, name: "Tigra"),
+        ComicCharacter(id: 1, name: "3d man"),
+        ComicCharacter(id: 4, name: "Hank Pym")
+    ]
+
     override func spec() {
         beforeSuite {
             let interactorMock = CharactersListInteractorMock()
@@ -29,23 +35,17 @@ class CharactersListPresenterSpecs: QuickSpec {
         }
         describe("CharactersListViewDataSource") {
             context("When there are comic characters to present") {
-                let characters = [
-                    ComicCharacter(id: 2, name: "Ant man"),
-                    ComicCharacter(id: 3, name: "Tigra"),
-                    ComicCharacter(id: 1, name: "3d man"),
-                    ComicCharacter(id: 4, name: "Hank Pym")
-                ]
                 beforeEach {
-                    self.presenter.presentComicCharacters(characters: characters)
+                    self.presenter.presentComicCharacters(characters: self.characters)
                 }
                 it("Should return the correct number of characters") {
-                    expect(self.presenter.numberOfCharacters).to(equal(characters.count))
+                    expect(self.presenter.numberOfCharacters).to(equal(self.characters.count))
                 }
                 it("Should return the correct title for each character") {
-                    expect(self.presenter.nameOfCharacter(atIndex: 0)).to(equal(characters[0].name))
-                    expect(self.presenter.nameOfCharacter(atIndex: 1)).to(equal(characters[1].name))
-                    expect(self.presenter.nameOfCharacter(atIndex: 2)).to(equal(characters[2].name))
-                    expect(self.presenter.nameOfCharacter(atIndex: 3)).to(equal(characters[3].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 0)).to(equal(self.characters[0].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 1)).to(equal(self.characters[1].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 2)).to(equal(self.characters[2].name))
+                    expect(self.presenter.nameOfCharacter(atIndex: 3)).to(equal(self.characters[3].name))
                 }
                 it("Should return nil title for an out of bounds index") {
                     expect(self.presenter.nameOfCharacter(atIndex: -1)).to(beNil())
@@ -113,8 +113,11 @@ class CharactersListPresenterSpecs: QuickSpec {
             
             context("When it is asked to presentComicCharacters(characters: [ComicCharacter])") {
                 beforeEach {
+                    self.viewMock._didAskToReloadListOfCharacters = false
+                    self.presenter.presentComicCharacters(characters: self.characters)
                 }
                 it("Should ask the view to reload the table data") {
+                    expect(self.viewMock._didAskToReloadListOfCharacters).to(beTrue())
                 }
             }
             

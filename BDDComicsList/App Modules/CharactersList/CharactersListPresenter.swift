@@ -34,6 +34,7 @@ extension CharactersListPresenter: CharactersListPresentationLogic {
     }
     func presentComicCharacters(characters: [ComicCharacter]) {
         self.viewModel = CharactersListViewModel(comicCharacters: characters)
+        self.view?.reloadListOfCharacters()
     }
 }
 
