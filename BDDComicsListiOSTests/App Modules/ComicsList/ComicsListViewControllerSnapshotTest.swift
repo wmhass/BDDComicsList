@@ -23,19 +23,17 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
         super.setUp()
         self.recordMode = false
 
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyBoard.instantiateInitialViewController() as? UINavigationController
-        let comicsListViewController = initialViewController?.viewControllers.first as! ComicsListViewController
+        let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as? ComicsListViewController
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
-        window.rootViewController = initialViewController
+        window.rootViewController = comicsListViewController
         
         self.window = window
         self.comicsListViewController = comicsListViewController
         
-        initialViewController?.view.setNeedsLayout()
-        initialViewController?.view.layoutIfNeeded()
+        comicsListViewController?.view.setNeedsLayout()
+        comicsListViewController?.view.layoutIfNeeded()
     }
     
     func testComicsListViewControllerWithComics() {
@@ -65,6 +63,16 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
     }
     
     func testComicsListViewControllerDisplayingActivityIndicator() {
+        let comics = [
+            Comic(id: 123, title: "aaa"),
+            Comic(id: 231, title: "baa"),
+            Comic(id: 231, title: "bba"),
+            Comic(id: 231, title: "bbb"),
+        ]
+        self.comicsListViewController.dataSource = ComicsListViewPresenterMock(comics: comics)
+        
+        self.comicsListViewController.reloadListOfComics()
+
         self.comicsListViewController.displayUIActivityView(true)
         self.snapshotVerifyView(self.comicsListViewController.view, withIdentifier: "")
     }

@@ -174,6 +174,7 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     m) Added snapshot tests to custom list table view cell: 857ba0b77993084c70687f0bb626a86cc4d3936e
     o) Added snapshot tests to comicslistviewcontroller: ee5112a790cbfb7f48ae41be0b3f9df57c364159
     p) Unit testing characterslistviewmodel based on behaviour: (02ae0ff5c508802862e03473d6d706ced2ac6174)
+    q) Started writing tests for characterslistviewcontroller: d66fe9cc3306455c1724a24d885e44ff12db10a4
     
 2. Create viewcontroller and views/snapshot tests
 
@@ -186,3 +187,5 @@ Once UI is done, do UI tests
 
 ## No reachability
 For now, our 
+
+// TODO: Update comicslistpresenter to have non optional view model
