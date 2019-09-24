@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIApplication {
-    var isRunningInUITests: Bool {
-        return ProcessInfo().arguments.contains(ApplicationArguments.uiTests.rawValue)
+    var shouldUseMockData: Bool {
+        return ProcessInfo().arguments.contains(ApplicationArguments.useMockData.rawValue)
     }
 }
 

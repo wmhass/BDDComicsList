@@ -21,11 +21,9 @@ class CharactersListModuleConnector {
         self.preConnection(comicsListViewController, charactersListViewController)
 
         // Data Layer
-        let remoteData: CharactersListRemoteData = {
-            if UIApplication.shared.isRunningInUITests {
-                let httpDataLoader = HTTPDataLoader()
-                let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
-                return CharactersListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
+        let remoteData: CharactersListRemoteDataLogic = {
+            if UIApplication.shared.shouldUseMockData {
+                return MockedCharactersListData()
             } else {
                 let httpDataLoader = HTTPDataLoader()
                 let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)

@@ -12,11 +12,9 @@ class ComicsListModuleConnector {
     func connectDependencies(comicsListViewController: ComicsListViewController) {
         
         // Data Layer
-        let remoteData: ComicsListRemoteData = {
-            if UIApplication.shared.isRunningInUITests {
-                let httpDataLoader = HTTPDataLoader()
-                let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
-                return ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
+        let remoteData: ComicsListRemoteDataLogic = {
+            if UIApplication.shared.shouldUseMockData {
+                return MockedComicsListData()
             } else {
                 let httpDataLoader = HTTPDataLoader()
                 let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)

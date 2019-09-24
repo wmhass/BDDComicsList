@@ -9,5 +9,5 @@
 import Foundation
 
 enum ApplicationArguments: String {
-    case uiTests = "UITests"
+    case useMockData = "UseMockData"
 }
