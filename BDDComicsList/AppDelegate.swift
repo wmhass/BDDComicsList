@@ -10,7 +10,7 @@ import UIKit
 
 extension UIApplication {
     var isRunningInUITests: Bool {
-        return ProcessInfo().arguments.contains("UITests")
+        return ProcessInfo().arguments.contains(ApplicationArguments.uiTests.rawValue)
     }
 }
 
