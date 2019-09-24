@@ -12,17 +12,19 @@ class ComicsListModuleConnector {
     func connectDependencies(comicsListViewController: ComicsListViewController) {
         
         // Data Layer
-        let httpDataLoader = HTTPDataLoader()
-        let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
-        let remoteData = ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
-        
-        let dataGateway: ComicsListDataGateway = {
+        let remoteData: ComicsListRemoteData = {
             if UIApplication.shared.isRunningInUITests {
-                return ComicsListDataGateway(remoteData: remoteData)
+                let httpDataLoader = HTTPDataLoader()
+                let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
+                return ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
             } else {
-                return ComicsListDataGateway(remoteData: remoteData)
+                let httpDataLoader = HTTPDataLoader()
+                let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
+                return ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
             }
         }()
+
+        let dataGateway = ComicsListDataGateway(remoteData: remoteData)
         
         // Business Logic
         let interactor = ComicsListInteractor(dataGateway: dataGateway)
