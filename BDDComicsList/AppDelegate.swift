@@ -8,22 +8,24 @@
 
 import UIKit
 
+extension UIApplication {
+    var isRunningInUITests: Bool {
+        return ProcessInfo().arguments.contains("UITests")
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         let connector = ComicsListModuleConnector()
         if let navigationController = self.window?.rootViewController as? UINavigationController,
             let comicsListViewController = navigationController.viewControllers.first as? ComicsListViewController {
-            if ProcessInfo().arguments.contains("UITests") {
-                // TODO: Connect with mock data
-            } else {
-                connector.connectDependencies(comicsListViewController: comicsListViewController)
-            }
+            
+            connector.connectDependencies(comicsListViewController: comicsListViewController)
         }
         
         // Override point for customization after application launch.

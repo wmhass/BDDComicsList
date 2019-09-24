@@ -24,7 +24,14 @@ class CharactersListModuleConnector {
         let httpDataLoader = HTTPDataLoader()
         let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
         let remoteData = CharactersListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
-        let dataGateway = CharactersListDataGateway(remoteData: remoteData)
+        
+        let dataGateway: CharactersListDataGateway = {
+            if UIApplication.shared.isRunningInUITests {
+                return CharactersListDataGateway(remoteData: remoteData)
+            } else {
+                return CharactersListDataGateway(remoteData: remoteData)
+            }
+        }()
         
         // Business Logic
         let interactor = CharactersListInteractor(comic: self.comic, dataGateway: dataGateway)

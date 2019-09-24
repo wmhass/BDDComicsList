@@ -15,7 +15,14 @@ class ComicsListModuleConnector {
         let httpDataLoader = HTTPDataLoader()
         let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
         let remoteData = ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
-        let dataGateway = ComicsListDataGateway(remoteData: remoteData)
+        
+        let dataGateway: ComicsListDataGateway = {
+            if UIApplication.shared.isRunningInUITests {
+                return ComicsListDataGateway(remoteData: remoteData)
+            } else {
+                return ComicsListDataGateway(remoteData: remoteData)
+            }
+        }()
         
         // Business Logic
         let interactor = ComicsListInteractor(dataGateway: dataGateway)
