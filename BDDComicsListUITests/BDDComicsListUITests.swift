@@ -30,19 +30,22 @@ class BDDComicsListUITests: XCTestCase {
                     
                     let app = XCUIApplication()
                     let tablesQuery = app.tables
-                    tablesQuery.cells.staticTexts["Amazing Spider-Man (1999) #558 (Turner Variant)"].tap()
-                    tablesQuery.cells.staticTexts["Archangel"].tap()
-                    tablesQuery.cells.staticTexts["Avalanche"].tap()
-                    tablesQuery.cells.staticTexts["Blob"].tap()
-                    tablesQuery.cells.staticTexts["Colossus"].tap()
-                    tablesQuery.cells.staticTexts["Destiny"].tap()
-                    tablesQuery.cells.staticTexts["Nightcrawler"].tap()
-                    tablesQuery.cells.staticTexts["Pyro"].tap()
-                    tablesQuery.cells.staticTexts["Storm"].tap()
-                    tablesQuery.cells.staticTexts["Wolverine"].tap()
-                    tablesQuery.cells.staticTexts["X-Men"].tap()
-                    app.navigationBars["Amazing Spider-Man (1999) #558 (Turner Variant)"].buttons["Marvel Comics"].tap()
                     
+                    let spiderMan = tablesQuery.cells.staticTexts["Amazing Spider-Man (1999) #558 (Turner Variant)"]
+                    XCTAssertTrue(spiderMan.exists)
+                    spiderMan.tap()
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Archangel"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Avalanche"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Blob"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Colossus"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Destiny"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Nightcrawler"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Pyro"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Storm"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Wolverine"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["X-Men"].exists)
+
+                    app.navigationBars["Amazing Spider-Man (1999) #558 (Turner Variant)"].buttons["Marvel Comics"].tap()                    
                 })
             })
         }
