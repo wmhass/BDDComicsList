@@ -29,7 +29,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 let viewPresenter = ComicsListViewPresenterMock(comics: comics)
                 let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as? ComicsListViewController
                 
-                comicsListViewController?.evenHandler = viewPresenter
+                comicsListViewController?.eventHandler = viewPresenter
                 comicsListViewController?.dataSource = viewPresenter
                 
                 let window = UIWindow(frame: UIScreen.main.bounds)
@@ -63,11 +63,10 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 }
             }
             
-            context("When the view will appear") {
+            context("When the view did load") {
                 beforeEach {
-                    // Trigger view will appear
-                    self.comicsListViewController.beginAppearanceTransition(true, animated: false)
-                    self.comicsListViewController.endAppearanceTransition()
+                    self.viewPresenter._didNotifyViewIsReadyToDisplayContent = false
+                    self.comicsListViewController.viewDidLoad()
                 }
                 it("Should notify the event handler that the view is ready to present content") {
                     expect(self.viewPresenter._didNotifyViewIsReadyToDisplayContent).to(beTrue())

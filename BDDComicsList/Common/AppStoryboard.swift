@@ -20,8 +20,8 @@ enum AppStoryboard {
             func prepare(segue: UIStoryboardSegue, sender: Any?) {
                 switch self {
                 case .characterList:
-                    if let connection = sender as? CharactersListConnection {
-                        connection.connectDependencies(segue.source as? ComicsListViewController, segue.destination as? CharactersListViewController)
+                    if let connection = sender as? CharactersListModuleConnector {
+                        connection.connectDependencies(comicsListViewController: segue.source as? ComicsListViewController, charactersListViewController: segue.destination as? CharactersListViewController)
                     }
                 }
             }

@@ -23,13 +23,8 @@ class CharactersListViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
         
         self.displayUIActivityView(false)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.eventHandler?.viewIsReadyToDisplayContent()
     }
-    
 }
 
 extension CharactersListViewController: UITableViewDataSource {
@@ -51,6 +46,7 @@ extension CharactersListViewController: UITableViewDataSource {
 extension CharactersListViewController: CharactersListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
     

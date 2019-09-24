@@ -15,11 +15,13 @@ class ComicsListRouter {
 
 extension ComicsListRouter: ComicsListRoutingLogic {
     func pushCharactersListView(ofComic comic: Comic) {
-        let connection = CharactersListConnection { comicsListViewController, charactersListViewController in
+        
+        
+        let connection = CharactersListModuleConnector(comic: comic)
+        connection.preConnection = { comicsListViewController, _ in
             if let selectedIndexPath = comicsListViewController?.tableView.indexPathForSelectedRow {
                 comicsListViewController?.tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
-            // TODO: Do dependency injection
         }
         self.viewController?.performSegue(withIdentifier: AppStoryboard.Main.Segue.characterList.rawValue, sender: connection)
     }

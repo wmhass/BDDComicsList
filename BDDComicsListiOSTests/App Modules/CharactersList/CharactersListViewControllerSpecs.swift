@@ -62,16 +62,13 @@ class CharactersListViewControllerSpecs: QuickSpec {
                 }
             }
             
-            context("When view will appear") {
-                context("When the view will appear") {
-                    beforeEach {
-                        // Trigger view will appear
-                        self.charactersListViewController.beginAppearanceTransition(true, animated: false)
-                        self.charactersListViewController.endAppearanceTransition()
-                    }
-                    it("Should notify the event handler that the view is ready to present content") {
-                        expect(self.viewPresenter._didNotifyViewIsReadyToDisplayContent).to(beTrue())
-                    }
+            context("When the view did load") {
+                beforeEach {
+                    self.viewPresenter._didNotifyViewIsReadyToDisplayContent = false
+                    self.charactersListViewController.viewDidLoad()
+                }
+                it("Should notify the event handler that the view is ready to present content") {
+                    expect(self.viewPresenter._didNotifyViewIsReadyToDisplayContent).to(beTrue())
                 }
             }
             
