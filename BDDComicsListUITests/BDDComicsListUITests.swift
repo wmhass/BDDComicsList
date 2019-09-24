@@ -11,8 +11,6 @@ import XCTest
 class BDDComicsListUITests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
@@ -20,21 +18,34 @@ class BDDComicsListUITests: XCTestCase {
         let application = XCUIApplication()
         application.launchArguments = [ApplicationArguments.useMockData.rawValue]
         application.launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testApp() {
-        /*XCTContext.runActivity(named: "Given I launched the app") { _ in
-            XCTContext.runActivity(named: "Then do [something]....", block: { _ in
-                XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["Ant-Man (2003) #2"]/*[[".cells.staticTexts[\"Ant-Man (2003) #2\"]",".staticTexts[\"Ant-Man (2003) #2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeDown()
-                
+    func testCharactersListTransition() {
+        XCTContext.runActivity(named: "Given that there are comics") { _ in
+            XCTContext.runActivity(named: "When I select a comic", block: { _ in
+                XCTContext.runActivity(named: "Then present the list of characters", block: { _ in
+                    
+                    let app = XCUIApplication()
+                    let tablesQuery = app.tables
+                    tablesQuery.cells.staticTexts["Amazing Spider-Man (1999) #558 (Turner Variant)"].tap()
+                    tablesQuery.cells.staticTexts["Archangel"].tap()
+                    tablesQuery.cells.staticTexts["Avalanche"].tap()
+                    tablesQuery.cells.staticTexts["Blob"].tap()
+                    tablesQuery.cells.staticTexts["Colossus"].tap()
+                    tablesQuery.cells.staticTexts["Destiny"].tap()
+                    tablesQuery.cells.staticTexts["Nightcrawler"].tap()
+                    tablesQuery.cells.staticTexts["Pyro"].tap()
+                    tablesQuery.cells.staticTexts["Storm"].tap()
+                    tablesQuery.cells.staticTexts["Wolverine"].tap()
+                    tablesQuery.cells.staticTexts["X-Men"].tap()
+                    app.navigationBars["Amazing Spider-Man (1999) #558 (Turner Variant)"].buttons["Marvel Comics"].tap()
+                    
+                })
             })
-        }*/
+        }
     }
 
 }
