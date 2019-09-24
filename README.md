@@ -186,6 +186,4 @@ Once UI is done, do UI tests
 # General
 
 ## No reachability
-For now, our 
-
-// TODO: Update comicslistpresenter to have non optional view model
+For now, no 

@@ -26,7 +26,7 @@ class CharactersListRemoteDataSpecs: QuickSpec {
             context("When asking to fetch all characters from a comic") {
                 let comic = Comic(id: 183, title: "Startling Stories: The Incorrigible Hulk (2004) #1")
                 it("Should load list of comics") {
-                    waitUntil(timeout: 5) { done in
+                    waitUntil(timeout: 10) { done in
                         self.remoteData.fetchAllCharacters(comic: comic) { fetchResponse in
                             switch fetchResponse {
                             case .success(let response):

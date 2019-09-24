@@ -16,7 +16,7 @@ class CharactersListPresenter {
     
     init(interactor: CharactersListBusinessLogic) {
         self.interactor = interactor
-        self.viewModel = CharactersListViewModel()
+        self.viewModel = CharactersListViewModel(comicCharacters: [])
     }
 
 }
@@ -37,7 +37,7 @@ extension CharactersListPresenter: CharactersListPresentationLogic {
                                      message: AppErrorMessages.NoInternetConnectionErrorMessage.message.rawValue)
     }
     func presentComicCharacters(characters: [ComicCharacter]) {
-        self.viewModel.set(comicCharacters: characters)
+        self.viewModel = CharactersListViewModel(comicCharacters: characters)
         self.view?.reloadListOfCharacters()
     }
 }
