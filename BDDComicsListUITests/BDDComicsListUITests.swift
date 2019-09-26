@@ -11,26 +11,42 @@ import XCTest
 class BDDComicsListUITests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        let application = XCUIApplication()
+        application.launchArguments = [ApplicationArguments.useMockData.rawValue]
+        application.launch()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testApp() {
-        XCTContext.runActivity(named: "Given I launched the app") { _ in
-            let app = XCUIApplication()
-            XCTContext.runActivity(named: "Then do [something]....", block: { _ in
-                
+    func testCharactersListTransition() {
+        XCTContext.runActivity(named: "Given that there are comics") { _ in
+            XCTContext.runActivity(named: "When I select a comic", block: { _ in
+                XCTContext.runActivity(named: "Then present the list of characters", block: { _ in
+                    
+                    let app = XCUIApplication()
+                    let tablesQuery = app.tables
+                    
+                    let spiderMan = tablesQuery.cells.staticTexts["Amazing Spider-Man (1999) #558 (Turner Variant)"]
+                    XCTAssertTrue(spiderMan.exists)
+                    spiderMan.tap()
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Archangel"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Avalanche"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Blob"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Colossus"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Destiny"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Nightcrawler"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Pyro"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Storm"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["Wolverine"].exists)
+                    XCTAssertTrue(tablesQuery.cells.staticTexts["X-Men"].exists)
+
+                    app.navigationBars["Amazing Spider-Man (1999) #558 (Turner Variant)"].buttons["Marvel Comics"].tap()                    
+                })
             })
         }
     }
