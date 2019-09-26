@@ -2,4 +2,86 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BDDComicsList/CharactersList/CharactersListStoryboardSegue.swift"
+            timestampString = "590812801.008181"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BDDComicsList/ComicsList/ComicsListViewController.swift"
+            timestampString = "590819621.19401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "ComicsListViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BDDComicsList/App Modules/CharactersList/CharactersListRemoteData.swift"
+            timestampString = "590983428.043252"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "fetchAllCharacters(comic:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BDDComicsListMacOSTests.CharactersListRemoteData.fetchAllCharacters(comic: BDDComicsListMacOSTests.Comic, completion: (BDDComicsListMacOSTests.ComicCharactersListRemoteResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "BDDComicsListMacOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/william/Documents/Xcode%20projects/BDDComicsList/BDDComicsList/App%20Modules/CharactersList/CharactersListRemoteData.swift"
+                  timestampString = "591023650.234676"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BDDComicsListMacOSTests.CharactersListRemoteData.fetchAllCharacters(comic: BDDComicsListMacOSTests.Comic, completion: (BDDComicsListMacOSTests.ComicCharactersListRemoteResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "BDDComicsListMacOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/william/Documents/Xcode%20projects/BDDComicsList/BDDComicsList/App%20Modules/CharactersList/CharactersListRemoteData.swift"
+                  timestampString = "591023650.236426"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "263">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
