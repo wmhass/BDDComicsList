@@ -27,23 +27,21 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     Comic(id: 231, title: "bbb"),
                 ]
                 let viewPresenter = ComicsListViewPresenterMock(comics: comics)
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController = storyBoard.instantiateInitialViewController() as? UINavigationController
-                let comicsListViewController = initialViewController?.viewControllers.first as! ComicsListViewController
+                let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as? ComicsListViewController
                 
-                comicsListViewController.evenHandler = viewPresenter
-                comicsListViewController.dataSource = viewPresenter
+                comicsListViewController?.eventHandler = viewPresenter
+                comicsListViewController?.dataSource = viewPresenter
                 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
-                window.rootViewController = initialViewController
+                window.rootViewController = comicsListViewController
                 
                 self.window = window
                 self.comicsListViewController = comicsListViewController
                 self.viewPresenter = viewPresenter
                 
-                initialViewController?.view.setNeedsLayout()
-                initialViewController?.view.layoutIfNeeded()
+                comicsListViewController?.view.setNeedsLayout()
+                comicsListViewController?.view.layoutIfNeeded()
             }
             context("When the view finished loading") {
                 it("Should have the activity indicator view initially hidden") {
@@ -61,13 +59,14 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     expect(self.comicsListViewController.tableView.dataSource).to(be(self.comicsListViewController))
                     expect(self.comicsListViewController.tableView.delegate).to(be(self.comicsListViewController))
                 }
+                it("Should use automatic cell height") { expect(self.comicsListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
+                }
             }
             
-            context("When the view will appear") {
+            context("When the view did load") {
                 beforeEach {
-                    // Trigger view will appear
-                    self.comicsListViewController.beginAppearanceTransition(true, animated: false)
-                    self.comicsListViewController.endAppearanceTransition()
+                    self.viewPresenter._didNotifyViewIsReadyToDisplayContent = false
+                    self.comicsListViewController.viewDidLoad()
                 }
                 it("Should notify the event handler that the view is ready to present content") {
                     expect(self.viewPresenter._didNotifyViewIsReadyToDisplayContent).to(beTrue())
@@ -115,7 +114,7 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 }
             }
 
-            context("When asked to display a view model") {
+            context("When asked to reload the list of comics") {
                 beforeEach {
                     self.comicsListViewController.reloadListOfComics()
                     self.comicsListViewController.tableView.setNeedsLayout()
@@ -155,9 +154,6 @@ class ComicsListViewControllerSpecs: QuickSpec {
                             expect(cell?.customTitleLabel.text).to(equal(self.viewPresenter.titleOfComic(atIndex: row, inSection: section)))
                         }
                     }
-                }
-
-                it("Should use automatic cell height") { expect(self.comicsListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
                 }
             }
         }

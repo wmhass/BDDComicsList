@@ -9,10 +9,10 @@
 import UIKit
 
 class ComicsListViewController: UIViewController {
-
+    static let DefaultStoryboardID = "ComicsListViewController"
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
-    var evenHandler: ComicsListViewEventHandler?
+    var eventHandler: ComicsListViewEventHandler?
     var dataSource: ComicsListViewDataSource?
     
     
@@ -23,16 +23,12 @@ class ComicsListViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
 
         self.displayUIActivityView(false)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.evenHandler?.viewIsReadyToDisplayContent()
+        self.eventHandler?.viewIsReadyToDisplayContent()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueIdentifier = segue.identifier,
-            let appSegue = AppSegue(rawValue: segueIdentifier) else {
+            let appSegue = AppStoryboard.Main.Segue(rawValue: segueIdentifier) else {
             return
             
         }
@@ -42,7 +38,7 @@ class ComicsListViewController: UIViewController {
 
 extension ComicsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.evenHandler?.comicSelected(atIndexPath: indexPath)
+        self.eventHandler?.comicSelected(atIndexPath: indexPath)
     }
 }
 
@@ -72,6 +68,7 @@ extension ComicsListViewController: ComicsListDisplayLogic {
     
     func displayErrorAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
     
