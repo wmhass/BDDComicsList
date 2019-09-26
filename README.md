@@ -40,7 +40,6 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     So I can have more information about the comic
 
 #### Acceptance criteria:
-
 *Scenario - No internet connection:*
 
     Given that I don't have internet connection
@@ -112,71 +111,45 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     When the app finished loading the comic characters
     Then hide the UI activity indicator
 
-# Development steps
-## 1. Create Xcode Project
-## 2. Create new targets for testing
+# Project Information
+## Targets
+This project is splitted into 4 targets
 
-When this project was created, the `Include Unit Tests` and `Include UI Tests` checkboxes weren't marked for educational purpose. We will do this manually here and will include an extra macOS test target that will help us speed up writing tests. 
-
-**The macOS test target builds and run way faster because it does not rely on some frameworks such as `UIKit`, and because of that, every time tests run it will not have to compile resources like `xib` files neither will launch the app in the simulator. I found this very useful to speed up the development process because when using BDD techniques you should write tests before anything else, so if you are not writing code that is not related to views, you can run it in the macOS target.**
+### `BDDComicsList` target
+Default application target.
 
 ### `BDDComicsListiOSTests` target
-In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `iOS Unit Testing Bundle`. The `BDDComicsListiOSTests` name was given to this specific target. Note the `iOS` word within the target title: This is very important because it differentiates the iOS to the macOS test targets.
-
-This target is used to write unit tests that are related to views.
+This target runs tests that are related to views.
 
 ### `BDDComicsListMacOSTests` target
-In Xcode, go to `File` -> `New target`. Select `macOS` in the top bar and select `macOS Unit Testing Bundle`. The `BDDComicsListMacOSTests` name was given to this specific target. Note the `MacOS` word within the target title: This is very important because it differentiates the iOS to the macOS test targets.
+This target runs tests that are not related to views.
 
-This target is used to write unit tests that are not related to views.
+The macOS test target builds and run way faster because it does not rely on some frameworks such as `UIKit`, and also, it will launch the app in the simulator. This is very useful to run tests much faster than the iOS Tests target.
 
 ### `BDDComicsListUITests` target.
-In Xcode, go to `File` -> `New target`. Select `iOS` in the top bar and select `iOS UI Testing Bundle`. The `BDDComicsListUITests` name was given to this specific target.
+This target runs UI tests. Those tests are interaction tests with the UI.
 
-This target is used to run UI tests.
+## Dependency manager
+This project uses [Cocoapods](https://cocoapods.org/) to manage dependencies.
 
-## 3. Setup Cocoapods
+Libraries used in this project:
+- [Quick](https://cocoapods.org/pods/Quick): Quick is a behavior-driven development framework for Swift and Objective-C
+- [Nimble](https://cocoapods.org/pods/Nimble): Nimble is used to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar. 
+- [iOSSnapshotTestCase](https://cocoapods.org/pods/iOSSnapshotTestCase): A "snapshot test case" takes a configured UIView or CALayer and uses the renderInContext: method to get an image snapshot of its contents. It compares this snapshot to a "reference image" stored in your source code repository and fails the test if the two images don't match.
 
-The Cocoapods is used in this project to manage dependency manager. 
+## App Code Architecture
+Clean Architecture, similar to [VIPER](https://www.objc.io/issues/13-architecture/viper/) like.
 
-Main libraries used in this project:
-- Quick: Quick is a behavior-driven development framework for Swift and Objective-C
-- Nimble: Nimble is used to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar. 
+These are the main components:
+- `Connector`: Connect dependencies to the module.
+- `Router`: Coordinates the navigation logic.
+- `ViewController`: `UIViewController` subclass that displays the content on the screen.
+- `Presenter`: Contains view logic for preparing content for display and for reacting to user inputs.
+- `Interactor`: Contains the business logic as specified by a use case.
+- `DataGateway`: Provides data/models to the interactor. This is bridges any data repository (remote, database..) to the interactor.
+- `RemoteData`: Fetches data from a remote server.
 
-## 4. Defining app code architecture
+## Scheme Launch Arguments
+The `BDDComicsList` scheme passes an argument named `UseMockData` when running **tests**. Also, when the UI tests create a `XCUIApplication`, it passes the same argument as a launch argument.
 
-Clean architecture VIPER like
-
-## 5. Writing tests
-
-When wirting tests we don't write any view (i.e. UIKit dependent classes). This is just testing the logic behind it.
-
-1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed (another option is to start creating the views first, and then create the interactor...)
-
-    a. Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
-    b. Create interactor class with business logic first and implement the tests
-    c. Remember  to add files to macos test target
-    d. Add unit test to ComicsGrouper: 656db1087533d97a570dc043f069e1bc655c0f2a
-    e. Testing if comics interactor will present the characters view when the comic is selected: 48298dd226ccfb16aa9e979ec2e7e6c54db54730 and d5178720289c4bc5a720df068334d7446bc77371
-    f. Creating tests for the ComicsList Presenter: 8758e22fb94f2ad50d09b760b6a989a94dc2e7ec
-    g. !! Fiest write the test cases (description, context, it) -> This gives you an idea of the behaviour you want
-    h. It is okay that user stories change along the development: The developer should never guess, if you realize that something is missing, add first in the user stories before implement it.
-    i. Write your code based on behaviour
-    j. Write unit tests if needed, but in a BDD style: 2c14ab14de5267bda9a6198871db1bbbc371a329
-    k. Write viewcontroller and custom list table view cell tests in iOSTests target - it has access to uikit
-    l. You do not write any code in the application without a test - you need to justify why you are writing any line
-    m. Added snapshot tests to custom list table view cell: 857ba0b77993084c70687f0bb626a86cc4d3936e
-    o. Added snapshot tests to comicslistviewcontroller: ee5112a790cbfb7f48ae41be0b3f9df57c364159
-    p. Unit testing characterslistviewmodel based on behaviour: (02ae0ff5c508802862e03473d6d706ced2ac6174)
-    q. Started writing tests for characterslistviewcontroller: d66fe9cc3306455c1724a24d885e44ff12db10a4
-    
-2. Create viewcontroller and views/snapshot tests
-
-## 6. UI Tests
-Once UI is done, do UI tests
-
-## 7. Automate tests
-
-# General
-## No reachability
-For now, no 
+The `UseMockData` is being used to check if the app should use mock data. In the `Connector` layer, it checkes for this argument to see whether it should use mock data or not.
