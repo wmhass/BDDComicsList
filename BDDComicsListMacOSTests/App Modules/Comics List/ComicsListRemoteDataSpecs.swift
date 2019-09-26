@@ -26,7 +26,7 @@ class ComicsListRemoteDataSpecs: QuickSpec {
         describe("ComicsListRemoteData") {
             context("When asking to fetchAllComics") {
                 it("Should load comics correctly") {
-                    waitUntil(timeout: 5) { done in
+                    waitUntil(timeout: 10) { done in
                         self.remoteData.fetchAllComics { fetchResponse in
                             switch fetchResponse {
                             case .success(let response):
