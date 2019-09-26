@@ -158,7 +158,7 @@ Clean architecture VIPER like
 
 When wirting tests we don't write any view (i.e. UIKit dependent classes). This is just testing the logic behind it.
 
-1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
+1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed (another option is to start creating the views first, and then create the interactor...)
     a) Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
     b) Create interactor class with business logic first and implement the tests
     c) Remember  to add files to macos test target
@@ -167,6 +167,14 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
     f) Creating tests for the ComicsList Presenter: 8758e22fb94f2ad50d09b760b6a989a94dc2e7ec
     g) !! Fiest write the test cases (description, context, it) -> This gives you an idea of the behaviour you want
     h) It is okay that user stories change along the development: The developer should never guess, if you realize that something is missing, add first in the user stories before implement it.
+    i) Write your code based on behaviour
+    j) Write unit tests if needed, but in a BDD style: 2c14ab14de5267bda9a6198871db1bbbc371a329
+    k) Write viewcontroller and custom list table view cell tests in iOSTests target - it has access to uikit
+    l) You do not write any code in the application without a test - you need to justify why you are writing any line
+    m) Added snapshot tests to custom list table view cell: 857ba0b77993084c70687f0bb626a86cc4d3936e
+    o) Added snapshot tests to comicslistviewcontroller: ee5112a790cbfb7f48ae41be0b3f9df57c364159
+    p) Unit testing characterslistviewmodel based on behaviour: (02ae0ff5c508802862e03473d6d706ced2ac6174)
+    q) Started writing tests for characterslistviewcontroller: d66fe9cc3306455c1724a24d885e44ff12db10a4
     
 2. Create viewcontroller and views/snapshot tests
 
@@ -174,3 +182,8 @@ When wirting tests we don't write any view (i.e. UIKit dependent classes). This 
 Once UI is done, do UI tests
 
 ## 7. Automate tests
+
+# General
+
+## No reachability
+For now, no 
