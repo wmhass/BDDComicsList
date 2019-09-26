@@ -12,4 +12,5 @@ protocol CharactersListPresentationLogic: class {
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool)
     func presentNoInternetConnectionErrorMessage()
     func presentComicCharacters(characters: [ComicCharacter])
+    func presentViewTitle(_ viewTitle: String)
 }

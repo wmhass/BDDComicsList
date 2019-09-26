@@ -13,14 +13,14 @@ import Nimble
 class CharactersListInteractorSpecs: QuickSpec {
     
     var dataGatewayMock: CharactersListDataGatewayMock!
-    var presenterMock: CharactersListPresenterMock!
+    var presenterMock: CharactersListPresentationMock!
     var interactor: CharactersListInteractor!
     let comic: Comic = Comic(id: 123, title: "A comic")
     
     override func spec() {
         beforeSuite {
             let dataGatewayMock = CharactersListDataGatewayMock()
-            let presenterMock = CharactersListPresenterMock()
+            let presenterMock = CharactersListPresentationMock()
             let interactor = CharactersListInteractor(comic: self.comic, dataGateway: dataGatewayMock)
             interactor.presentation = presenterMock
             
@@ -29,7 +29,18 @@ class CharactersListInteractorSpecs: QuickSpec {
             self.interactor = interactor
         }
         describe("CharactersListInteractor") {
-
+            
+            context("When loading the view title") {
+                beforeEach {
+                    self.presenterMock._didAskToPresentViewTitle = (false, nil)
+                    self.interactor.loadViewTitle()
+                }
+                it("Should ask the presenter to present the comic name as the view title") {
+                    expect(self.presenterMock._didAskToPresentViewTitle.didAsk).to(beTrue())
+                    expect(self.presenterMock._didAskToPresentViewTitle.viewTitle).to(equal(self.comic.title))
+                }
+            }
+            
             context("When it tries to load characters") {
                 beforeEach {
                     self.presenterMock._didAskToPresentFetchDataActivityIndicator = (false, nil)

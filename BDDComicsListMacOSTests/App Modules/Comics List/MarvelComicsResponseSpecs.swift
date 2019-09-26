@@ -61,7 +61,7 @@ class MarvelComicsResponseSpecs: QuickSpec {
                         }.toNot(throwError())
                 }
             }
-            context("When the json is invalid and there are comics") {
+            context("When the json is invalid") {
                 let invalidJson: String = """
                 { "blah":[]}
                 """

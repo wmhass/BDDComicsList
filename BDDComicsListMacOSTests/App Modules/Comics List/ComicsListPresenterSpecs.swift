@@ -130,8 +130,8 @@ class ComicsListPresenterSpecs: QuickSpec {
                     self.presenter.presentResponseIsInvalid()
                 }
                 it("Should ask view to display an alert informing that there was an error with the server response") {
-                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal("Failed fetching comics"))
-                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal("We failed fetching the comics because there was an error with the server response"))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal(AppErrorMessages.FailedFetchingComics.title.rawValue))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal(AppErrorMessages.FailedFetchingComics.message.rawValue))
                 }
             }
             
@@ -141,8 +141,8 @@ class ComicsListPresenterSpecs: QuickSpec {
                     self.presenter.presentNoInternetConnectionErrorMessage()
                 }
                 it("Should ask view to display an alert informing that there is no internet connection") {
-                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal("No internet connection"))
-                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal("We failed fetching the comics because there are no internet connection"))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.title).to(equal(AppErrorMessages.NoInternetConnectionErrorMessage.title.rawValue))
+                    expect(self.viewMock._didAskToDisplayErrorAlert.message).to(equal(AppErrorMessages.NoInternetConnectionErrorMessage.message.rawValue))
                 }
             }
             

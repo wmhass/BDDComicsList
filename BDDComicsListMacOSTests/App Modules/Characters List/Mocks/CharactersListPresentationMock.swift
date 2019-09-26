@@ -1,6 +1,6 @@
 
 //
-//  CharactersListPresenterMock.swift
+//  CharactersListPresentationMock.swift
 //  BDDComicsList
 //
 //  Created by William Hass on 2019-09-22.
@@ -9,14 +9,15 @@
 
 import Foundation
 
-class CharactersListPresenterMock {
+class CharactersListPresentationMock {
     var _didAskToPresentResponseIsInvalid: Bool = false
     var _didAskToPresentNoInternetConnectionErrorMessage: Bool = false
     var _didAskToPresentFetchDataActivityIndicator: (didAsk: Bool, shouldPresent: Bool?) = (false, nil)
     var _didAskToPresentComicCharacters: (didAsk: Bool, characters: [ComicCharacter]?) = (false, nil)
+    var _didAskToPresentViewTitle: (didAsk: Bool, viewTitle: String?) = (false, nil)
 }
 
-extension CharactersListPresenterMock: CharactersListPresentationLogic {
+extension CharactersListPresentationMock: CharactersListPresentationLogic {
     func presentNoInternetConnectionErrorMessage() {
         _didAskToPresentNoInternetConnectionErrorMessage = true
     }
@@ -28,5 +29,8 @@ extension CharactersListPresenterMock: CharactersListPresentationLogic {
     }
     func presentComicCharacters(characters: [ComicCharacter]) {
         _didAskToPresentComicCharacters = (true, characters)
+    }
+    func presentViewTitle(_ viewTitle: String) {
+        _didAskToPresentViewTitle = (true, viewTitle)
     }
 }

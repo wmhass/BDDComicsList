@@ -8,8 +8,9 @@
 
 import Foundation
 
-protocol CharactersListDisplayLogic {
+protocol CharactersListDisplayLogic: class {
     func displayErrorAlert(title: String, message: String)
     func displayUIActivityView(_ display: Bool)
     func reloadListOfCharacters()
+    func displayViewTitle(_ viewTitle: String)
 }

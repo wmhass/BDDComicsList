@@ -9,5 +9,22 @@
 import Foundation
 
 struct CharactersListViewModel {
+    var viewTitle: String?
+    fileprivate let comicCharacters: [ComicCharacter]
+    init(comicCharacters: [ComicCharacter]) {
+        self.comicCharacters = comicCharacters
+    }
+}
+
+extension CharactersListViewModel {
+    var numberOfCharacters: Int {
+        return self.comicCharacters.count
+    }
     
+    func nameOfCharacter(atIndex characterIndex: Int) -> String? {
+        guard self.comicCharacters.indices.contains(characterIndex) else {
+            return nil
+        }
+        return self.comicCharacters[characterIndex].name
+    }
 }
