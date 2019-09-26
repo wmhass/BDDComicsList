@@ -26,10 +26,6 @@ struct MarvelAPIKeys {
     let ts: String
 }
 
-enum MarvelEndpoint: String {
-    case comics = "comics"
-}
-
 enum MarvelQueryParameters: String {
     case apikey = "apikey"
     case hash = "hash"
@@ -47,11 +43,11 @@ struct MarvelAPIURLBuilder {
     
     let apiKeys: MarvelAPIKeys
     
-    private func marvelURL(endpoint: MarvelEndpoint, queryItems: [URLQueryItem]? = nil) -> URLComponents {
+    private func marvelURL(endpoint: String, queryItems: [URLQueryItem]? = nil) -> URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = MarvelAPIInformation.scheme.rawValue
         urlComponents.host = MarvelAPIInformation.host.rawValue
-        urlComponents.path = "\(MarvelAPIInformation.apiPath.rawValue)/\(endpoint.rawValue)"
+        urlComponents.path = "\(MarvelAPIInformation.apiPath.rawValue)/\(endpoint)"
         
         var defaultQueryItems = [
             URLQueryItem(name: MarvelQueryParameters.apikey.rawValue, value: self.apiKeys.apiKey),
@@ -67,6 +63,10 @@ struct MarvelAPIURLBuilder {
     
     
     func comicsListURL(limit: Int) -> URL {
-        return self.marvelURL(endpoint: .comics, queryItems: [URLQueryItem(marvelLimit: limit)]).url!
+        return self.marvelURL(endpoint: "comics", queryItems: [URLQueryItem(marvelLimit: limit)]).url!
+    }
+    
+    func charactersListURL(comicID: Int) -> URL {
+        return self.marvelURL(endpoint: "comics/\(comicID)/characters").url!
     }
 }

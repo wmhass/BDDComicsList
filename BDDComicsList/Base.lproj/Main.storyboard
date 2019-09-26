@@ -13,7 +13,7 @@
         <!--Marvel Comics-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ComicsListViewController" customModule="BDDComicsList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComicsListViewController" id="BYZ-38-t0r" customClass="ComicsListViewController" customModule="BDDComicsList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,13 +55,56 @@
         <!--Characters List View Controller-->
         <scene sceneID="qt9-VJ-qyk">
             <objects>
-                <viewController id="PeG-eI-Qwr" customClass="CharactersListViewController" customModule="BDDComicsList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharactersListViewController" id="PeG-eI-Qwr" customClass="CharactersListViewController" customModule="BDDComicsList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="td8-u7-T83">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OkM-qV-sMD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="x6X-Uh-Oxr" style="IBUITableViewCellStyleDefault" id="60M-t5-HI0">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="60M-t5-HI0" id="CJS-eW-8Lk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x6X-Uh-Oxr">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PeG-eI-Qwr" id="mx7-i6-wYm"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rR7-Le-SRt">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GBi-7f-Xr8" firstAttribute="bottom" secondItem="OkM-qV-sMD" secondAttribute="bottom" id="57e-5I-Jy1"/>
+                            <constraint firstItem="OkM-qV-sMD" firstAttribute="leading" secondItem="GBi-7f-Xr8" secondAttribute="leading" id="MCA-xX-oVA"/>
+                            <constraint firstItem="OkM-qV-sMD" firstAttribute="top" secondItem="GBi-7f-Xr8" secondAttribute="top" id="Sb1-9V-ijA"/>
+                            <constraint firstItem="rR7-Le-SRt" firstAttribute="centerX" secondItem="GBi-7f-Xr8" secondAttribute="centerX" id="iGD-We-qyp"/>
+                            <constraint firstItem="rR7-Le-SRt" firstAttribute="centerY" secondItem="GBi-7f-Xr8" secondAttribute="centerY" id="pUE-mB-cNP"/>
+                            <constraint firstItem="GBi-7f-Xr8" firstAttribute="trailing" secondItem="OkM-qV-sMD" secondAttribute="trailing" id="r7T-8Q-WUz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GBi-7f-Xr8"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="rR7-Le-SRt" id="O8t-yl-p8X"/>
+                        <outlet property="tableView" destination="OkM-qV-sMD" id="jQf-jS-Lfz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OtY-al-iB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

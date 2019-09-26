@@ -1,8 +1,8 @@
 //
-//  ComicsListRemoteDataSpecs.swift
+//  CharactersListRemoteDataSpecs.swift
 //  BDDComicsListMacOSTests
 //
-//  Created by William Hass on 2019-09-21.
+//  Created by William Hass on 2019-09-23.
 //  Copyright © 2019 William. All rights reserved.
 //
 
@@ -10,24 +10,24 @@ import Foundation
 import Quick
 import Nimble
 
+class CharactersListRemoteDataSpecs: QuickSpec {
+    
+    var remoteData: CharactersListRemoteData!
 
-class ComicsListRemoteDataSpecs: QuickSpec {
-    
-    var remoteData: ComicsListRemoteData!
-    
     override func spec() {
         beforeSuite {
             let httpDataLoader = HTTPDataLoader()
             let urlBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
-            let remoteData = ComicsListRemoteData(marvelAPIURLBuilder: urlBuilder, httpDataLoader: httpDataLoader)
+            let remoteData = CharactersListRemoteData(marvelAPIURLBuilder: urlBuilder, httpDataLoader: httpDataLoader)
             
             self.remoteData = remoteData
         }
-        describe("ComicsListRemoteData") {
-            context("When asking to fetchAllComics") {
-                it("Should load comics correctly") {
+        describe("CharactersListRemoteData") {
+            context("When asking to fetch all characters from a comic") {
+                let comic = Comic(id: 183, title: "Startling Stories: The Incorrigible Hulk (2004) #1")
+                it("Should load list of comics") {
                     waitUntil(timeout: 10) { done in
-                        self.remoteData.fetchAllComics { fetchResponse in
+                        self.remoteData.fetchAllCharacters(comic: comic) { fetchResponse in
                             switch fetchResponse {
                             case .success(let response):
                                 expect(response.code).to(equal(200))

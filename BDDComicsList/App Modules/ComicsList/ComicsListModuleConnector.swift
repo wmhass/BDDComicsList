@@ -12,9 +12,16 @@ class ComicsListModuleConnector {
     func connectDependencies(comicsListViewController: ComicsListViewController) {
         
         // Data Layer
-        let httpDataLoader = HTTPDataLoader()
-        let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
-        let remoteData = ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
+        let remoteData: ComicsListRemoteDataLogic = {
+            if UIApplication.shared.shouldUseMockData {
+                return MockedComicsListData()
+            } else {
+                let httpDataLoader = HTTPDataLoader()
+                let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
+                return ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
+            }
+        }()
+
         let dataGateway = ComicsListDataGateway(remoteData: remoteData)
         
         // Business Logic
@@ -27,7 +34,7 @@ class ComicsListModuleConnector {
         
         // Dependency Injection
         router.viewController = comicsListViewController
-        comicsListViewController.evenHandler = presenter
+        comicsListViewController.eventHandler = presenter
         comicsListViewController.dataSource = presenter
         presenter.view = comicsListViewController
         interactor.presentation = presenter
