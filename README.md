@@ -13,7 +13,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 ### US01 - See a list of Marvel Comics
     As a user
-    I want to see a list of Marvel Comics grouped by the first letter of the comic's title when I open the app
+    I want to see a list of Marvel Comics grouped and sorted ascending by the first letter of the comic's title when I open the app
     So I can get to know the comics they have
 
 #### Acceptance criteria:
@@ -34,11 +34,11 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
     Given that I have internet connection
     When the server response is valid
-    Then present a list of Marvel Comics titles grouped by the first letter of the comic's title
+    Then present a list of Marvel Comics titles grouped and sorted ascending by the first letter of the comic's title
 
 ### US02 - See the list of characters of a given comic
     As a user
-    I want to see the list of characters when I tap on a comic title
+    I want to see the list of characters sorted ascending by the first letter when I tap on a comic title
     So I can have more information about the comic
 
 #### Acceptance criteria:
@@ -64,7 +64,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
     And the list of comics has one or more items
     When I tapped on a comic title
     And the response is valid
-    Then present a list with the name of the characters of that comic
+    Then present a list with the name of the characters of that comic sorted ascending by the first letter
 
 ### US03 - Present comic name in the title of the characters view
     As a user
@@ -86,21 +86,15 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario - No internet connection:*
+*Scenario - App is loading comics:*
 
-    Given that I don't have internet connection
-    When it tries to load comics
-    Then do not present a UI activity indicator
-
-*Scenario - Internet connection OK and app is loading comics:*
-
-    Given that I have internet connection
+    Given that I opened the app
     When it is loading comics
     Then present a UI activity indicator
 
 *Scenario - App finished loading comics:*
 
-    Given that I have internet connection
+    Given that I opened the app
     When it finished loading comics
     Then hide the UI activity indicator
 
@@ -111,21 +105,15 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 
 #### Acceptance criteria:
 
-*Scenario - No internet connection:*
+*Scenario - App is loading comic characters:*
 
-    Given that I don't have internet connection
-    When it tries to load comic characters
-    Then do not present a UI activity indicator
-
-*Scenario - Internet connection OK and app is loading comic characters:*
-
-    Given that I have internet connection
+    Given that I selected one comic
     When the app is loading the comic characters
     Then present a UI activity indicator
 
-*Scenario - Internet connection OK and app finished loading comic characters:*
+*Scenario - App finished loading comic characters:*
 
-    Given that I have internet connection
+    Given that I selected one comic
     When the app finished loading the comic characters
     Then hide the UI activity indicator
 
@@ -168,13 +156,34 @@ Clean architecture VIPER like
 
 ## 5. Writing tests
 
-1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed
+When wirting tests we don't write any view (i.e. UIKit dependent classes). This is just testing the logic behind it.
+
+1. Start with the interactor. Create BDD tests for the interactor, and then unit tests for related classes if needed (another option is to start creating the views first, and then create the interactor...)
     a) Adding test case placeholders for the comics list: 9ac95be00f02e4010f0c9b22a9663df16194a67f
     b) Create interactor class with business logic first and implement the tests
     c) Remember  to add files to macos test target
+    d) Add unit test to ComicsGrouper: 656db1087533d97a570dc043f069e1bc655c0f2a
+    e) Testing if comics interactor will present the characters view when the comic is selected: 48298dd226ccfb16aa9e979ec2e7e6c54db54730 and d5178720289c4bc5a720df068334d7446bc77371
+    f) Creating tests for the ComicsList Presenter: 8758e22fb94f2ad50d09b760b6a989a94dc2e7ec
+    g) !! Fiest write the test cases (description, context, it) -> This gives you an idea of the behaviour you want
+    h) It is okay that user stories change along the development: The developer should never guess, if you realize that something is missing, add first in the user stories before implement it.
+    i) Write your code based on behaviour
+    j) Write unit tests if needed, but in a BDD style: 2c14ab14de5267bda9a6198871db1bbbc371a329
+    k) Write viewcontroller and custom list table view cell tests in iOSTests target - it has access to uikit
+    l) You do not write any code in the application without a test - you need to justify why you are writing any line
+    m) Added snapshot tests to custom list table view cell: 857ba0b77993084c70687f0bb626a86cc4d3936e
+    o) Added snapshot tests to comicslistviewcontroller: ee5112a790cbfb7f48ae41be0b3f9df57c364159
+    p) Unit testing characterslistviewmodel based on behaviour: (02ae0ff5c508802862e03473d6d706ced2ac6174)
+    q) Started writing tests for characterslistviewcontroller: d66fe9cc3306455c1724a24d885e44ff12db10a4
+    
 2. Create viewcontroller and views/snapshot tests
 
 ## 6. UI Tests
 Once UI is done, do UI tests
 
 ## 7. Automate tests
+
+# General
+
+## No reachability
+For now, no 

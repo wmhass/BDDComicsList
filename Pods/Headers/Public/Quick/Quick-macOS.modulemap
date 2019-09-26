@@ -1,7 +1,0 @@
-module Quick {
-  umbrella header "Quick-macOS-umbrella.h"
-  exclude header "Quick-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
