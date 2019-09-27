@@ -11,6 +11,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Nimble-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Nimble-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -18,33 +23,38 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Nimble-macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Pods-BDDComicsList.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-BDDComicsListMacOSTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-BDDComicsListUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-BDDComicsListiOSTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Quick-framework.xcscheme</key>
 		<dict>
@@ -53,12 +63,22 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>Quick-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Quick-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>Quick-macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>iOSSnapshotTestCase.xcscheme</key>
 		<dict>

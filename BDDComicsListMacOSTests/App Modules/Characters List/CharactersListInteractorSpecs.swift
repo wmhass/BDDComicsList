@@ -57,7 +57,7 @@ class CharactersListInteractorSpecs: QuickSpec {
             }
             context("When it finished loading comics") {
                 beforeEach {
-                    self.dataGatewayMock._fetchComicCharactersResultMock = .noInternetConnection
+                    self.dataGatewayMock._fetchComicCharactersResponseMock = .noInternetConnection
                     self.presenterMock._didAskToPresentFetchDataActivityIndicator = (false, nil)
                     self.interactor.loadListOfCharacters()
                 }
@@ -72,7 +72,7 @@ class CharactersListInteractorSpecs: QuickSpec {
             context("When I don't have internet connection") {
                 beforeEach {
                     self.presenterMock._didAskToPresentNoInternetConnectionErrorMessage = false
-                    self.dataGatewayMock._fetchComicCharactersResultMock = .noInternetConnection
+                    self.dataGatewayMock._fetchComicCharactersResponseMock = .noInternetConnection
                     self.interactor.loadListOfCharacters()
                 }
                 it("Then present a message informing that there is no internet connection") {
@@ -84,7 +84,7 @@ class CharactersListInteractorSpecs: QuickSpec {
             context("When the characters response is invalid") {
                 beforeEach {
                     self.presenterMock._didAskToPresentResponseIsInvalid = false
-                    self.dataGatewayMock._fetchComicCharactersResultMock = .responseIsInvalid
+                    self.dataGatewayMock._fetchComicCharactersResponseMock = .responseIsInvalid
                     self.interactor.loadListOfCharacters()
                 }
                 it("Should present a message informing that it can not present the list of characters") {
@@ -100,7 +100,7 @@ class CharactersListInteractorSpecs: QuickSpec {
                 ]
                 beforeEach {
                     self.presenterMock._didAskToPresentComicCharacters = (false, nil)
-                    self.dataGatewayMock._fetchComicCharactersResultMock = .success(characters: characters)
+                    self.dataGatewayMock._fetchComicCharactersResponseMock = .success(characters: characters)
                     self.interactor.loadListOfCharacters()
                 }
                 it("Then present a view with the list of characters names sorted asc") {

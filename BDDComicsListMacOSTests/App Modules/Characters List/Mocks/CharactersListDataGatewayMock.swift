@@ -9,15 +9,15 @@
 import Foundation
 
 class CharactersListDataGatewayMock {
-    var _fetchComicCharactersResultMock: FetchComicCharactersResponse?
+    var _fetchComicCharactersResponseMock: FetchComicCharactersResponse?
     var _didAttemptToFetchComicCharacters: Bool = false
 }
 
 extension CharactersListDataGatewayMock: CharactersListDataGatewayLogic {
     func fetchComicCharacters(comic: Comic, completion: @escaping (FetchComicCharactersResponse) -> Void) {
         _didAttemptToFetchComicCharacters = true
-        if let resultMock = _fetchComicCharactersResultMock {
-            completion(resultMock)
+        if let responseMock = _fetchComicCharactersResponseMock {
+            completion(responseMock)
         }
     }
 }
