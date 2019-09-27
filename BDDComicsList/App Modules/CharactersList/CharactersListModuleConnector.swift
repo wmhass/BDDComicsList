@@ -13,8 +13,11 @@ class CharactersListModuleConnector {
     var preConnection: (ComicsListViewController?,CharactersListViewController?)->Void = { _,_ in }
     
     let comic: Comic
-    init(comic: Comic) {
+    let shouldUseMockData: Bool
+    
+    init(comic: Comic, shouldUseMockData: Bool) {
         self.comic = comic
+        self.shouldUseMockData = shouldUseMockData
     }
 
     func connectDependencies(comicsListViewController: ComicsListViewController?, charactersListViewController: CharactersListViewController?) {
@@ -22,7 +25,7 @@ class CharactersListModuleConnector {
 
         // Data Layer
         let remoteData: CharactersListRemoteDataLogic = {
-            if UIApplication.shared.shouldUseMockData {
+            if self.shouldUseMockData {
                 return MockedCharactersListData()
             } else {
                 let httpDataLoader = HTTPDataLoader()

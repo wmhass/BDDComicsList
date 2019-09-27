@@ -9,11 +9,18 @@
 import UIKit
 
 class ComicsListModuleConnector {
+    
+    let shouldUseMockData: Bool
+    
+    init(shouldUseMockData: Bool) {
+        self.shouldUseMockData = shouldUseMockData
+    }
+    
     func connectDependencies(comicsListViewController: ComicsListViewController) {
         
         // Data Layer
         let remoteData: ComicsListRemoteDataLogic = {
-            if UIApplication.shared.shouldUseMockData {
+            if self.shouldUseMockData {
                 return MockedComicsListData()
             } else {
                 let httpDataLoader = HTTPDataLoader()

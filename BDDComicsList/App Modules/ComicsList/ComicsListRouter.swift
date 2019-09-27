@@ -17,7 +17,7 @@ extension ComicsListRouter: ComicsListRoutingLogic {
     func pushCharactersListView(ofComic comic: Comic) {
         
         
-        let connection = CharactersListModuleConnector(comic: comic)
+        let connection = CharactersListModuleConnector(comic: comic, shouldUseMockData: UIApplication.shared.shouldUseMockData)
         connection.preConnection = { comicsListViewController, _ in
             if let selectedIndexPath = comicsListViewController?.tableView.indexPathForSelectedRow {
                 comicsListViewController?.tableView.deselectRow(at: selectedIndexPath, animated: true)
