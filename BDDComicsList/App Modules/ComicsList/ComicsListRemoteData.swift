@@ -21,7 +21,7 @@ class ComicsListRemoteData {
 
 extension ComicsListRemoteData: ComicsListRemoteDataLogic {
     func fetchAllComics(completion: @escaping (ComicsListRemoteResponse) -> Void) {
-        let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.comicsListURL(limit: 50))
+        let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.comicsListURL(limit: 5))
         self.httpDataLoader.loadData(withRequest: urlRequest) { (data, urlResponse, error) in
             if let data = data {
                 do {

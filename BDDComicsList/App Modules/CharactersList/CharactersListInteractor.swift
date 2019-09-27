@@ -26,10 +26,13 @@ extension CharactersListInteractor: CharactersListBusinessLogic {
         self.dataGateway.fetchComicCharacters(comic: self.comic) { response in
             self.presentation?.presentFetchDataActivityIndicator(false)
             switch response {
-            case .noInternetConnection:
-                self.presentation?.presentNoInternetConnectionErrorMessage()
-            case .responseIsInvalid:
-                self.presentation?.presentResponseIsInvalid()
+            case .failure(let error):
+                switch error {
+                case .noInternetConnection:
+                    self.presentation?.presentNoInternetConnectionErrorMessage()
+                case .responseIsInvalid:
+                    self.presentation?.presentResponseIsInvalid()
+                }
             case .success(let characters):
                 self.presentation?.presentComicCharacters(characters: characters.sorted(by: { (c1, c2) -> Bool in
                     return c1.name.lowercased() < c2.name.lowercased()

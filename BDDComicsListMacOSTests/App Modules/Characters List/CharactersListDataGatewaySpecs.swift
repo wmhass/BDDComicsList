@@ -37,8 +37,15 @@ class CharactersListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComicCharacters(comic: self.comic) { charactersResponse in
                             let isNoInternetConnection: Bool = {
                                 switch charactersResponse {
-                                case .noInternetConnection: return true
-                                default: return false
+                                case .failure(let error):
+                                    switch error {
+                                    case .noInternetConnection:
+                                        return true
+                                    default:
+                                        return false
+                                    }
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isNoInternetConnection).to(beTrue())
@@ -72,8 +79,15 @@ class CharactersListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComicCharacters(comic: self.comic) { charactersResponse in
                             let isResponseInvalid: Bool = {
                                 switch charactersResponse {
-                                case .responseIsInvalid: return true
-                                default: return false
+                                case .failure(let error):
+                                    switch error {
+                                    case .responseIsInvalid:
+                                        return true
+                                    default:
+                                        return false
+                                    }
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isResponseInvalid).to(beTrue())
@@ -93,8 +107,10 @@ class CharactersListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComicCharacters(comic: self.comic) { charactersResponse in
                             let isResponseValid: Bool = {
                                 switch charactersResponse {
-                                case .success(_): return true
-                                default: return false
+                                case .success(_):
+                                    return true
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isResponseValid).to(beTrue())
@@ -115,8 +131,15 @@ class CharactersListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComicCharacters(comic: self.comic) { charactersResponse in
                             let isResponseInvalid: Bool = {
                                 switch charactersResponse {
-                                case .responseIsInvalid: return true
-                                default: return false
+                                case .failure(let error):
+                                    switch error {
+                                    case .responseIsInvalid:
+                                        return true
+                                    default:
+                                        return false
+                                    }
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isResponseInvalid).to(beTrue())

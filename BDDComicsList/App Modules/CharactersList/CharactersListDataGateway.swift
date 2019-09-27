@@ -21,17 +21,17 @@ class CharactersListDataGateway {
 extension CharactersListDataGateway: CharactersListDataGatewayLogic {
     func fetchComicCharacters(comic: Comic, completion: @escaping (FetchComicCharactersResponse) -> Void) {
         guard self.hasInternetConnection else {
-            return completion(.noInternetConnection)
+            return completion(.failure(.noInternetConnection))
         }
         self.remoteData.fetchAllCharacters(comic: comic) { remoteResponse in
             switch remoteResponse {
             case .failedParsingData:
-                completion(.responseIsInvalid)
+                completion(.failure(.responseIsInvalid))
             case .success(let response):
                 if response.code == 200 {
-                    completion(FetchComicCharactersResponse.success(characters: response.data.results))
+                    completion(FetchComicCharactersResponse.success(response.data.results))
                 } else {
-                    completion(.responseIsInvalid)
+                    completion(.failure(.responseIsInvalid))
                 }
             }
         }
