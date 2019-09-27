@@ -58,6 +58,7 @@
 		3D6A3A692332C6E80005B51D /* ComicsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */; };
 		3D6A3A6B2332C7640005B51D /* ComicsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */; };
 		3D6A3A6D2332C7920005B51D /* ComicsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6A3A6C2332C7920005B51D /* ComicsListViewController.swift */; };
+		3D70FFD7233E8E2600D2684B /* ComicsListModuleSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D70FFD5233E8D5300D2684B /* ComicsListModuleSpecs.swift */; };
 		3D7DDB7723306A1800E767E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7623306A1800E767E1 /* AppDelegate.swift */; };
 		3D7DDB7C23306A1800E767E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7A23306A1800E767E1 /* Main.storyboard */; };
 		3D7DDB7E23306A1A00E767E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7DDB7D23306A1A00E767E1 /* Assets.xcassets */; };
@@ -191,6 +192,7 @@
 		3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListInteractor.swift; sourceTree = "<group>"; };
 		3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListRouter.swift; sourceTree = "<group>"; };
 		3D6A3A6C2332C7920005B51D /* ComicsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewController.swift; sourceTree = "<group>"; };
+		3D70FFD5233E8D5300D2684B /* ComicsListModuleSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListModuleSpecs.swift; sourceTree = "<group>"; };
 		3D7DDB7323306A1800E767E1 /* BDDComicsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDDComicsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7DDB7623306A1800E767E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7DDB7B23306A1800E767E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */,
 				3DA0197A2337051500C25801 /* ComicsListViewControllerSnapshotTest.swift */,
 				3DA0199A2337B1B900C25801 /* ComicsListRouterSpecs.swift */,
+				3D70FFD5233E8D5300D2684B /* ComicsListModuleSpecs.swift */,
 			);
 			path = ComicsList;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				3D52452B2339767700802F8A /* CharactersListPresenterMock.swift in Sources */,
 				3DA019712336F01900C25801 /* CustomListTableViewCellSpecs.swift in Sources */,
 				3D52452D233985C100802F8A /* CharactersListViewControllerSnapshotTests.swift in Sources */,
+				3D70FFD7233E8E2600D2684B /* ComicsListModuleSpecs.swift in Sources */,
 				3DA019742336FB0F00C25801 /* CustomListTableViewCellSnapshotTest.swift in Sources */,
 				3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */,
 				3DA019792336FC7500C25801 /* FBSnapshotTestCase+SwiftAdditions.m in Sources */,
