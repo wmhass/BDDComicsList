@@ -64,7 +64,7 @@ class ComicsListDataGatewaySpecs: QuickSpec {
             }
             context("When the fetch comics response could not be parsed") {
                 beforeEach {
-                    self.remoteDataMock._fakeResponse = .failedParsingData
+                    self.remoteDataMock._fakeResponse = .failure(.failedParsingData)
                 }
                 it("Should call the completion block passing responseIsInvalid") {
                     waitUntil(timeout: 1) { done in
@@ -93,7 +93,8 @@ class ComicsListDataGatewaySpecs: QuickSpec {
                 beforeEach {
                     let comics = [Comic(id: 10, title: "C1"),Comic(id: 11, title: "C2")]
                     let comicsResponseData = MarvelComicsResponseData(results: comics)
-                    self.remoteDataMock._fakeResponse = ComicsListRemoteResponse.success(response: MarvelComicsResponse(code: 200, status: "", data: comicsResponseData))
+
+                    self.remoteDataMock._fakeResponse = .success(MarvelComicsResponse(code: 200, status: "", data: comicsResponseData))
                 }
                 it("Should call the completion block passing the comics") {
                     waitUntil(timeout: 1) { done in
@@ -115,7 +116,7 @@ class ComicsListDataGatewaySpecs: QuickSpec {
             context("When the fetch comics response could be parsed but response code is different that 200") {
                 beforeEach {
                     let comicsResponseData = MarvelComicsResponseData(results: [])
-                    self.remoteDataMock._fakeResponse = ComicsListRemoteResponse.success(response: MarvelComicsResponse(code: 400, status: "", data: comicsResponseData))
+                    self.remoteDataMock._fakeResponse = .success(MarvelComicsResponse(code: 400, status: "", data: comicsResponseData))
                 }
                 it("Should call the completion block passing responseIsInvalid") {
                     waitUntil(timeout: 1) { done in

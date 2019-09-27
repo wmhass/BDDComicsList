@@ -25,8 +25,11 @@ extension ComicsListDataGateway: ComicsListDataGatewayLogic {
         }
         self.remoteData.fetchAllComics { remoteResponse in
             switch remoteResponse {
-            case .failedParsingData:
-                completion(.failure(.responseIsInvalid))
+            case .failure(let error):
+                switch error {
+                case .failedParsingData:
+                    completion(.failure(.responseIsInvalid))
+                }
             case .success(let response):
                 if response.code == 200 {
                     completion(.success(response.data.results))

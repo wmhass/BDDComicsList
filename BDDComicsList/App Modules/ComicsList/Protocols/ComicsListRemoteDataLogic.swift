@@ -18,10 +18,11 @@ struct MarvelComicsResponse: Decodable {
     let data: MarvelComicsResponseData
 }
 
-enum ComicsListRemoteResponse {
+enum ComicsListRemoteError: Error {
     case failedParsingData
-    case success(response: MarvelComicsResponse)
 }
+
+typealias ComicsListRemoteResponse = Result<MarvelComicsResponse,ComicsListRemoteError>
 
 protocol ComicsListRemoteDataLogic {
     func fetchAllComics(completion: @escaping (ComicsListRemoteResponse) -> Void)

@@ -26,12 +26,12 @@ extension ComicsListRemoteData: ComicsListRemoteDataLogic {
             if let data = data {
                 do {
                     let marvelResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: data)
-                    completion(ComicsListRemoteResponse.success(response: marvelResponse))
+                    completion(.success(marvelResponse))
                 } catch {
-                    completion(ComicsListRemoteResponse.failedParsingData)
+                    completion(.failure(.failedParsingData))
                 }
             } else {
-                completion(ComicsListRemoteResponse.failedParsingData)
+                completion(.failure(.failedParsingData))
             }
         }
     }

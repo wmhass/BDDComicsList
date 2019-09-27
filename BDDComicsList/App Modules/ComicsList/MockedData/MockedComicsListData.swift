@@ -17,6 +17,6 @@ extension MockedComicsListData: ComicsListRemoteDataLogic {
         let fileURL = Bundle.main.url(forResource: "mocked_comics", withExtension: "json")!
         let data = try! Data(contentsOf: fileURL)
         let marvelResponse = try! JSONDecoder().decode(MarvelComicsResponse.self, from: data)
-        completion(ComicsListRemoteResponse.success(response: marvelResponse))
+        completion(.success(marvelResponse))
     }
 }
