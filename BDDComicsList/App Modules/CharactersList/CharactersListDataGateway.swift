@@ -24,9 +24,13 @@ extension CharactersListDataGateway: CharactersListDataGatewayLogic {
             return completion(.failure(.noInternetConnection))
         }
         self.remoteData.fetchAllCharacters(comic: comic) { remoteResponse in
+            
             switch remoteResponse {
-            case .failedParsingData:
-                completion(.failure(.responseIsInvalid))
+            case .failure(let error):
+                switch error {
+                case .failedParsingData:
+                    completion(.failure(.responseIsInvalid))
+                }
             case .success(let response):
                 if response.code == 200 {
                     completion(FetchComicCharactersResponse.success(response.data.results))

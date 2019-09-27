@@ -25,12 +25,12 @@ extension CharactersListRemoteData: CharactersListRemoteDataLogic {
             if let data = data {
                 do {
                     let marvelResponse = try JSONDecoder().decode(MarvelComicCharactersResponse.self, from: data)
-                    completion(ComicCharactersListRemoteResponse.success(response: marvelResponse))
+                    completion(.success(marvelResponse))
                 } catch {
-                    completion(ComicCharactersListRemoteResponse.failedParsingData)
+                    completion(.failure(.failedParsingData))
                 }
             } else {
-                completion(ComicCharactersListRemoteResponse.failedParsingData)
+                completion(.failure(.failedParsingData))
             }
         }
     }

@@ -72,7 +72,7 @@ class CharactersListDataGatewaySpecs: QuickSpec {
             }
             context("When the fetch comics response could not be parsed") {
                 beforeEach {
-                    self.remoteDataMock._fakeResponse = .failedParsingData
+                    self.remoteDataMock._fakeResponse = .failure(.failedParsingData)
                 }
                 it("Should call the completion block passing responseIsInvalid") {
                     waitUntil(timeout: 1) { done in
@@ -100,7 +100,7 @@ class CharactersListDataGatewaySpecs: QuickSpec {
             context("When the fetch comics response could be parsed and succeeded") {
                 beforeEach {
                     let charactersResponseData = MarvelComicCharactersResponseData(results: self.characters)
-                    self.remoteDataMock._fakeResponse = ComicCharactersListRemoteResponse.success(response: MarvelComicCharactersResponse(code: 200, status: "", data: charactersResponseData))
+                    self.remoteDataMock._fakeResponse = .success(MarvelComicCharactersResponse(code: 200, status: "", data: charactersResponseData))
                 }
                 it("Should call the completion block passing the comics") {
                     waitUntil(timeout: 1) { done in
@@ -124,7 +124,7 @@ class CharactersListDataGatewaySpecs: QuickSpec {
             context("When the fetch comics response could be parsed but response code is different that 200") {
                 beforeEach {
                     let charactersResponseData = MarvelComicCharactersResponseData(results: self.characters)
-                    self.remoteDataMock._fakeResponse = ComicCharactersListRemoteResponse.success(response: MarvelComicCharactersResponse(code: 400, status: "", data: charactersResponseData))
+                    self.remoteDataMock._fakeResponse = .success(MarvelComicCharactersResponse(code: 400, status: "", data: charactersResponseData))
                 }
                 it("Should call the completion block passing responseIsInvalid") {
                     waitUntil(timeout: 1) { done in
