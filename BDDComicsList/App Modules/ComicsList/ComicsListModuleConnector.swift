@@ -30,20 +30,6 @@ class ComicsListModuleConnector {
         }()
 
         let dataGateway = ComicsListDataGateway(remoteData: remoteData)
-        
-        // Business Logic
-        let interactor = ComicsListInteractor(dataGateway: dataGateway)
-        
-        // Presentation layer
-        let router = ComicsListRouter()
-        let presenter = ComicsListPresenter(router: router, interactor: interactor)
-        
-        
-        // Dependency Injection
-        router.viewController = comicsListViewController
-        comicsListViewController.eventHandler = presenter
-        comicsListViewController.dataSource = presenter
-        presenter.view = comicsListViewController
-        interactor.presentation = presenter
+        ComicsListModuleDependencies().injectDependencies(comicsListViewController:  comicsListViewController, dataGateway: dataGateway)
     }
 }

@@ -54,11 +54,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "BDDComicsListMacOSTests.CharactersListRemoteData.fetchAllCharacters(comic: BDDComicsListMacOSTests.Comic, completion: (BDDComicsListMacOSTests.ComicCharactersListRemoteResponse) -&gt; ()) -&gt; ()"
-                  moduleName = "BDDComicsListMacOSTests"
+                  symbolName = "BDDComicsList.CharactersListRemoteData.fetchAllCharacters(comic: BDDComicsList.Comic, completion: (Swift.Result&lt;BDDComicsList.MarvelComicCharactersResponse, BDDComicsList.ComicCharactersListRemoteError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BDDComicsList"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/william/Documents/Xcode%20projects/BDDComicsList/BDDComicsList/App%20Modules/CharactersList/CharactersListRemoteData.swift"
-                  timestampString = "591023650.234676"
+                  timestampString = "591313866.219883"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -69,16 +69,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BDDComicsListMacOSTests.CharactersListRemoteData.fetchAllCharacters(comic: BDDComicsListMacOSTests.Comic, completion: (BDDComicsListMacOSTests.ComicCharactersListRemoteResponse) -&gt; ()) -&gt; ()"
-                  moduleName = "BDDComicsListMacOSTests"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BDDComicsList.CharactersListRemoteData.fetchAllCharacters(comic: BDDComicsList.Comic, completion: (Swift.Result&lt;BDDComicsList.MarvelComicCharactersResponse, BDDComicsList.ComicCharactersListRemoteError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BDDComicsList"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/william/Documents/Xcode%20projects/BDDComicsList/BDDComicsList/App%20Modules/CharactersList/CharactersListRemoteData.swift"
-                  timestampString = "591023650.236426"
+                  timestampString = "591313866.2219549"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
                   endingLineNumber = "25"
-                  offsetFromSymbolStart = "263">
+                  offsetFromSymbolStart = "296">
                </Location>
             </Locations>
          </BreakpointContent>

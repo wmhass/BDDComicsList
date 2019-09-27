@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComicsListViewController: UIViewController {
+class ComicsListViewController: UIViewController, ComicsListViewConnectable {
     static let DefaultStoryboardID = "ComicsListViewController"
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!

@@ -12,71 +12,95 @@ import Nimble
 @testable import BDDComicsList
 
 class ComicsListModuleSpecs: QuickSpec {
-    
+
+    let dataGatewayMock = ComicsListDataGatewayMock()
+    let viewStub = ComicsListViewStub()
     override func spec() {
-        
+        beforeSuite {
+            let dependencies = ComicsListModuleDependencies()
+            dependencies.injectDependencies(comicsListViewController: self.viewStub, dataGateway: self.dataGatewayMock)
+        }
         describe("Given that I don't have internet connection") {
-            
             beforeEach {
-                let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as! ComicsListViewController
-                
-                // Data Layer
-                let remoteData = MockedComicsListData()
-                
-                let dataGateway = ComicsListDataGateway(remoteData: remoteData)
-                
-                // Business Logic
-                let interactor = ComicsListInteractor(dataGateway: dataGateway)
-                
-                // Presentation layer
-                let router = ComicsListRouter()
-                let presenter = ComicsListPresenter(router: router, interactor: interactor)
-                
-                
-                // Dependency Injection
-                router.viewController = comicsListViewController
-                comicsListViewController.eventHandler = presenter
-                comicsListViewController.dataSource = presenter
-                presenter.view = comicsListViewController
-                interactor.presentation = presenter
-                
+                self.dataGatewayMock._fetchComicsResponseMock = .failure(.noInternetConnection)
             }
-            
             context("When it tries to load comics") {
+                beforeEach {
+                    self.viewStub._didAskToDisplayErrorAlert = nil
+                    self.viewStub._forceViewLoad()
+                }
                 it("Then present a message informing that there is no internet connection") {
-                    
+                    expect(self.viewStub._didAskToDisplayErrorAlert).toNot(beNil())
                 }
             }
         }
         
         describe("Given that I have internet connection") {
             context("When the server response is invalid") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicsResponseMock = .failure(.responseIsInvalid)
+                    self.viewStub._didAskToDisplayErrorAlert = nil
+                    self.viewStub._forceViewLoad()
+                }
                 it("Then present an error message informing that the content couldn't be read") {
-                    
+                    expect(self.viewStub._didAskToDisplayErrorAlert).toNot(beNil())
                 }
             }
         }
         
         describe("Given that I have internet connection") {
             context("When the server response is valid") {
+                beforeEach {
+                    let comics = [
+                        Comic(id: 123, title: "aaa"),
+                        Comic(id: 231, title: "baa"),
+                        Comic(id: 231, title: "bba"),
+                        Comic(id: 231, title: "bbb"),
+                    ]
+                    self.dataGatewayMock._fetchComicsResponseMock = .success(comics)
+                    self.viewStub._didAskToReloadListOfComics = false
+                    self.viewStub._forceViewLoad()
+                }
                 it("Then present a list of Marvel Comics titles grouped and sorted ascending by the first letter of the comic's title") {
+                    expect(self.viewStub._didAskToReloadListOfComics).to(beTrue())
+                    expect(self.viewStub.numberOfSections).to(equal(2))
+                    expect(self.viewStub.titleOfSection(sectionIndex: 0)).to(equal("A"))
+                    expect(self.viewStub.numberOfComics(inSection: 0)).to(equal(1))
+                    expect(self.viewStub.titleOfComic(atIndex: 0, inSection: 0)).to(equal("aaa"))
                     
+                    expect(self.viewStub.titleOfSection(sectionIndex: 1)).to(equal("B"))
+                    expect(self.viewStub.numberOfComics(inSection: 1)).to(equal(3))
+                    expect(self.viewStub.titleOfComic(atIndex: 0, inSection: 1)).to(equal("baa"))
+                    expect(self.viewStub.titleOfComic(atIndex: 1, inSection: 1)).to(equal("bba"))
+                    expect(self.viewStub.titleOfComic(atIndex: 2, inSection: 1)).to(equal("bbb"))
                 }
             }
         }
         
         describe("Given that I opened the app") {
             context("When it is loading comics") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicsResponseMock = nil
+                    self.viewStub._didAskToDisplayUIActivityView = nil
+                    self.viewStub._forceViewLoad()
+                }
                 it("Then present a UI activity indicator") {
-                    
+                    expect(self.viewStub._didAskToDisplayUIActivityView?.didAsk).to(beTrue())
+                    expect(self.viewStub._didAskToDisplayUIActivityView?.value).to(beTrue())
                 }
             }
         }
         
         describe("Given that I opened the app") {
             context("When it finished loading comics") {
+                beforeEach {
+                    self.dataGatewayMock._fetchComicsResponseMock = .success([])
+                    self.viewStub._didAskToDisplayUIActivityView = nil
+                    self.viewStub._forceViewLoad()
+                }
                 it("Then hide the UI activity indicator") {
-                    
+                    expect(self.viewStub._didAskToDisplayUIActivityView?.didAsk).to(beTrue())
+                    expect(self.viewStub._didAskToDisplayUIActivityView?.value).to(beFalse())
                 }
             }
         }
