@@ -30,8 +30,15 @@ class ComicsListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComics { comicsResponse in
                             let isNoInternetConnection: Bool = {
                                 switch comicsResponse {
-                                case .noInternetConnection: return true
-                                default: return false
+                                case .failure(let error):
+                                    switch error {
+                                    case .noInternetConnection:
+                                        return true
+                                    default:
+                                        return false
+                                    }
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isNoInternetConnection).to(beTrue())
@@ -64,8 +71,15 @@ class ComicsListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComics { comicsResponse in
                             let isResponseInvalid: Bool = {
                                 switch comicsResponse {
-                                case .responseIsInvalid: return true
-                                default: return false
+                                case .failure(let error):
+                                    switch error {
+                                    case .responseIsInvalid:
+                                        return true
+                                    default:
+                                        return false
+                                    }
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isResponseInvalid).to(beTrue())
@@ -108,8 +122,15 @@ class ComicsListDataGatewaySpecs: QuickSpec {
                         self.dataGateway.fetchComics { comicsResponse in
                             let isResponseInvalid: Bool = {
                                 switch comicsResponse {
-                                case .responseIsInvalid: return true
-                                default: return false
+                                case .failure(let error):
+                                    switch error {
+                                    case .responseIsInvalid:
+                                        return true
+                                    default:
+                                        return false
+                                    }
+                                default:
+                                    return false
                                 }
                             }()
                             expect(isResponseInvalid).to(beTrue())

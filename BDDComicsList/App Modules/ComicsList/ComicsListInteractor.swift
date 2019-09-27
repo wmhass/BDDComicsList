@@ -24,10 +24,13 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
         self.dataGateway.fetchComics { fetchComicsResponse in
             self.presentation?.presentFetchDataActivityIndicator(false)
             switch fetchComicsResponse {
-            case .noInternetConnection:
-                self.presentation?.presentNoInternetConnectionErrorMessage()
-            case .responseIsInvalid:
-                self.presentation?.presentResponseIsInvalid()
+            case .failure(let error):
+                switch error {
+                case .noInternetConnection:
+                    self.presentation?.presentNoInternetConnectionErrorMessage()
+                case .responseIsInvalid:
+                    self.presentation?.presentResponseIsInvalid()
+                }
             case .success(let comics):
                 self.presentation?.presentComics(groupedComics: GroupedSortedComics(comics: comics))
             }

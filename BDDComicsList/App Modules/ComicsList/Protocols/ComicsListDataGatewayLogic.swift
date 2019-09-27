@@ -8,11 +8,12 @@
 
 import Foundation
 
-enum FetchComicsResponse {
+enum FetchComicsError: Error {
     case noInternetConnection
     case responseIsInvalid
-    case success(comics: [Comic])
 }
+
+typealias FetchComicsResponse = Result<[Comic], FetchComicsError>
 
 protocol ComicsListDataGatewayLogic {
     func fetchComics(completion: @escaping (FetchComicsResponse)->Void)

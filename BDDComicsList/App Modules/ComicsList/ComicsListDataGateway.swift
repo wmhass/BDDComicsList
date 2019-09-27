@@ -21,17 +21,17 @@ class ComicsListDataGateway {
 extension ComicsListDataGateway: ComicsListDataGatewayLogic {
     func fetchComics(completion: @escaping (FetchComicsResponse)->Void) {
         guard self.hasInternetConnection else {
-            return completion(.noInternetConnection)
+            return completion(.failure(.noInternetConnection))
         }
         self.remoteData.fetchAllComics { remoteResponse in
             switch remoteResponse {
             case .failedParsingData:
-                completion(.responseIsInvalid)
+                completion(.failure(.responseIsInvalid))
             case .success(let response):
                 if response.code == 200 {
-                    completion(FetchComicsResponse.success(comics: response.data.results))
+                    completion(.success(response.data.results))
                 } else {
-                    completion(.responseIsInvalid)
+                    completion(.failure(.responseIsInvalid))
                 }
             }
         }

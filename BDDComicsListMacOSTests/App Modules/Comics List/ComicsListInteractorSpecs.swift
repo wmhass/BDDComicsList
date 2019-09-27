@@ -52,7 +52,7 @@ class ComicsListInteractorSpecs: QuickSpec {
             }
             context("When it finished loading comics") {
                 beforeEach {
-                    self.dataGatewayMock._fetchComicsResponseMock = .noInternetConnection
+                    self.dataGatewayMock._fetchComicsResponseMock = .failure(.noInternetConnection)
                     self.presenterMock._didAskToPresentFetchDataActivityIndicator = (false, nil)
                     self.interactor.loadListOfComics()
                 }
@@ -65,7 +65,7 @@ class ComicsListInteractorSpecs: QuickSpec {
 
         describe("Given that I don't have internet connection") {
             beforeEach {
-                self.dataGatewayMock._fetchComicsResponseMock = .noInternetConnection
+                self.dataGatewayMock._fetchComicsResponseMock = .failure(.noInternetConnection)
             }
             context("When it tries to load the comics") {
                 beforeEach {
@@ -81,7 +81,7 @@ class ComicsListInteractorSpecs: QuickSpec {
         describe("Given that I have internet connection") {
             context("When the comics list response is invalid") {
                 beforeEach {
-                    self.dataGatewayMock._fetchComicsResponseMock = .responseIsInvalid
+                    self.dataGatewayMock._fetchComicsResponseMock = .failure(.responseIsInvalid)
                     self.presenterMock._didAskToPresentResponseIsInvalid = false
                     self.interactor.loadListOfComics()
                 }
@@ -93,7 +93,7 @@ class ComicsListInteractorSpecs: QuickSpec {
                 let comics = [Comic(id: 1, title: "Comic 1"), Comic(id: 2, title: "Comic 2")]
                 let groupedComics = GroupedSortedComics(comics: comics)
                 beforeEach {
-                    self.dataGatewayMock._fetchComicsResponseMock = .success(comics: comics)
+                    self.dataGatewayMock._fetchComicsResponseMock = .success(comics)
                     self.presenterMock._didAskToPresentComics = (false, nil)
                     self.interactor.loadListOfComics()
                 }
