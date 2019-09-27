@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController {
+class CharactersListViewController: UIViewController, CharactersListViewConnectable {
     static let DefaultStoryboardID = "CharactersListViewController"
     static let BasicCellReuseIdentifier = "BasicCell"
     

@@ -10,7 +10,7 @@ import UIKit
 
 class CharactersListModuleConnector {
     
-    var preConnection: (ComicsListViewController?,CharactersListViewController?)->Void = { _,_ in }
+    var preConnection: ()->Void = { }
     
     let comic: Comic
     let shouldUseMockData: Bool
@@ -20,8 +20,8 @@ class CharactersListModuleConnector {
         self.shouldUseMockData = shouldUseMockData
     }
 
-    func connectDependencies(comicsListViewController: ComicsListViewController?, charactersListViewController: CharactersListViewController?) {
-        self.preConnection(comicsListViewController, charactersListViewController)
+    func connectDependencies(charactersListViewController: CharactersListViewController) {
+        self.preConnection()
 
         // Data Layer
         let remoteData: CharactersListRemoteDataLogic = {
@@ -35,6 +35,8 @@ class CharactersListModuleConnector {
         }()
         let dataGateway = CharactersListDataGateway(remoteData: remoteData)
         
+        CharactersListModuleDependencies().injectDependencies(charactersListViewController: charactersListViewController, dataGateway: dataGateway, comic: self.comic)
+        
         // Business Logic
         let interactor = CharactersListInteractor(comic: self.comic, dataGateway: dataGateway)
         
@@ -42,8 +44,8 @@ class CharactersListModuleConnector {
         let presenter = CharactersListPresenter(interactor: interactor)
         
         // Dependency Injection
-        charactersListViewController?.eventHandler = presenter
-        charactersListViewController?.dataSource = presenter
+        charactersListViewController.eventHandler = presenter
+        charactersListViewController.dataSource = presenter
         presenter.view = charactersListViewController
         interactor.presentation = presenter
     }
