@@ -8,18 +8,22 @@
 
 import UIKit
 
+struct ComicsListModuleDependenciesContainer {
+    let dataGateway: ComicsListDataGatewayLogic
+    let router: ComicsListRoutingLogic
+}
+
 class ComicsListModuleDependencies {
-    func injectDependencies<T>(comicsListViewController: T, dataGateway: ComicsListDataGatewayLogic) where T: UIViewController, T:ComicsListViewConnectable, T:ComicsListDisplayLogic {
+    func injectDependencies<T>(comicsListViewController: T,
+                               dependencyContainer: ComicsListModuleDependenciesContainer) where T: UIViewController, T:ComicsListViewConnectable, T:ComicsListDisplayLogic {
         // Business Logic
-        let interactor = ComicsListInteractor(dataGateway: dataGateway)
+        let interactor = ComicsListInteractor(dataGateway: dependencyContainer.dataGateway)
         
         // Presentation layer
-        let router = ComicsListRouter()
-        let presenter = ComicsListPresenter(router: router, interactor: interactor)
+        let presenter = ComicsListPresenter(router: dependencyContainer.router, interactor: interactor)
         
-        
+
         // Dependency Injection
-        router.viewController = comicsListViewController
         comicsListViewController.eventHandler = presenter
         comicsListViewController.dataSource = presenter
         presenter.view = comicsListViewController

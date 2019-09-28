@@ -34,19 +34,7 @@ class CharactersListModuleConnector {
             }
         }()
         let dataGateway = CharactersListDataGateway(remoteData: remoteData)
-        
-        CharactersListModuleDependencies().injectDependencies(charactersListViewController: charactersListViewController, dataGateway: dataGateway, comic: self.comic)
-        
-        // Business Logic
-        let interactor = CharactersListInteractor(comic: self.comic, dataGateway: dataGateway)
-        
-        // Presentation layer
-        let presenter = CharactersListPresenter(interactor: interactor)
-        
-        // Dependency Injection
-        charactersListViewController.eventHandler = presenter
-        charactersListViewController.dataSource = presenter
-        presenter.view = charactersListViewController
-        interactor.presentation = presenter
+        let dependencyContainer = CharactersListModuleDependenciesContainer(dataGateway: dataGateway, comic: self.comic)
+        CharactersListModuleDependencies().injectDependencies(charactersListViewController: charactersListViewController, dependencyContainer: dependencyContainer)
     }
 }

@@ -10,7 +10,10 @@ import UIKit
 
 // Router
 class ComicsListRouter {
-    weak var viewController: UIViewController?
+    fileprivate weak var viewController: ComicsListViewController?
+    init(viewController: ComicsListViewController) {
+        self.viewController = viewController
+    }
 }
 
 extension ComicsListRouter: ComicsListRoutingLogic {
@@ -19,9 +22,8 @@ extension ComicsListRouter: ComicsListRoutingLogic {
         
         let connection = CharactersListModuleConnector(comic: comic, shouldUseMockData: UIApplication.shared.shouldUseMockData)
         connection.preConnection = {
-            if let comicsListView = self.viewController as? ComicsListViewController,
-                let selectedIndexPath = comicsListView.tableView.indexPathForSelectedRow {
-                comicsListView.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            if let selectedIndexPath = self.viewController?.tableView.indexPathForSelectedRow {
+                self.viewController?.tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
         }
         self.viewController?.performSegue(withIdentifier: AppStoryboard.Main.Segue.characterList.rawValue, sender: connection)

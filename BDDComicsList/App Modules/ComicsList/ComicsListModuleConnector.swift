@@ -30,6 +30,8 @@ class ComicsListModuleConnector {
         }()
 
         let dataGateway = ComicsListDataGateway(remoteData: remoteData)
-        ComicsListModuleDependencies().injectDependencies(comicsListViewController:  comicsListViewController, dataGateway: dataGateway)
+        let dependencyContainer = ComicsListModuleDependenciesContainer(dataGateway: dataGateway,
+                                              router: ComicsListRouter(viewController: comicsListViewController))
+        ComicsListModuleDependencies().injectDependencies(comicsListViewController:  comicsListViewController, dependencyContainer: dependencyContainer)
     }
 }

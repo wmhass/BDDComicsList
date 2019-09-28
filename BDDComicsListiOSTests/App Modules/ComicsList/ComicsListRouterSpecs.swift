@@ -17,7 +17,6 @@ class ComicsListRouterSpecs: QuickSpec {
 
     override func spec() {
         beforeSuite {
-            self.router = ComicsListRouter()
         }
         describe("ComicsListRouter") {
             beforeEach {

@@ -38,6 +38,10 @@ class ComicsListViewStub: UIViewController, ComicsListViewConnectable {
     func titleOfSection(sectionIndex: Int) -> String? {
         return self.dataSource?.titleOfSection(atIndex: sectionIndex)
     }
+    
+    func selectComic(atIndex index: Int, inSection section: Int) {
+        self.eventHandler?.comicSelected(atIndexPath: IndexPath(item: index, section: section))
+    }
 }
 
 extension ComicsListViewStub: ComicsListDisplayLogic {

@@ -8,13 +8,17 @@
 
 import UIKit
 
+struct CharactersListModuleDependenciesContainer {
+    let dataGateway: CharactersListDataGatewayLogic
+    let comic: Comic
+}
+
 class CharactersListModuleDependencies {
     
     func injectDependencies<T>(charactersListViewController: T,
-                               dataGateway: CharactersListDataGatewayLogic,
-                               comic: Comic) where T: UIViewController, T:CharactersListViewConnectable, T:CharactersListDisplayLogic {
+                               dependencyContainer: CharactersListModuleDependenciesContainer) where T: UIViewController, T:CharactersListViewConnectable, T:CharactersListDisplayLogic {
         // Business Logic
-        let interactor = CharactersListInteractor(comic: comic, dataGateway: dataGateway)
+        let interactor = CharactersListInteractor(comic: dependencyContainer.comic, dataGateway: dependencyContainer.dataGateway)
         
         // Presentation layer
         let presenter = CharactersListPresenter(interactor: interactor)

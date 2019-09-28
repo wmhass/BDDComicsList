@@ -68,6 +68,7 @@
 		3D8F59B5233EB884008CA7DB /* UIViewController+ForceLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F59B4233EB884008CA7DB /* UIViewController+ForceLoad.swift */; };
 		3D8F59B7233EBC4B008CA7DB /* CharactersListViewConnectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F59B6233EBC4B008CA7DB /* CharactersListViewConnectable.swift */; };
 		3D8F59B9233EBC7F008CA7DB /* CharactersListModuleDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F59B8233EBC7F008CA7DB /* CharactersListModuleDependencies.swift */; };
+		3D8F59BB233EF57D008CA7DB /* ComicsListRouterStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F59BA233EF57D008CA7DB /* ComicsListRouterStub.swift */; };
 		3DA0195C2336B40A00C25801 /* HTTPDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */; };
 		3DA0195D2336B40A00C25801 /* HTTPDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */; };
 		3DA0195F2336B77F00C25801 /* ComicsListViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */; };
@@ -211,6 +212,7 @@
 		3D8F59B4233EB884008CA7DB /* UIViewController+ForceLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ForceLoad.swift"; sourceTree = "<group>"; };
 		3D8F59B6233EBC4B008CA7DB /* CharactersListViewConnectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewConnectable.swift; sourceTree = "<group>"; };
 		3D8F59B8233EBC7F008CA7DB /* CharactersListModuleDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListModuleDependencies.swift; sourceTree = "<group>"; };
+		3D8F59BA233EF57D008CA7DB /* ComicsListRouterStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListRouterStub.swift; sourceTree = "<group>"; };
 		3DA0195B2336B40A00C25801 /* HTTPDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataLoader.swift; sourceTree = "<group>"; };
 		3DA0195E2336B77F00C25801 /* ComicsListViewControllerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewControllerSpecs.swift; sourceTree = "<group>"; };
 		3DA0196A2336E18600C25801 /* CustomListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewCell.swift; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB7C823233E993700A6168D /* ComicsListViewStub.swift */,
+				3D8F59BA233EF57D008CA7DB /* ComicsListRouterStub.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -1019,6 +1022,7 @@
 			files = (
 				3DA0198623372CD100C25801 /* ComicsListViewPresenterMock.swift in Sources */,
 				3DB7C824233E993700A6168D /* ComicsListViewStub.swift in Sources */,
+				3D8F59BB233EF57D008CA7DB /* ComicsListRouterStub.swift in Sources */,
 				3D8F59B5233EB884008CA7DB /* UIViewController+ForceLoad.swift in Sources */,
 				3DA0197B2337051500C25801 /* ComicsListViewControllerSnapshotTest.swift in Sources */,
 				3DA0199B2337B1B900C25801 /* ComicsListRouterSpecs.swift in Sources */,

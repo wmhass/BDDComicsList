@@ -15,10 +15,13 @@ class ComicsListModuleSpecs: QuickSpec {
 
     let dataGatewayMock = ComicsListDataGatewayMock()
     let viewStub = ComicsListViewStub()
+    let routerStub = ComicsListRouterStub()
+
     override func spec() {
         beforeSuite {
-            let dependencies = ComicsListModuleDependencies()
-            dependencies.injectDependencies(comicsListViewController: self.viewStub, dataGateway: self.dataGatewayMock)
+            let dependencyContainer = ComicsListModuleDependenciesContainer(dataGateway: self.dataGatewayMock,
+                                                                            router: self.routerStub)
+            ComicsListModuleDependencies().injectDependencies(comicsListViewController: self.viewStub, dependencyContainer: dependencyContainer)
         }
         describe("Given that I don't have internet connection") {
             beforeEach {
