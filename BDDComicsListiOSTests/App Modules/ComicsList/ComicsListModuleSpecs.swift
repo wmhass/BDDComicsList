@@ -108,6 +108,26 @@ class ComicsListModuleSpecs: QuickSpec {
             }
         }
         
+        describe("Given that I have internet connection And the list of comics has one or more items") {
+            let comics = [
+                Comic(id: 123, title: "aaa")
+            ]
+            beforeEach {
+                self.dataGatewayMock._fetchComicsResponseMock = .success(comics)
+                self.viewStub._forceViewLoad()
+            }
+            context("When I tapped on a comic title") {
+                beforeEach {
+                    self.routerStub._didAskToPushCharactersListView = (false, nil)
+                    self.viewStub.selectComic(atIndex: 0, inSection: 0)
+                }
+                it("Then present the characters list") {
+                    expect(self.routerStub._didAskToPushCharactersListView.didAsk).to(beTrue())
+                    expect(self.routerStub._didAskToPushCharactersListView.comic).to(equal(comics[0]))
+                }
+            }
+        }
+        
     }
     
 }
