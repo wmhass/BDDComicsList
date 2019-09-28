@@ -108,7 +108,7 @@ class ComicsListModuleSpecs: QuickSpec {
             }
         }
         
-        describe("Given that I have internet connection And the list of comics has one or more items") {
+        describe("Given that the list of comics has one or more items") {
             let comics = [
                 Comic(id: 123, title: "aaa")
             ]
