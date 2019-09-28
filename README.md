@@ -71,7 +71,7 @@ Create an app that shows a list of Marvel comics and their characters so we can 
 #### Acceptance criteria:
 *Scenario - Is presenting a list of comics characters:*
     
-    Given that a list of comics characters was successfully loaded
+    Given that a comic was selected
     When the view with the list of comic characters is presented
     Then show the name of the comic as the view's title
 
@@ -124,7 +124,7 @@ This target runs tests that are related to views.
 ### `BDDComicsListMacOSTests` target
 This target runs tests that are not related to views.
 
-The macOS test target builds and run way faster because it does not rely on some frameworks such as `UIKit`, and also, it will launch the app in the simulator. This is very useful to run tests much faster than the iOS Tests target.
+The macOS test target builds and run way faster because it does not rely on some frameworks such as `UIKit`, and also, it will NOT launch the app in the simulator. This is very useful to run tests much quicker than the iOS Tests target.
 
 ### `BDDComicsListUITests` target.
 This target runs UI tests. Those tests are interaction tests with the UI.
@@ -148,6 +148,13 @@ These are the main components:
 - `Interactor`: Contains the business logic as specified by a use case.
 - `DataGateway`: Provides data/models to the interactor. This is bridges any data repository (remote, database..) to the interactor.
 - `RemoteData`: Fetches data from a remote server.
+
+## Integration Tests
+There are two Integration Test files: One for the comics list and the other for the comic character list. Those tests reflect and assert the acceptance critera of the User Stories mentioned above in this document.
+
+File names:
+- `CharactersListModuleSpecs.swift`
+-  `ComicsListModuleSpecs.swift` 
 
 ## Scheme Launch Arguments
 The `BDDComicsList` scheme passes an argument named `UseMockData` when running **tests**. Also, when the UI tests create a `XCUIApplication`, it passes the same argument as a launch argument.
