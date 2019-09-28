@@ -141,16 +141,17 @@ Libraries used in this project:
 Clean Architecture, similar to [VIPER](https://www.objc.io/issues/13-architecture/viper/) like.
 
 These are the main components:
-- `Connector`: Connect dependencies to the module.
-- `Router`: Coordinates the navigation logic.
+- `ModuleDependencies`: Inject the required depencies (presenter, interactor..) to a module, such as the comic list and the characters list modules.
+- `Connector`: Connect dependencies to a view controller.
+- `Router`: Contains the navigation logic.
 - `ViewController`: `UIViewController` subclass that displays the content on the screen.
-- `Presenter`: Contains view logic for preparing content for display and for reacting to user inputs.
-- `Interactor`: Contains the business logic as specified by a use case.
-- `DataGateway`: Provides data/models to the interactor. This is bridges any data repository (remote, database..) to the interactor.
+- `Presenter`: Contains view logic to prepare content to display and to react to user inputs.
+- `Interactor`: Contains the business logic as specified in the use cases.
+- `DataGateway`: Provides data/models to the interactor. This bridges any data repository (remote, database..) to the interactor.
 - `RemoteData`: Fetches data from a remote server.
 
 ## Integration Tests
-There are two Integration Test files: One for the comics list and the other for the comic character list. Those tests reflect and assert the acceptance critera of the User Stories mentioned above in this document.
+There are two **Integration Test** files: One for the comics list and the other for the comic character list. Those tests reflect and assert the acceptance critera of the User Stories mentioned above in this document.
 
 File names:
 - `CharactersListModuleSpecs.swift`
