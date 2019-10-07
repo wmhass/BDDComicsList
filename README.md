@@ -138,7 +138,7 @@ Libraries used in this project:
 - [iOSSnapshotTestCase](https://cocoapods.org/pods/iOSSnapshotTestCase): A "snapshot test case" takes a configured UIView or CALayer and uses the renderInContext: method to get an image snapshot of its contents. It compares this snapshot to a "reference image" stored in your source code repository and fails the test if the two images don't match.
 
 ## App Code Architecture
-Clean Architecture, similar to [VIPER](https://www.objc.io/issues/13-architecture/viper/) like.
+Clean Architecture implementation, similar to [VIPER](https://www.objc.io/issues/13-architecture/viper/).
 
 These are the main components:
 - `ModuleDependencies`: Inject the required depencies (presenter, interactor..) to a module, such as the comic list and the characters list modules.
