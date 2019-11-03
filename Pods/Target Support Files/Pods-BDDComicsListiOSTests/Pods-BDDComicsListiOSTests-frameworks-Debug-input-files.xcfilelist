@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-BDDComicsListiOSTests/Pods-BDDComicsListiOSTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Nimble-framework/Nimble.framework
+${BUILT_PRODUCTS_DIR}/Quick-framework/Quick.framework
+${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework
