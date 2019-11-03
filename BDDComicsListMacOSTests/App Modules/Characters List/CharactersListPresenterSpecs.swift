@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CharactersListPresenterSpecs: QuickSpec {
+final class CharactersListPresenterSpecs: QuickSpec {
     
     var presenter: CharactersListPresenter!
     var viewMock: CharactersListViewMock!

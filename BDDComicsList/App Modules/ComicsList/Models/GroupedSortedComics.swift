@@ -17,8 +17,9 @@ struct GroupedSortedComics {
     let groupedComics: [ComicTitleFirstLetter: [Comic]]
     
     init(comics: [Comic]) {
-        let groupedComics = comics.sorted {
-            $0.title.lowercased() < $1.title.lowercased()
+        let groupedComics = comics
+            .sorted {
+                $0.title.lowercased() < $1.title.lowercased()
             }.reduce(into: [ComicTitleFirstLetter: [Comic]](), { (result, comic) in
                 guard let firstLetter = comic.title.first?.lowercased() else { return }
                 if var comicsGroup = result[firstLetter]  {

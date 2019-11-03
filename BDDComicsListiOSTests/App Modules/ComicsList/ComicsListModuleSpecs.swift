@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import BDDComicsList
 
-class ComicsListModuleSpecs: QuickSpec {
+final class ComicsListModuleSpecs: QuickSpec {
 
     let dataGatewayMock = ComicsListDataGatewayMock()
     let viewStub = ComicsListViewStub()

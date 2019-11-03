@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CharactersListInteractorSpecs: QuickSpec {
+final class CharactersListInteractorSpecs: QuickSpec {
     
     var dataGatewayMock: CharactersListDataGatewayMock!
     var presenterMock: CharactersListPresentationMock!

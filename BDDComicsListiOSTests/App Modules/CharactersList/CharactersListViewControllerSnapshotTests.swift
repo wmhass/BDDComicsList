@@ -11,7 +11,7 @@ import UIKit
 import XCTest
 @testable import BDDComicsList
 
-class CharactersListViewControllerSnapshotTests: FBSnapshotTestCase {
+final class CharactersListViewControllerSnapshotTests: FBSnapshotTestCase {
     
     var charactersListViewController: CharactersListViewController!
     var window: UIWindow!

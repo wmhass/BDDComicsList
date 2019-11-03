@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CharactersListViewModelSpecs: QuickSpec {
+final class CharactersListViewModelSpecs: QuickSpec {
     
     var viewModel: CharactersListViewModel!
     let characters = [

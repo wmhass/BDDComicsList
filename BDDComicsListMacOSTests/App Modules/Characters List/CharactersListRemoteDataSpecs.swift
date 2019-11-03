@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CharactersListRemoteDataSpecs: QuickSpec {
+final class CharactersListRemoteDataSpecs: QuickSpec {
     
     var remoteData: CharactersListRemoteData!
 

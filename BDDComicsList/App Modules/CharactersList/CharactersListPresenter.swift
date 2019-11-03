@@ -8,8 +8,7 @@
 
 import Foundation
 
-class CharactersListPresenter {
-
+final class CharactersListPresenter {
     weak var view: CharactersListDisplayLogic?
     let interactor: CharactersListBusinessLogic
     fileprivate var viewModel: CharactersListViewModel
@@ -18,30 +17,35 @@ class CharactersListPresenter {
         self.interactor = interactor
         self.viewModel = CharactersListViewModel(comicCharacters: [])
     }
-
 }
 
+// MARK: - CharactersListPresentationLogic
 extension CharactersListPresenter: CharactersListPresentationLogic {
     func presentViewTitle(_ viewTitle: String) {
         self.view?.displayViewTitle(viewTitle)
     }
+    
     func presentResponseIsInvalid() {
         self.view?.displayErrorAlert(title: AppErrorMessages.FailedFetchingComicCharacters.title.rawValue,
                                      message: AppErrorMessages.FailedFetchingComicCharacters.message.rawValue)
     }
+    
     func presentFetchDataActivityIndicator(_ shouldPresent: Bool) {
         self.view?.displayUIActivityView(shouldPresent)
     }
+    
     func presentNoInternetConnectionErrorMessage() {
         self.view?.displayErrorAlert(title: AppErrorMessages.NoInternetConnectionErrorMessage.title.rawValue,
                                      message: AppErrorMessages.NoInternetConnectionErrorMessage.message.rawValue)
     }
+    
     func presentComicCharacters(characters: [ComicCharacter]) {
         self.viewModel = CharactersListViewModel(comicCharacters: characters)
         self.view?.reloadListOfCharacters()
     }
 }
 
+// MARK: - CharactersListViewDataSource
 extension CharactersListPresenter: CharactersListViewDataSource {
     var numberOfCharacters: Int {
         return self.viewModel.numberOfCharacters
@@ -52,6 +56,7 @@ extension CharactersListPresenter: CharactersListViewDataSource {
     }
 }
 
+// MARK: - CharactersListViewEventHandler
 extension CharactersListPresenter: CharactersListViewEventHandler {
     func viewIsReadyToDisplayContent() {
         self.interactor.loadViewTitle()

@@ -8,11 +8,12 @@
 
 import Foundation
 
-class ComicsListInteractorMock {
+final class ComicsListInteractorMock {
     var _didAskToLoadListOfComics: Bool = false
     var _didNotifyAComicWasSelected: (didAsk: Bool, comic: Comic?) = (false, nil)
 }
 
+// MARK: - ComicsListBusinessLogic
 extension ComicsListInteractorMock: ComicsListBusinessLogic {
     func loadListOfComics() {
         _didAskToLoadListOfComics = true

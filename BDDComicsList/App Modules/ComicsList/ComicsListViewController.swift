@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ComicsListViewController: UIViewController, ComicsListViewConnectable {
+final class ComicsListViewController: UIViewController, ComicsListViewConnectable {
     static let DefaultStoryboardID = "ComicsListViewController"
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
+    
+    // MARK: - ComicsListViewConnectable
     var eventHandler: ComicsListViewEventHandler?
     var dataSource: ComicsListViewDataSource?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,18 +31,20 @@ class ComicsListViewController: UIViewController, ComicsListViewConnectable {
         guard let segueIdentifier = segue.identifier,
             let appSegue = AppStoryboard.Main.Segue(rawValue: segueIdentifier) else {
             return
-            
         }
+        
         appSegue.prepare(segue: segue, sender: sender)
     }
 }
 
+// MARK: - UITableViewDelegate
 extension ComicsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.eventHandler?.comicSelected(atIndexPath: indexPath)
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ComicsListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataSource?.numberOfSections ?? 0
@@ -61,6 +64,7 @@ extension ComicsListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - ComicsListDisplayLogic
 extension ComicsListViewController: ComicsListDisplayLogic {
     func reloadListOfComics() {
         self.tableView.reloadData()
@@ -81,6 +85,4 @@ extension ComicsListViewController: ComicsListDisplayLogic {
             self.activityIndicator.stopAnimating()
         }
     }
-    
-    
 }

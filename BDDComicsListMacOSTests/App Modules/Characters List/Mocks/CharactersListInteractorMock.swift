@@ -8,11 +8,12 @@
 
 import Foundation
 
-class CharactersListInteractorMock {
+final class CharactersListInteractorMock {
     var _didCallLoadListOfCharacters: Bool = false
     var _didCallLoadViewTitle: Bool = false
 }
 
+// MARK: - CharactersListBusinessLogic
 extension CharactersListInteractorMock: CharactersListBusinessLogic {
     func loadListOfCharacters() {
         _didCallLoadListOfCharacters = true

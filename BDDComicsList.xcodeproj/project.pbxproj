@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -429,19 +429,19 @@
 		3D6A3A652332C6B40005B51D /* ComicsList */ = {
 			isa = PBXGroup;
 			children = (
-				3D5245342339AF4C00802F8A /* MockedData */,
+				3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */,
+				3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */,
+				3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */,
+				3D8F59B2233EB78D008CA7DB /* ComicsListModuleDependencies.swift */,
+				3D6A3A662332C6C60005B51D /* ComicsListPresenter.swift */,
+				3DE9EF182336A61200FA519A /* ComicsListRemoteData.swift */,
+				3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */,
+				3D6A3A6C2332C7920005B51D /* ComicsListViewController.swift */,
 				3DA019692336E15500C25801 /* CustomListCell */,
+				3D5245342339AF4C00802F8A /* MockedData */,
 				3DA4B9522333E78300EE26CB /* Models */,
 				3D22FFA2233314D900ADDFB7 /* Protocols */,
 				3D094635233537B4006BFEA2 /* ViewModel */,
-				3DE9EF182336A61200FA519A /* ComicsListRemoteData.swift */,
-				3D22FF9D2333133500ADDFB7 /* ComicsListDataGateway.swift */,
-				3D6A3A682332C6E80005B51D /* ComicsListInteractor.swift */,
-				3D6A3A662332C6C60005B51D /* ComicsListPresenter.swift */,
-				3DA0196E2336E70D00C25801 /* ComicsListModuleConnector.swift */,
-				3D6A3A6C2332C7920005B51D /* ComicsListViewController.swift */,
-				3D8F59B2233EB78D008CA7DB /* ComicsListModuleDependencies.swift */,
-				3D6A3A6A2332C7640005B51D /* ComicsListRouter.swift */,
 			);
 			path = ComicsList;
 			sourceTree = "<group>";
@@ -1259,10 +1259,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F828CAC9737CA57C2C9A330 /* Pods-BDDComicsListMacOSTests.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = D79WER8U7B;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BDDComicsListMacOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1281,10 +1281,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D163AE807CE1CA9338E337C /* Pods-BDDComicsListMacOSTests.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = D79WER8U7B;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BDDComicsListMacOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

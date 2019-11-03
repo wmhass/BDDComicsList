@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MockedComicsListData {
+final class MockedComicsListData {
     
 }
 

@@ -8,11 +8,12 @@
 
 import Foundation
 
-class ComicsListDataGatewayMock {
+final class ComicsListDataGatewayMock {
     var _fetchComicsResponseMock: FetchComicsResponse?
     var _didAttemptToFetchComics: Bool = false
 }
 
+// MARK: - ComicsListDataGatewayLogic
 extension ComicsListDataGatewayMock: ComicsListDataGatewayLogic {
     func fetchComics(completion: @escaping (FetchComicsResponse)->Void) {
         _didAttemptToFetchComics = true

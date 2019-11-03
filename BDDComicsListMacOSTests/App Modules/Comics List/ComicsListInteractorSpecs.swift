@@ -10,13 +10,11 @@ import Foundation
 import Quick
 import Nimble
 
-//*ViewController -> Conforma "DisplayLogic", e tem uma propriedade `interactor: BusinessLogic`
-//
-//*Interactor -> Conforma "BusinessLogic", e tem uma propriedade `presenter: PresentationLogic`
-//
-//*Presenter -> Conforma "PresentationLogic" e tem uma propriedade `view: DisplayLogic`s
+//*ViewController -> Conforms to "DisplayLogic", and has a property `interactor: BusinessLogic`
+//*Interactor -> Conforms "BusinessLogic", and has a property `presenter: PresentationLogic`
+//*Presenter -> Conforms "PresentationLogic", and has a property `view: DisplayLogic`s
 
-class ComicsListInteractorSpecs: QuickSpec {
+final class ComicsListInteractorSpecs: QuickSpec {
     
     var dataGatewayMock: ComicsListDataGatewayMock!
     var presenterMock: ComicsListPresentationMock!

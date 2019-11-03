@@ -10,13 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-//func presentResponseIsInvalid()
-//func presentNoInternetConnectionErrorMessage()
-//func presentFetchDataActivityIndicator(_ shouldPresent: Bool)
-//func presentComics(groupedComics: GroupedComics)
-//func presentCharacters(ofComic comic: Comic)
-
-class ComicsListPresenterSpecs: QuickSpec {
+final class ComicsListPresenterSpecs: QuickSpec {
     
     var presenter: ComicsListPresenter!
     var viewMock: ComicsListViewMock!

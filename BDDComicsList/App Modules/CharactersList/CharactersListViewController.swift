@@ -8,12 +8,14 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController, CharactersListViewConnectable {
+final class CharactersListViewController: UIViewController, CharactersListViewConnectable {
     static let DefaultStoryboardID = "CharactersListViewController"
     static let BasicCellReuseIdentifier = "BasicCell"
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
+    
+    // MARK: - CharactersListViewConnectable
     var eventHandler: CharactersListViewEventHandler?
     var dataSource: CharactersListViewDataSource?
 
@@ -27,6 +29,7 @@ class CharactersListViewController: UIViewController, CharactersListViewConnecta
     }
 }
 
+// MARK: - UITableViewDataSource
 extension CharactersListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource?.numberOfCharacters ?? 0
@@ -39,10 +42,9 @@ extension CharactersListViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 
+// MARK: - CharactersListDisplayLogic
 extension CharactersListViewController: CharactersListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

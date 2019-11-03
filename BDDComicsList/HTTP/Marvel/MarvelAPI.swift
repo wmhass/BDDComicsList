@@ -10,7 +10,9 @@ import Foundation
 
 struct MarvelAPICredentials {
     static var defaultKeys: MarvelAPIKeys {
-       return MarvelAPIKeys(apiKey: "c30da7627124e15b822feab8201b7409", hash: "409dfdf1cfe5bf0c82914f1afae7b51e", ts: "1")
+       return MarvelAPIKeys(apiKey: "c30da7627124e15b822feab8201b7409",
+                            hash: "409dfdf1cfe5bf0c82914f1afae7b51e",
+                            ts: "1")
     }
 }
 

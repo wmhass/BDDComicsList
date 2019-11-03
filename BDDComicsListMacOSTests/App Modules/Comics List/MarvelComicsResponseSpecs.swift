@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class MarvelComicsResponseSpecs: QuickSpec {
+final class MarvelComicsResponseSpecs: QuickSpec {
     
     override func spec() {
         

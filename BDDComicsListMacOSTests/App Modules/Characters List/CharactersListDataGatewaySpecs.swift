@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class CharactersListDataGatewaySpecs: QuickSpec {
+final class CharactersListDataGatewaySpecs: QuickSpec {
 
     let remoteDataMock = CharactersListRemoteDataMock()
     var dataGateway: CharactersListDataGateway!

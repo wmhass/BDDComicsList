@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class ComicsListViewModelSpecs: QuickSpec {
+final class ComicsListViewModelSpecs: QuickSpec {
     
     var viewModel: ComicsListViewModel!
     let comics = [

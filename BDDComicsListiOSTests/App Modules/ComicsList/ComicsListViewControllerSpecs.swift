@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import BDDComicsList
 
-class ComicsListViewControllerSpecs: QuickSpec {
+final class ComicsListViewControllerSpecs: QuickSpec {
     
     var viewPresenter: ComicsListViewPresenterMock!
     var comicsListViewController: ComicsListViewController!

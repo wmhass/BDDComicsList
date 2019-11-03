@@ -10,8 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-
-class GroupedSortedComicsSpecs: QuickSpec {
+final class GroupedSortedComicsSpecs: QuickSpec {
     
     var groupedSortedComics: GroupedSortedComics!
     

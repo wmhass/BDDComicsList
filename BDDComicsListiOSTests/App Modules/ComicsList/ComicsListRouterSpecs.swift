@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import BDDComicsList
 
-class ComicsListRouterSpecs: QuickSpec {
+final class ComicsListRouterSpecs: QuickSpec {
     
     var router: ComicsListRouter!
 

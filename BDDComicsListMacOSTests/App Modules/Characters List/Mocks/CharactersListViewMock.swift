@@ -8,13 +8,14 @@
 
 import Foundation
 
-class CharactersListViewMock {
+final class CharactersListViewMock {
     var _didAskToDisplayErrorAlert: (title: String?, message: String?) = (nil,nil)
     var _didAskToDisplayActivityView: (didAsk: Bool, shouldDisplay: Bool?) = (false, nil)
     var _didAskToReloadListOfCharacters: Bool = false
     var _didAskToDisplayViewTitle: (didAsk: Bool, viewTitle: String?) = (false, nil)
 }
 
+// MARK: - CharactersListDisplayLogic
 extension CharactersListViewMock: CharactersListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         _didAskToDisplayErrorAlert = (title, message)

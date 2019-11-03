@@ -9,7 +9,7 @@
 import UIKit
 @testable import BDDComicsList
 
-class CharactersListViewStub: UIViewController, CharactersListViewConnectable {
+final class CharactersListViewStub: UIViewController, CharactersListViewConnectable {
     var eventHandler: CharactersListViewEventHandler?
     var dataSource: CharactersListViewDataSource?
 
@@ -33,6 +33,7 @@ class CharactersListViewStub: UIViewController, CharactersListViewConnectable {
     
 }
 
+// MARK: - CharactersListDisplayLogic
 extension CharactersListViewStub: CharactersListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         _didAskToDisplayErrorAlert = (title, message)

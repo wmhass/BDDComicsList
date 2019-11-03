@@ -10,7 +10,7 @@ import Foundation
 import Quick
 import Nimble
 
-class ComicSpec: QuickSpec {
+final class ComicSpec: QuickSpec {
     
     override func spec() {
         describe("Comic") {
