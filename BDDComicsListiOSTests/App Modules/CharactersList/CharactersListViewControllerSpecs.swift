@@ -27,10 +27,10 @@ final class CharactersListViewControllerSpecs: QuickSpec {
         describe("CharactersListViewController") {
             beforeEach {
                 let viewPresenter = CharactersListPresenterMock(characters: self.characters)
-                let charactersListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: CharactersListViewController.DefaultStoryboardID) as? CharactersListViewController
+                let charactersListViewController = AppStoryboard.Main.instance().instantiateViewController(CharactersListViewController.self)
                 
-                charactersListViewController?.eventHandler = viewPresenter
-                charactersListViewController?.dataSource = viewPresenter
+                charactersListViewController.eventHandler = viewPresenter
+                charactersListViewController.dataSource = viewPresenter
 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
@@ -40,8 +40,8 @@ final class CharactersListViewControllerSpecs: QuickSpec {
                 self.charactersListViewController = charactersListViewController
                 self.viewPresenter = viewPresenter
                 
-                charactersListViewController?.view.setNeedsLayout()
-                charactersListViewController?.view.layoutIfNeeded()
+                charactersListViewController.view.setNeedsLayout()
+                charactersListViewController.view.layoutIfNeeded()
             }
             context("When the view finished loading") {
                 it("Should have the activity indicator view initially hidden") {

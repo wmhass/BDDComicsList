@@ -138,6 +138,13 @@
 		3DE9EF1D2336AE1D00FA519A /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE9EF1C2336AE1D00FA519A /* MarvelAPI.swift */; };
 		3DE9EF1E2336AE1D00FA519A /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE9EF1C2336AE1D00FA519A /* MarvelAPI.swift */; };
 		3DFD380D23311B72004F0FFA /* CharactersListInteractorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD380C23311B72004F0FFA /* CharactersListInteractorSpecs.swift */; };
+		6226BCCD236F91C70014479D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCCC236F91C70014479D /* Reusable.swift */; };
+		6226BCCF236F91E50014479D /* UITableViewCell+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCCE236F91E50014479D /* UITableViewCell+ReusableView.swift */; };
+		6226BCD1236F92580014479D /* UITableView+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCD0236F92580014479D /* UITableView+ReusableView.swift */; };
+		6226BCD3236F94910014479D /* NibReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCD2236F94910014479D /* NibReusable.swift */; };
+		6226BCD5236FA3030014479D /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCD4236FA3030014479D /* StoryboardIdentifiable.swift */; };
+		6226BCD7236FA3310014479D /* UIViewController+StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCD6236FA3310014479D /* UIViewController+StoryboardIdentifiable.swift */; };
+		6226BCD9236FA3480014479D /* UIStoryboard+StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6226BCD8236FA3480014479D /* UIStoryboard+StoryboardIdentifiable.swift */; };
 		9DF63ABDBA7D4E78FDB5A6C0 /* Pods_BDDComicsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A95A000055183A80AF1A7F9 /* Pods_BDDComicsList.framework */; };
 		FDDB4A93159D2CCBE8B3CBFC /* libPods-BDDComicsListMacOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D542F0F62917173E5E0DB9 /* libPods-BDDComicsListMacOSTests.a */; };
 /* End PBXBuildFile section */
@@ -270,6 +277,13 @@
 		3F828CAC9737CA57C2C9A330 /* Pods-BDDComicsListMacOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDDComicsListMacOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDDComicsListMacOSTests/Pods-BDDComicsListMacOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		46B9E70CE1D8F7896620C3C4 /* Pods_BDDComicsListiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDDComicsListiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCE5608FE4E782DA31C7D9D /* Pods-BDDComicsList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDDComicsList.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDDComicsList/Pods-BDDComicsList.release.xcconfig"; sourceTree = "<group>"; };
+		6226BCCC236F91C70014479D /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		6226BCCE236F91E50014479D /* UITableViewCell+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReusableView.swift"; sourceTree = "<group>"; };
+		6226BCD0236F92580014479D /* UITableView+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ReusableView.swift"; sourceTree = "<group>"; };
+		6226BCD2236F94910014479D /* NibReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibReusable.swift; sourceTree = "<group>"; };
+		6226BCD4236FA3030014479D /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
+		6226BCD6236FA3310014479D /* UIViewController+StoryboardIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardIdentifiable.swift"; sourceTree = "<group>"; };
+		6226BCD8236FA3480014479D /* UIStoryboard+StoryboardIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+StoryboardIdentifiable.swift"; sourceTree = "<group>"; };
 		6B03425A024AE87AB4C2C1F8 /* Pods-BDDComicsListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDDComicsListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDDComicsListUITests/Pods-BDDComicsListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99B60E683960C87260FE0DB9 /* libPods-BDDComicsListUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDDComicsListUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95A000055183A80AF1A7F9 /* Pods_BDDComicsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDDComicsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -473,11 +487,11 @@
 		3D7DDB7523306A1800E767E1 /* BDDComicsList */ = {
 			isa = PBXGroup;
 			children = (
-				3DA0198D2337392A00C25801 /* Common */,
 				3DA019892337367F00C25801 /* App Modules */,
-				3DA019882337366A00C25801 /* HTTP */,
 				3D7DDB7623306A1800E767E1 /* AppDelegate.swift */,
 				3D7DDB7D23306A1A00E767E1 /* Assets.xcassets */,
+				3DA0198D2337392A00C25801 /* Common */,
+				3DA019882337366A00C25801 /* HTTP */,
 				3D7DDB8223306A1A00E767E1 /* Info.plist */,
 				3D7DDB7F23306A1A00E767E1 /* LaunchScreen.storyboard */,
 				3D7DDB7A23306A1800E767E1 /* Main.storyboard */,
@@ -590,9 +604,16 @@
 		3DA0198D2337392A00C25801 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3DA0198E2337394500C25801 /* AppStoryboard.swift */,
 				3D52451A2339386000802F8A /* AppErrorMessages.swift */,
 				3D52452E2339AE3600802F8A /* ApplicationArguments.swift */,
+				3DA0198E2337394500C25801 /* AppStoryboard.swift */,
+				6226BCD2236F94910014479D /* NibReusable.swift */,
+				6226BCCC236F91C70014479D /* Reusable.swift */,
+				6226BCD4236FA3030014479D /* StoryboardIdentifiable.swift */,
+				6226BCD8236FA3480014479D /* UIStoryboard+StoryboardIdentifiable.swift */,
+				6226BCD0236F92580014479D /* UITableView+ReusableView.swift */,
+				6226BCCE236F91E50014479D /* UITableViewCell+ReusableView.swift */,
+				6226BCD6236FA3310014479D /* UIViewController+StoryboardIdentifiable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -600,17 +621,17 @@
 		3DA019922337426500C25801 /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
-				3D5245312339AF2000802F8A /* MockedData */,
-				3DA019C4233866B900C25801 /* ViewModel */,
-				3DA019AF23385AC300C25801 /* Models */,
-				3DA0199E2337BB7800C25801 /* Protocol */,
-				3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */,
 				3DA019CA2338677300C25801 /* CharactersListDataGateway.swift */,
 				3DA0199C2337BB7400C25801 /* CharactersListInteractor.swift */,
-				3DA019B523385FD600C25801 /* CharactersListPresenter.swift */,
 				3DA019C82338674B00C25801 /* CharactersListModuleConnector.swift */,
-				3DA019D0233867E000C25801 /* CharactersListViewController.swift */,
 				3D8F59B8233EBC7F008CA7DB /* CharactersListModuleDependencies.swift */,
+				3DA019B523385FD600C25801 /* CharactersListPresenter.swift */,
+				3DA019CD233867AE00C25801 /* CharactersListRemoteData.swift */,
+				3DA019D0233867E000C25801 /* CharactersListViewController.swift */,
+				3D5245312339AF2000802F8A /* MockedData */,
+				3DA019AF23385AC300C25801 /* Models */,
+				3DA0199E2337BB7800C25801 /* Protocol */,
+				3DA019C4233866B900C25801 /* ViewModel */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -1128,6 +1149,7 @@
 				3D22FFAD2333155C00ADDFB7 /* ComicsListPresentationLogic.swift in Sources */,
 				3DA4B9542333E87800EE26CB /* Comic.swift in Sources */,
 				3DA019B92338638100C25801 /* CharactersListDisplayLogic.swift in Sources */,
+				6226BCCF236F91E50014479D /* UITableViewCell+ReusableView.swift in Sources */,
 				3DA019A02337BBB300C25801 /* CharactersListBusinessLogic.swift in Sources */,
 				3DA01983233723A500C25801 /* ComicsListViewEventHandler.swift in Sources */,
 				3DA019CB2338677300C25801 /* CharactersListDataGateway.swift in Sources */,
@@ -1135,6 +1157,7 @@
 				3D22FF9E2333133500ADDFB7 /* ComicsListDataGateway.swift in Sources */,
 				3DE9EF192336A61200FA519A /* ComicsListRemoteData.swift in Sources */,
 				3DA019CE233867AE00C25801 /* CharactersListRemoteData.swift in Sources */,
+				6226BCD9236FA3480014479D /* UIStoryboard+StoryboardIdentifiable.swift in Sources */,
 				3D094637233537CA006BFEA2 /* ComicsListViewModel.swift in Sources */,
 				3DA019C6233866CF00C25801 /* CharactersListViewModel.swift in Sources */,
 				3D7DDB7723306A1800E767E1 /* AppDelegate.swift in Sources */,
@@ -1153,6 +1176,7 @@
 				3D22FFA4233314E500ADDFB7 /* ComicsListDisplayLogic.swift in Sources */,
 				3DA0195C2336B40A00C25801 /* HTTPDataLoader.swift in Sources */,
 				3D09463D23355865006BFEA2 /* GroupedSortedComics.swift in Sources */,
+				6226BCD7236FA3310014479D /* UIViewController+StoryboardIdentifiable.swift in Sources */,
 				3D22FFB02333157100ADDFB7 /* ComicsListRoutingLogic.swift in Sources */,
 				3DA019D1233867E000C25801 /* CharactersListViewController.swift in Sources */,
 				3DA019982337AE6000C25801 /* ComicsListViewDataSource.swift in Sources */,
@@ -1164,13 +1188,17 @@
 				3D8F59B9233EBC7F008CA7DB /* CharactersListModuleDependencies.swift in Sources */,
 				3DE9EF1D2336AE1D00FA519A /* MarvelAPI.swift in Sources */,
 				3DA019B623385FD600C25801 /* CharactersListPresenter.swift in Sources */,
+				6226BCD3236F94910014479D /* NibReusable.swift in Sources */,
+				6226BCCD236F91C70014479D /* Reusable.swift in Sources */,
 				3D22FFA72333153000ADDFB7 /* ComicsListDataGatewayLogic.swift in Sources */,
 				3DA019C92338674B00C25801 /* CharactersListModuleConnector.swift in Sources */,
+				6226BCD5236FA3030014479D /* StoryboardIdentifiable.swift in Sources */,
 				3DA0198F2337394500C25801 /* AppStoryboard.swift in Sources */,
 				3DA0196C2336E18600C25801 /* CustomListTableViewCell.swift in Sources */,
 				3DA019BC233863A900C25801 /* CharactersListRemoteDataLogic.swift in Sources */,
 				3D52453A2339B0A300802F8A /* MockedCharactersListData.swift in Sources */,
 				3D6A3A672332C6C60005B51D /* ComicsListPresenter.swift in Sources */,
+				6226BCD1236F92580014479D /* UITableView+ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1390,7 +1418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1445,7 +1473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

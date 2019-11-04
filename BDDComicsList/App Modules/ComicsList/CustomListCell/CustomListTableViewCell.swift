@@ -6,14 +6,8 @@
 //  Copyright © 2019 William. All rights reserved.
 //
 
-import UIKit
+import UIKit.UITableViewCell
 
 final class CustomListTableViewCell: UITableViewCell {
-
     @IBOutlet var customTitleLabel: UILabel!
-    static let defaultReuseIdentifier = "CustomListTableViewCell"
-    static var defaultNib: UINib? {
-        return UINib(nibName: "CustomListTableViewCell", bundle: nil)
-    }
-    
 }

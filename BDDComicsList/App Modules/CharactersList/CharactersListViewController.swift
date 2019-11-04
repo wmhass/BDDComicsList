@@ -8,9 +8,8 @@
 
 import UIKit
 
-final class CharactersListViewController: UIViewController, CharactersListViewConnectable {
-    static let DefaultStoryboardID = "CharactersListViewController"
-    static let BasicCellReuseIdentifier = "BasicCell"
+final class CharactersListViewController: UIViewController, CharactersListViewConnectable, StoryboardIdentifiable {
+    private static let basicCellReuseIdentifier = "BasicCell"
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
@@ -21,11 +20,16 @@ final class CharactersListViewController: UIViewController, CharactersListViewCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.tableFooterView = UIView()
-        
+        self.setupTableView()
         self.displayUIActivityView(false)
         self.eventHandler?.viewIsReadyToDisplayContent()
+    }
+}
+
+// MARK: - Private helpers
+extension CharactersListViewController {
+    private func setupTableView() {
+        self.tableView.tableFooterView = UIView()
     }
 }
 
@@ -36,7 +40,7 @@ extension CharactersListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CharactersListViewController.BasicCellReuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CharactersListViewController.basicCellReuseIdentifier, for: indexPath)
         
         cell.textLabel?.text = self.dataSource?.nameOfCharacter(atIndex: indexPath.item)
         

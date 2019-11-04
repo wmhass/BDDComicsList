@@ -8,8 +8,7 @@
 
 import UIKit
 
-final class ComicsListViewController: UIViewController, ComicsListViewConnectable {
-    static let DefaultStoryboardID = "ComicsListViewController"
+final class ComicsListViewController: UIViewController, ComicsListViewConnectable, StoryboardIdentifiable {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
     
@@ -19,10 +18,7 @@ final class ComicsListViewController: UIViewController, ComicsListViewConnectabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.register(CustomListTableViewCell.defaultNib, forCellReuseIdentifier: CustomListTableViewCell.defaultReuseIdentifier)
-        self.tableView.tableFooterView = UIView()
-
+        self.setupTableView()
         self.displayUIActivityView(false)
         self.eventHandler?.viewIsReadyToDisplayContent()
     }
@@ -34,6 +30,14 @@ final class ComicsListViewController: UIViewController, ComicsListViewConnectabl
         }
         
         appSegue.prepare(segue: segue, sender: sender)
+    }
+}
+
+// MARK: - Private helpers
+extension ComicsListViewController {
+    private func setupTableView() {
+        self.tableView.registerReusableCell(CustomListTableViewCell.self)
+        self.tableView.tableFooterView = UIView()
     }
 }
 
@@ -49,15 +53,17 @@ extension ComicsListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataSource?.numberOfSections ?? 0
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource?.numberOfComics(inSection: section) ?? 0
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.dataSource?.titleOfSection(atIndex: section)
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomListTableViewCell.defaultReuseIdentifier, for: indexPath) as! CustomListTableViewCell
-        
+        let cell: CustomListTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.customTitleLabel.text = self.dataSource?.titleOfComic(atIndex: indexPath.row, inSection: indexPath.section)
         
         return cell
