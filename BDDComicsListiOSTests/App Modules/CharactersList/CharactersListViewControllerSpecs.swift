@@ -45,20 +45,25 @@ final class CharactersListViewControllerSpecs: QuickSpec {
             }
             context("When the view finished loading") {
                 it("Should have the activity indicator view initially hidden") {
-                    expect(self.charactersListViewController.activityIndicator.isHidden).to(beTrue())
-                    expect(self.charactersListViewController.activityIndicator.isAnimating).to(beFalse())
+                    expect(self.charactersListViewController.activityIndicator.isHidden)
+                        .to(beTrue())
+                    expect(self.charactersListViewController.activityIndicator.isAnimating)
+                        .to(beFalse())
                 }
                 it("Should set an empty footer for the tableview to remove the empty lines at the end") {
                     expect(self.charactersListViewController.tableView.tableFooterView).toNot(beNil())
                     expect(self.charactersListViewController.tableView.tableFooterView).to(beAnInstanceOf(UIView.self))
                 }
                 it("Should have the tableView datasource set") {
-                    expect(self.charactersListViewController.tableView.dataSource).to(be(self.charactersListViewController))
+                    expect(self.charactersListViewController.tableView.dataSource)
+                        .to(be(self.charactersListViewController))
                 }
                 it("Should have table selection disabled") {
-                    expect(self.charactersListViewController.tableView.allowsSelection).to(beFalse())
+                    expect(self.charactersListViewController.tableView.allowsSelection)
+                        .to(beFalse())
                 }
-                it("Should use automatic cell height") { expect(self.charactersListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
+                it("Should use automatic cell height") { expect(self.charactersListViewController.tableView.rowHeight)
+                    .to(equal(UITableView.automaticDimension))
                 }
             }
             
