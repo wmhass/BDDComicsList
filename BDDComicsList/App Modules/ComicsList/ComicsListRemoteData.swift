@@ -18,7 +18,7 @@ final class ComicsListRemoteData {
     }
 }
 
-extension URL {
+fileprivate extension URL {
     var request: URLRequest {
         return URLRequest(url: self)
     }
