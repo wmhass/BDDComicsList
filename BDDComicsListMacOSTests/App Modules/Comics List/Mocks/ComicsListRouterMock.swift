@@ -8,10 +8,11 @@
 
 import Foundation
 
-class ComicsListRouterMock {
+final class ComicsListRouterMock {
     var _didAskPushCharactersListView: (didAsk: Bool, comic: Comic?) = (false, nil)
 }
 
+// MARK: - ComicsListRoutingLogic
 extension ComicsListRouterMock: ComicsListRoutingLogic {
     func pushCharactersListView(ofComic comic: Comic) {
         _didAskPushCharactersListView = (true, comic)

@@ -8,11 +8,12 @@
 
 import Foundation
 
-class ComicsListRemoteDataMock {
+final class ComicsListRemoteDataMock {
     var _didAskFetchAllComics: Bool = false
     var _fakeResponse: ComicsListRemoteResponse?
 }
 
+// MARK: - ComicsListRemoteDataLogic
 extension ComicsListRemoteDataMock: ComicsListRemoteDataLogic {
     func fetchAllComics(completion: @escaping (ComicsListRemoteResponse) -> Void) {
         _didAskFetchAllComics = true

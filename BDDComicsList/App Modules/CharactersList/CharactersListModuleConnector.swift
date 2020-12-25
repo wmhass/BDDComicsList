@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersListModuleConnector {
+final class CharactersListModuleConnector {
     
     var preConnection: ()->Void = { }
     

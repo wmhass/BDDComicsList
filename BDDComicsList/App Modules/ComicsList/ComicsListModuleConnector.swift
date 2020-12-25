@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComicsListModuleConnector {
+final class ComicsListModuleConnector {
     
     let shouldUseMockData: Bool
     
@@ -17,16 +17,16 @@ class ComicsListModuleConnector {
     }
     
     func connectDependencies(comicsListViewController: ComicsListViewController) {
-        
         // Data Layer
         let remoteData: ComicsListRemoteDataLogic = {
-            if self.shouldUseMockData {
+            guard self.shouldUseMockData else {
                 return MockedComicsListData()
-            } else {
-                let httpDataLoader = HTTPDataLoader()
-                let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
-                return ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder, httpDataLoader: httpDataLoader)
             }
+            
+            let httpDataLoader = HTTPDataLoader()
+            let marvelAPIURLBuilder = MarvelAPIURLBuilder(apiKeys: MarvelAPICredentials.defaultKeys)
+            return ComicsListRemoteData(marvelAPIURLBuilder: marvelAPIURLBuilder,
+                                        httpDataLoader: httpDataLoader)
         }()
 
         let dataGateway = ComicsListDataGateway(remoteData: remoteData)

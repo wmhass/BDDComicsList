@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import BDDComicsList
 
-class CustomListTableViewCellSpecs: QuickSpec {
+final class CustomListTableViewCellSpecs: QuickSpec {
     
     var customListTableViewCell: CustomListTableViewCell!
     

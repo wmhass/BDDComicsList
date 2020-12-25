@@ -8,8 +8,7 @@
 
 import Foundation
 
-class ComicsListRemoteData {
-
+final class ComicsListRemoteData {
     let marvelAPIURLBuilder: MarvelAPIURLBuilder
     let httpDataLoader: HTTPDataLoaderLogic
     
@@ -19,18 +18,25 @@ class ComicsListRemoteData {
     }
 }
 
+fileprivate extension URL {
+    var request: URLRequest {
+        return URLRequest(url: self)
+    }
+}
+
 extension ComicsListRemoteData: ComicsListRemoteDataLogic {
     func fetchAllComics(completion: @escaping (ComicsListRemoteResponse) -> Void) {
-        let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.comicsListURL(limit: 5))
-        self.httpDataLoader.loadData(withRequest: urlRequest) { (data, urlResponse, error) in
-            if let data = data {
-                do {
-                    let marvelResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: data)
-                    completion(.success(marvelResponse))
-                } catch {
-                    completion(.failure(.failedParsingData))
-                }
-            } else {
+        let comicsListRequest = self.marvelAPIURLBuilder.comicsListURL(limit: 5).request
+        self.httpDataLoader.loadData(withRequest: comicsListRequest) { (data, urlResponse, error) in
+            guard let data = data else {
+                completion(.failure(.failedParsingData))
+                return
+            }
+            
+            do {
+                let marvelResponse = try JSONDecoder().decode(MarvelComicsResponse.self, from: data)
+                completion(.success(marvelResponse))
+            } catch {
                 completion(.failure(.failedParsingData))
             }
         }

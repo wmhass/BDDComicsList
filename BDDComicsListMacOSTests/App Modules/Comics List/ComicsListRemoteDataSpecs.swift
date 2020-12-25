@@ -11,7 +11,7 @@ import Quick
 import Nimble
 
 
-class ComicsListRemoteDataSpecs: QuickSpec {
+final class ComicsListRemoteDataSpecs: QuickSpec {
     
     var remoteData: ComicsListRemoteData!
     

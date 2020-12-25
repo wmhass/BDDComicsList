@@ -8,8 +8,7 @@
 
 import Foundation
 
-class CharactersListInteractor {
-
+final class CharactersListInteractor {
     let comic: Comic
     let dataGateway: CharactersListDataGatewayLogic
     weak var presentation: CharactersListPresentationLogic?
@@ -20,6 +19,21 @@ class CharactersListInteractor {
     }
 }
 
+// MARK: - Private methods
+extension CharactersListInteractor {
+    // Imagine this one day this sorting algorithm
+    // can become as complex as Google's ranking...
+    // Would it make sense to have this abstracted?
+    // Or maybe you want a exclusive team to handle
+    // the order algorithm
+    private func sort(_ characters: [ComicCharacter]) -> [ComicCharacter] {
+        return characters.sorted { (c1, c2) -> Bool in
+            return c1.name.lowercased() < c2.name.lowercased()
+        }
+    }
+}
+
+// MARK: - CharactersListBusinessLogic
 extension CharactersListInteractor: CharactersListBusinessLogic {
     func loadListOfCharacters() {
         self.presentation?.presentFetchDataActivityIndicator(true)
@@ -30,16 +44,18 @@ extension CharactersListInteractor: CharactersListBusinessLogic {
                 switch error {
                 case .noInternetConnection:
                     self.presentation?.presentNoInternetConnectionErrorMessage()
+                
                 case .responseIsInvalid:
                     self.presentation?.presentResponseIsInvalid()
                 }
+            
             case .success(let characters):
-                self.presentation?.presentComicCharacters(characters: characters.sorted(by: { (c1, c2) -> Bool in
-                    return c1.name.lowercased() < c2.name.lowercased()
-                }))
+                let sortedCharacters = self.sort(characters)
+                self.presentation?.presentComicCharacters(characters: sortedCharacters)
             }
         }
     }
+    
     func loadViewTitle() {
         self.presentation?.presentViewTitle(self.comic.title)
     }

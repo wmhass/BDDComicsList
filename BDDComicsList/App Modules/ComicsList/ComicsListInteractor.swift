@@ -8,8 +8,7 @@
 
 import Foundation
 
-class ComicsListInteractor {
-
+final class ComicsListInteractor {
     weak var presentation: ComicsListPresentationLogic?
     let dataGateway: ComicsListDataGatewayLogic
     
@@ -36,6 +35,7 @@ extension ComicsListInteractor: ComicsListBusinessLogic {
             }
         }
     }
+    
     func comicSelected(comic: Comic) {
         self.presentation?.presentCharacters(ofComic: comic)
     }

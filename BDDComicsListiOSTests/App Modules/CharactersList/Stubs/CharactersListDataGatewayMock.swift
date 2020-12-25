@@ -9,10 +9,11 @@
 import Foundation
 @testable import BDDComicsList
 
-class CharactersListDataGatewayMock {
+final class CharactersListDataGatewayMock {
     var _fetchComicCharactersResponseMock: FetchComicCharactersResponse?
 }
 
+// MARK: - CharactersListDataGatewayLogic
 extension CharactersListDataGatewayMock: CharactersListDataGatewayLogic {
     func fetchComicCharacters(comic: Comic, completion: @escaping (FetchComicCharactersResponse)->Void) {
         if let responseMock = _fetchComicCharactersResponseMock {

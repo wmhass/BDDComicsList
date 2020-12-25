@@ -11,8 +11,7 @@ import UIKit
 import XCTest
 @testable import BDDComicsList
 
-
-class CustomListTableViewCellSnapshotTest: FBSnapshotTestCase {
+final class CustomListTableViewCellSnapshotTest: FBSnapshotTestCase {
     
     let systemLayoutSizeToFit = CGSize(width: 320, height: 1000)
     var cell: CustomListTableViewCell!

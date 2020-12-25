@@ -11,11 +11,11 @@ import UIKit
 import XCTest
 @testable import BDDComicsList
 
-class CharactersListViewControllerSnapshotTests: FBSnapshotTestCase {
+final class CharactersListViewControllerSnapshotTests: FBSnapshotTestCase {
     
-    var charactersListViewController: CharactersListViewController!
-    var window: UIWindow!
-    let characters = [
+    private var charactersListViewController: CharactersListViewController!
+    private var window: UIWindow!
+    private let characters = [
         ComicCharacter(id: 2, name: "Ant man"),
         ComicCharacter(id: 3, name: "Tigra"),
         ComicCharacter(id: 1, name: "3d man"),
@@ -26,7 +26,7 @@ class CharactersListViewControllerSnapshotTests: FBSnapshotTestCase {
         super.setUp()
         self.recordMode = false
         
-        let charactersListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: CharactersListViewController.DefaultStoryboardID) as? CharactersListViewController
+        let charactersListViewController: CharactersListViewController = AppStoryboard.Main.instance().instantiateViewController(CharactersListViewController.self)
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
@@ -35,8 +35,8 @@ class CharactersListViewControllerSnapshotTests: FBSnapshotTestCase {
         self.window = window
         self.charactersListViewController = charactersListViewController
         
-        charactersListViewController?.view.setNeedsLayout()
-        charactersListViewController?.view.layoutIfNeeded()
+        charactersListViewController.view.setNeedsLayout()
+        charactersListViewController.view.layoutIfNeeded()
     }
     
     func testCharactersListViewControllerWithCharacters() {

@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import BDDComicsList
 
-class CharactersListViewControllerSpecs: QuickSpec {
+final class CharactersListViewControllerSpecs: QuickSpec {
     
     var viewPresenter: CharactersListPresenterMock!
     var charactersListViewController: CharactersListViewController!
@@ -27,10 +27,10 @@ class CharactersListViewControllerSpecs: QuickSpec {
         describe("CharactersListViewController") {
             beforeEach {
                 let viewPresenter = CharactersListPresenterMock(characters: self.characters)
-                let charactersListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: CharactersListViewController.DefaultStoryboardID) as? CharactersListViewController
+                let charactersListViewController = AppStoryboard.Main.instance().instantiateViewController(CharactersListViewController.self)
                 
-                charactersListViewController?.eventHandler = viewPresenter
-                charactersListViewController?.dataSource = viewPresenter
+                charactersListViewController.eventHandler = viewPresenter
+                charactersListViewController.dataSource = viewPresenter
 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
@@ -40,25 +40,30 @@ class CharactersListViewControllerSpecs: QuickSpec {
                 self.charactersListViewController = charactersListViewController
                 self.viewPresenter = viewPresenter
                 
-                charactersListViewController?.view.setNeedsLayout()
-                charactersListViewController?.view.layoutIfNeeded()
+                charactersListViewController.view.setNeedsLayout()
+                charactersListViewController.view.layoutIfNeeded()
             }
             context("When the view finished loading") {
                 it("Should have the activity indicator view initially hidden") {
-                    expect(self.charactersListViewController.activityIndicator.isHidden).to(beTrue())
-                    expect(self.charactersListViewController.activityIndicator.isAnimating).to(beFalse())
+                    expect(self.charactersListViewController.activityIndicator.isHidden)
+                        .to(beTrue())
+                    expect(self.charactersListViewController.activityIndicator.isAnimating)
+                        .to(beFalse())
                 }
                 it("Should set an empty footer for the tableview to remove the empty lines at the end") {
                     expect(self.charactersListViewController.tableView.tableFooterView).toNot(beNil())
                     expect(self.charactersListViewController.tableView.tableFooterView).to(beAnInstanceOf(UIView.self))
                 }
                 it("Should have the tableView datasource set") {
-                    expect(self.charactersListViewController.tableView.dataSource).to(be(self.charactersListViewController))
+                    expect(self.charactersListViewController.tableView.dataSource)
+                        .to(be(self.charactersListViewController))
                 }
                 it("Should have table selection disabled") {
-                    expect(self.charactersListViewController.tableView.allowsSelection).to(beFalse())
+                    expect(self.charactersListViewController.tableView.allowsSelection)
+                        .to(beFalse())
                 }
-                it("Should use automatic cell height") { expect(self.charactersListViewController.tableView.rowHeight).to(equal(UITableView.automaticDimension))
+                it("Should use automatic cell height") { expect(self.charactersListViewController.tableView.rowHeight)
+                    .to(equal(UITableView.automaticDimension))
                 }
             }
             

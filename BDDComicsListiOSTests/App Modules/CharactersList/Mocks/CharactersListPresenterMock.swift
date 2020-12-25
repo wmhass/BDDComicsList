@@ -9,7 +9,7 @@
 import Foundation
 @testable import BDDComicsList
 
-class CharactersListPresenterMock {
+final class CharactersListPresenterMock {
     var _didNotifyViewIsReadyToDisplayContent: Bool = false
     let _characters: [ComicCharacter]
     
@@ -19,12 +19,14 @@ class CharactersListPresenterMock {
     
 }
 
+// MARK: - CharactersListViewEventHandler
 extension CharactersListPresenterMock: CharactersListViewEventHandler {
     func viewIsReadyToDisplayContent() {
         _didNotifyViewIsReadyToDisplayContent = true
     }
 }
 
+// MARK: - CharactersListViewDataSource
 extension CharactersListPresenterMock: CharactersListViewDataSource {
     var numberOfCharacters: Int {
         return _characters.count

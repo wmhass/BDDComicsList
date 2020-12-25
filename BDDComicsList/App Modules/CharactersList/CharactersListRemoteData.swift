@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CharactersListRemoteData {
+final class CharactersListRemoteData {
     let marvelAPIURLBuilder: MarvelAPIURLBuilder
     let httpDataLoader: HTTPDataLoaderLogic
     
@@ -18,6 +18,7 @@ class CharactersListRemoteData {
     }
 }
 
+// MARK: - CharactersListRemoteDataLogic
 extension CharactersListRemoteData: CharactersListRemoteDataLogic {
     func fetchAllCharacters(comic: Comic, completion: @escaping (ComicCharactersListRemoteResponse) -> Void) {
         let urlRequest = URLRequest(url: self.marvelAPIURLBuilder.charactersListURL(comicID: comic.id))

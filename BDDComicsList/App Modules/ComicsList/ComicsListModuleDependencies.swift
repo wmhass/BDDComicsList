@@ -13,7 +13,7 @@ struct ComicsListModuleDependenciesContainer {
     let router: ComicsListRoutingLogic
 }
 
-class ComicsListModuleDependencies {
+final class ComicsListModuleDependencies {
     func injectDependencies<T>(comicsListViewController: T,
                                dependencyContainer: ComicsListModuleDependenciesContainer) where T: UIViewController, T:ComicsListViewConnectable, T:ComicsListDisplayLogic {
         // Business Logic

@@ -13,8 +13,7 @@ struct CharactersListModuleDependenciesContainer {
     let comic: Comic
 }
 
-class CharactersListModuleDependencies {
-    
+final class CharactersListModuleDependencies {
     func injectDependencies<T>(charactersListViewController: T,
                                dependencyContainer: CharactersListModuleDependenciesContainer) where T: UIViewController, T:CharactersListViewConnectable, T:CharactersListDisplayLogic {
         // Business Logic

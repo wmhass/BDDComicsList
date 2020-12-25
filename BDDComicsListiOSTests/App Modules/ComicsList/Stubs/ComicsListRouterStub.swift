@@ -9,10 +9,11 @@
 import Foundation
 @testable import BDDComicsList
 
-class ComicsListRouterStub {
+final class ComicsListRouterStub {
     var _didAskToPushCharactersListView: (didAsk: Bool, comic: Comic?) = (false, nil)
 }
 
+// MARK: - ComicsListRoutingLogic
 extension ComicsListRouterStub: ComicsListRoutingLogic {
     func pushCharactersListView(ofComic comic: Comic) {
         _didAskToPushCharactersListView = (true, comic)

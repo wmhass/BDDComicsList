@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import BDDComicsList
 
-class ComicsListViewControllerSpecs: QuickSpec {
+final class ComicsListViewControllerSpecs: QuickSpec {
     
     var viewPresenter: ComicsListViewPresenterMock!
     var comicsListViewController: ComicsListViewController!
@@ -27,10 +27,10 @@ class ComicsListViewControllerSpecs: QuickSpec {
                     Comic(id: 231, title: "bbb"),
                 ]
                 let viewPresenter = ComicsListViewPresenterMock(comics: comics)
-                let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as? ComicsListViewController
+                let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(ComicsListViewController.self)
                 
-                comicsListViewController?.eventHandler = viewPresenter
-                comicsListViewController?.dataSource = viewPresenter
+                comicsListViewController.eventHandler = viewPresenter
+                comicsListViewController.dataSource = viewPresenter
                 
                 let window = UIWindow(frame: UIScreen.main.bounds)
                 window.makeKeyAndVisible()
@@ -40,8 +40,8 @@ class ComicsListViewControllerSpecs: QuickSpec {
                 self.comicsListViewController = comicsListViewController
                 self.viewPresenter = viewPresenter
                 
-                comicsListViewController?.view.setNeedsLayout()
-                comicsListViewController?.view.layoutIfNeeded()
+                comicsListViewController.view.setNeedsLayout()
+                comicsListViewController.view.layoutIfNeeded()
             }
             context("When the view finished loading") {
                 it("Should have the activity indicator view initially hidden") {

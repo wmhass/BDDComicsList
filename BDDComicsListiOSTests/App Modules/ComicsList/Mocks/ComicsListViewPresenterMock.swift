@@ -9,7 +9,7 @@
 import Foundation
 @testable import BDDComicsList
 
-class ComicsListViewPresenterMock {
+final class ComicsListViewPresenterMock {
 
     var _didNotifyAComicWasSelected: (didAsk: Bool, indexPath: IndexPath?) = (false, nil)
     var _didNotifyViewIsReadyToDisplayContent: Bool = false
@@ -22,6 +22,7 @@ class ComicsListViewPresenterMock {
     }
 }
 
+// MARK: - ComicsListViewEventHandler
 extension ComicsListViewPresenterMock: ComicsListViewEventHandler {
     func comicSelected(atIndexPath indexPath: IndexPath) {
         _didNotifyAComicWasSelected = (true, indexPath)
@@ -32,6 +33,7 @@ extension ComicsListViewPresenterMock: ComicsListViewEventHandler {
     }
 }
 
+// MARK: - ComicsListViewDataSource
 extension ComicsListViewPresenterMock: ComicsListViewDataSource {
     var numberOfSections: Int {
         return self._viewModel.numberOfSections

@@ -8,41 +8,47 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController, CharactersListViewConnectable {
-    static let DefaultStoryboardID = "CharactersListViewController"
-    static let BasicCellReuseIdentifier = "BasicCell"
+final class CharactersListViewController: UIViewController, CharactersListViewConnectable, StoryboardIdentifiable {
+    private static let basicCellReuseIdentifier = "BasicCell"
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
+    
+    // MARK: - CharactersListViewConnectable
     var eventHandler: CharactersListViewEventHandler?
     var dataSource: CharactersListViewDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.tableFooterView = UIView()
-        
+        self.setupTableView()
         self.displayUIActivityView(false)
         self.eventHandler?.viewIsReadyToDisplayContent()
     }
 }
 
+// MARK: - Private helpers
+extension CharactersListViewController {
+    private func setupTableView() {
+        self.tableView.tableFooterView = UIView()
+    }
+}
+
+// MARK: - UITableViewDataSource
 extension CharactersListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource?.numberOfCharacters ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CharactersListViewController.BasicCellReuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CharactersListViewController.basicCellReuseIdentifier, for: indexPath)
         
         cell.textLabel?.text = self.dataSource?.nameOfCharacter(atIndex: indexPath.item)
         
         return cell
     }
-    
-    
 }
 
+// MARK: - CharactersListDisplayLogic
 extension CharactersListViewController: CharactersListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

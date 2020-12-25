@@ -11,7 +11,7 @@ import UIKit
 import XCTest
 @testable import BDDComicsList
 
-class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
+final class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
     
     var comicsListViewController: ComicsListViewController!
     var window: UIWindow!
@@ -26,7 +26,7 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
         super.setUp()
         self.recordMode = false
 
-        let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController(withIdentifier: ComicsListViewController.DefaultStoryboardID) as? ComicsListViewController
+        let comicsListViewController = AppStoryboard.Main.instance().instantiateViewController( ComicsListViewController.self)
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.makeKeyAndVisible()
@@ -35,8 +35,8 @@ class ComicsListViewControllerSnapshotTest: FBSnapshotTestCase {
         self.window = window
         self.comicsListViewController = comicsListViewController
         
-        comicsListViewController?.view.setNeedsLayout()
-        comicsListViewController?.view.layoutIfNeeded()
+        comicsListViewController.view.setNeedsLayout()
+        comicsListViewController.view.layoutIfNeeded()
     }
     
     func testComicsListViewControllerWithComics() {

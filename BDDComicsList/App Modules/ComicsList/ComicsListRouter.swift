@@ -8,24 +8,24 @@
 
 import UIKit
 
-// Router
-class ComicsListRouter {
+final class ComicsListRouter {
     fileprivate weak var viewController: ComicsListViewController?
     init(viewController: ComicsListViewController) {
         self.viewController = viewController
     }
 }
 
+// MARK: - ComicsListRoutingLogic
 extension ComicsListRouter: ComicsListRoutingLogic {
     func pushCharactersListView(ofComic comic: Comic) {
-        
-        
-        let connection = CharactersListModuleConnector(comic: comic, shouldUseMockData: UIApplication.shared.shouldUseMockData)
+        let connection = CharactersListModuleConnector(comic: comic,
+                                                       shouldUseMockData: UIApplication.shared.shouldUseMockData)
         connection.preConnection = {
             if let selectedIndexPath = self.viewController?.tableView.indexPathForSelectedRow {
                 self.viewController?.tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
         }
-        self.viewController?.performSegue(withIdentifier: AppStoryboard.Main.Segue.characterList.rawValue, sender: connection)
+        self.viewController?.performSegue(withIdentifier: AppStoryboard.Main.Segue.characterList.rawValue,
+                                          sender: connection)
     }
 }

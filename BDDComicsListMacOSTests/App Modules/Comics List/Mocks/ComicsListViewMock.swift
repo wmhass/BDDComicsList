@@ -8,12 +8,13 @@
 
 import Foundation
 
-class ComicsListViewMock {
+final class ComicsListViewMock {
     var _didAskToDisplayErrorAlert: (title: String?, message: String?) = (nil,nil)
     var _didAskToDisplayActivityView: (didAsk: Bool, shouldDisplay: Bool?) = (false, nil)
     var _didAskToReloadListOfComics: Bool = false
 }
 
+// MARK: - ComicsListDisplayLogic
 extension ComicsListViewMock: ComicsListDisplayLogic {
     func displayErrorAlert(title: String, message: String) {
         _didAskToDisplayErrorAlert = (title, message)

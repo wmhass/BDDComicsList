@@ -8,12 +8,11 @@
 
 import Foundation
 
-class ComicsListPresenter {
+final class ComicsListPresenter {
     weak var view: ComicsListDisplayLogic?
     let router: ComicsListRoutingLogic
     let interactor: ComicsListBusinessLogic
     fileprivate var viewModel: ComicsListViewModel
-    
     
     init(router: ComicsListRoutingLogic, interactor: ComicsListBusinessLogic) {
         self.router = router
@@ -22,6 +21,7 @@ class ComicsListPresenter {
     }
 }
 
+// MARK: - ComicsListPresentationLogic
 extension ComicsListPresenter: ComicsListPresentationLogic {
     func presentComics(groupedComics: GroupedSortedComics) {
         self.viewModel = ComicsListViewModel(groupedComics: groupedComics)
@@ -41,34 +41,42 @@ extension ComicsListPresenter: ComicsListPresentationLogic {
         self.view?.displayErrorAlert(title: AppErrorMessages.FailedFetchingComics.title.rawValue,
                                      message: AppErrorMessages.FailedFetchingComics.message.rawValue)
     }
+    
     func presentCharacters(ofComic comic: Comic) {
         self.router.pushCharactersListView(ofComic: comic)
     }
 }
 
+// MARK: - ComicsListViewDataSource
 extension ComicsListPresenter: ComicsListViewDataSource {
     var numberOfSections: Int {
         return self.viewModel.numberOfSections
     }
+    
     func numberOfComics(inSection section: Int) -> Int {
         return self.viewModel.numberOfComics(inSection: section)
     }
+    
     func titleOfSection(atIndex sectionIndex: Int) -> String? {
         return self.viewModel.titleOfSection(atIndex: sectionIndex)
     }
+    
     func titleOfComic(atIndex index: Int, inSection sectionIndex: Int) -> String? {
         return self.viewModel.titleOfComic(atIndex: index, inSection: sectionIndex)
     }
 }
 
+// MARK: - ComicsListViewEventHandler
 extension ComicsListPresenter: ComicsListViewEventHandler {
     func viewIsReadyToDisplayContent() {
         self.interactor.loadListOfComics()
     }
+    
     func comicSelected(atIndexPath indexPath: IndexPath) {
         guard let selectedComic = self.viewModel.comic(atIndex: indexPath.item, inSection: indexPath.section) else {
             return
         }
+        
         self.interactor.comicSelected(comic: selectedComic)
     }
 }
